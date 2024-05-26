@@ -1,0 +1,159 @@
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(2px);
+}
+
+.navbar {
+    backdrop-filter: blur(2px);
+    z-index: 1050;
+}
+
+.carousel {
+    z-index: 1;
+}
+
+.logo img {
+    height: 50px;
+}
+
+#kiri {
+    background: rgb(9, 9, 117);
+    background: linear-gradient(
+        122deg,
+        rgba(9, 9, 117, 1) 10%,
+        rgba(0, 212, 255, 1) 63%
+    );
+    backdrop-filter: blur(2);
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.button-container button {
+    width: calc(
+        33.33% - 5px
+    ); /* Menggunakan calc untuk memberikan jarak antar button */
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #fff;
+}
+
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link:focus {
+    color: #ddd;
+}
+
+.dropdown-menu {
+    background-color: #0099ff;
+}
+
+.dropdown-menu .dropdown-item {
+    color: #fff;
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+    background-color: #007acc;
+}
+
+.sidebar {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.sidebar .btn {
+    background-color: #0099ff;
+    color: #fff;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.sidebar .btn:hover,
+.sidebar .btn:focus {
+    background-color: #007acc;
+}
+
+.main-content img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.navbar-nav .dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.img-brand:hover {
+    transform: scale(1.1);
+}
+
+.col {
+    padding: 10px;
+}
+
+.img-title {
+    text-align: center;
+    font-weight: bold;
+    color: black;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.col {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.img-brand {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.img-brand:hover {
+    transform: scale(1.1);
+}
+
+.img-title {
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    position: relative;
+    top: -10px;
+}
+
+.col a {
+    display: inline-block;
+    position: relative;
+}
+
+.col a:hover .img-title {
+    top: 0;
+}
+
+footer {
+    background-color: #007acc;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}
