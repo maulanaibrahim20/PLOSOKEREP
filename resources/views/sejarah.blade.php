@@ -33,8 +33,8 @@
           <li class="nav-item dropdown" style="margin-right: 20px;">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-houses-fill"></i> Profil Desa </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="/Sejarah">Sejarah Desa</a></li>
-              <li><a class="dropdown-item" href="#">Visi dan Misi</a></li>
+              <li><a class="dropdown-item" href="/sejarah">Sejarah Desa</a></li>
+              <li><a class="dropdown-item" href="">Visi dan Misi</a></li>
               <li><a class="dropdown-item" href="#">Struktur Organisasi</a></li>
             </ul>
           </li>
@@ -64,17 +64,17 @@
             <a class="nav-link" href="#"><i class="bi bi-newspaper text-black"></i></i> Berita</a>
           </li>
           <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link login btn" href="#" style="background-color: blue;"> Login</a>
+            <a class="nav-link login btn" href="/login" style="background-color: blue;"> Login</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container mt-4">
+  <div class="container mt-4 ">
     <div class="row">
       <div class="col-12 col-md-4 sidebar" id="kiri">
-        <img id="logo1" src="img/logo.png" alt="logo" style="width: 128px; height: 159px" />
+        <img id="logo1" src="{{ URL('/gambar/logo.png') }}" alt="logo" style="width: 128px; height: 159px" />
         <h1>Desa Plosokerep</h1>
         <p>Kec. Terisi, Kabupaten Indramayu, Jawa Barat</p>
         <div class="row">
@@ -149,49 +149,16 @@
           </div>
         </div>
       </div>
-        <!-- welcome.blade.php -->
         <div class="col-12 col-md-8">
-          <div class="jadwal-container" id="jadwalSholat">
-            <!-- Isi jadwal sholat disini -->
-            <div class="jadwal-item" id="imsak"></div>
-            <div class="jadwal-item subuh" id="subuh"></div>
-            <div class="jadwal-item dzuhur" id="dzuhur"></div>
-            <div class="jadwal-item ashar" id="ashar"></div>
-            <div class="jadwal-item maghrib" id="maghrib"></div>
-            <div class="jadwal-item isya" id="isya"></div>
-          </div>
-          <br>
           <div class="card shadow p-0 mb-3 bg-body rounded">
-            <div class="card-body p-0 ">
-              <h5 class="card-title text-center py-2 m-0" style="background-color: #00D1FF; ">Berita Ter-update</h5>
+            <div class="card-body p-0 shadow p-0 mb-3 bg-body rounded">
+              <h5 class="card-title text-center py-2 m-0" style="background-color: #00D1FF; ">SEJARAH DESA PLOSOKEREP</h5>
             </div>
             <br>
             <div class="container-fluid">
               <div class="row">
-                <div class="col-4">
-                  <div class="card shadow p-0 mb-3 bg-body rounded">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="card shadow p-0 mb-3 bg-body rounded">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="card shadow p-0 mb-3 bg-body rounded">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    </div>
-                  </div>
-                </div>
+                <div class="col">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis obcaecati corrupti hic asperiores cumque. Doloremque quasi quis, rem quod optio fugiat ipsa. Fugit dolor nesciunt ducimus non assumenda molestias quibusdam doloribus adipisci dolore tempore temporibus, enim reprehenderit cumque veniam necessitatibus nam molestiae et, accusantium inventore placeat, sit minus obcaecati commodi. Officia harum deserunt sint corrupti quae maxime minus eligendi molestias?
               </div>
             </div>
           </div>

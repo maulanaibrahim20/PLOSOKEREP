@@ -32,3 +32,22 @@ Route::post('/store2',[AparaturController::class, 'store2'])->name('store2');
 
 Route::get('/edit/{id}',[AparaturController::class, 'edit'])->name('aparatur.edit');
 Route::put('/update/{id}',[AparaturController::class, 'update'])->name('aparatur.update');
+
+Route::get('/homepage', function () {
+    return view('homepage');
+});
+Route::get('/sejarah', function () {
+    return view('sejarah');
+});
+Route::get('/Berita', function () {
+    return view('Berita');
+});
+Route::get('/Beritaklik', function () {
+    return view('Beritaklik');
+});
+Route::get('/login', function () {
+    return view('login');
+});
+Route::get('/Daftar', function () {
+    return view('Daftar');
+});
