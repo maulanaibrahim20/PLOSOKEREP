@@ -43,7 +43,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="#">Pelayanan KTP</a></li>
               <li><a class="dropdown-item" href="#">Pelayanan KK</a></li>
-              <li><a class="dropdown-item" href="#">Pelayanan Akta Kelahiran</a></li>
+              <li><a class="dropdown-item" href="#">UMKM</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown" style="margin-right: 20px; background-color: black; border-radius: 10px;">
