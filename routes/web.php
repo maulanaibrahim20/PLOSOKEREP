@@ -51,3 +51,6 @@ Route::get('/login', function () {
 Route::get('/Daftar', function () {
     return view('Daftar');
 });
+Route::get('/H_aparatur', function () {
+    return view('H_aparatur');
+});
