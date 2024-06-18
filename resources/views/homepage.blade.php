@@ -64,7 +64,7 @@
             <a class="nav-link" href="#"><i class="bi bi-newspaper text-black"></i></i> Berita</a>
           </li>
           <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link login btn" href="#" style="background-color: blue;"> Login</a>
+            <a class="nav-link login btn" href="{{route('login')}}" style="background-color: blue;"> Login</a>
           </li>
         </ul>
       </div>
