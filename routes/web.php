@@ -54,3 +54,15 @@ Route::get('/Daftar', function () {
 Route::get('/H_aparatur', function () {
     return view('H_aparatur');
 });
+Route::get('/H_pengaduan', function () {
+    return view('H_pengaduan');
+});
+Route::get('/UMKM-D', function () {
+    return view('UMKM-D');
+});
+Route::get('/UMKM-e', function () {
+    return view('UMKM-e');
+});
+Route::get('/UMKM-c', function () {
+    return view('UMKM-c');
+});
