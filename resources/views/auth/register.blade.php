@@ -25,30 +25,43 @@
             <p class="text-center">Kec. Terisi, Kabupaten Indramayu, Jawa Barat</p>
         </div>
         <div class="col-md-7 p-4">
-            <form>
+            <form action="{{ route('register-proses') }}" method="POST">
+                @csrf
                 <div class="form-group">
                     <label for="username">Username :</label>
-                    <input type="text" class="form-control" id="username" name="username" required>
+                    <input type="text" class="form-control" id="username" name="username" value="{{ old('username') }}" required>
                 </div>
+                @error('username')
+                    <small>{{ $message }}</small>
+                @enderror 
                 <div class="form-group">
                     <label for="email">Email :</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}" required>
                 </div>
+                @error('email')
+                    <small>{{ $message }}</small>
+                @enderror 
                 <div class="form-group">
                     <label for="password">Password :</label>
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
+                @error('password')
+                    <small>{{ $message }}</small>
+                @enderror 
                 <div class="form-group">
                     <label for="confirm-password">Konfirmasi Password :</label>
                     <input type="password" class="form-control" id="confirm-password" name="confirm-password" required>
                 </div>
                 <div class="form-group">
                     <label for="role">Role :</label>
-                    <input type="text" class="form-control" id="role" name="role" required>
+                    <input type="text" class="form-control" id="role" name="role" value="{{ old('role') }}" required>
                 </div>
+                @error('role')
+                    <small>{{ $message }}</small>
+                @enderror 
                 <button type="submit" class="btn btn-success btn-block">DAFTAR</button>
-            </form>
-            <p class="mt-3 text-center">Sudah Punya Akun? <a href="/login">Login</a></p>
+            </form> 
+            <p class="mt-3 text-center">Sudah Punya Akun? <a href="{{route('login')}}">Login</a></p>
         </div>
     </div>
 </div>

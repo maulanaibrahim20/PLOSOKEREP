@@ -11,12 +11,16 @@ class HomeController extends Controller
 {   
 
     public function dashboard(){
-        return view('dashboard');
+         return view('backend.dashboard');
+     }
+
+    public function homepage(){
+        return view('homepage');
     }
 
     public function index(){
         $data = User::get();
-        return view('index',compact('data'));
+        return view('backend.user',compact('data'));
     }
 
     public function create(){
