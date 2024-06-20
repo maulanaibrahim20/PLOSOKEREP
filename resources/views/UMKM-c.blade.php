@@ -66,6 +66,10 @@
           <li class="nav-item" style="margin-right: 20px;">
             <a class="nav-link login btn" href="#" style="background-color: blue;"> Login</a>
           </li>
+          <li class="nav-item" style="margin-right: 20px;">
+            <a class="nav-link" href="/umkm-k"><i class="bi bi-cart4"></i> <span id="cart-count" class="badge bg-danger">0</span></a>
+          </li>
+          
         </ul>
       </div>
     </div>
@@ -134,8 +138,8 @@
                 <input type="text" class="form-control" id="totalHarga" value="28000" readonly>
               </div>
               <a href="/UMKM-D" class="btn btn-warning mt-3">Kembali</a>
-              <a href="https://wa.me/628976562320" class="btn btn-info mt-3">Masukkan Keranjang</a>
-              <a href="/UMKM-c" class="btn btn-success mt-3">Beli Produk</a>
+              <a href="javascript:void(0);" id="add-to-cart" class="btn btn-info mt-3">Masukkan Keranjang</a>
+              <a href="/UMKM-c" id="buy-now" class="btn btn-success mt-3">Beli Produk</a>
           </div>
         </div>
       </div>
@@ -174,6 +178,50 @@
         totalHarga.value = hargaSatuan * parseInt(jumlahBarang.value);
       });
     });
+    document.addEventListener("DOMContentLoaded", function() {
+    const mainImage = document.getElementById("mainImage");
+    const clickableImages = document.querySelectorAll(".clickable-image");
+    const hargaSatuan = 28000;
+    const jumlahBarang = document.getElementById('jumlahBarang');
+    const totalHarga = document.getElementById('totalHarga');
+    const kurang = document.getElementById('kurang');
+    const tambah = document.getElementById('tambah');
+    const addToCartButton = document.getElementById('add-to-cart');
+    const cartCount = document.getElementById('cart-count');
+    
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cartCount.textContent = cart.length;
+
+    clickableImages.forEach(image => {
+      image.addEventListener("click", function() {
+        mainImage.src = this.src;
+      });
+    });
+
+    kurang.addEventListener('click', function() {
+      if (parseInt(jumlahBarang.value) > 1) {
+        jumlahBarang.value = parseInt(jumlahBarang.value) - 1;
+        totalHarga.value = hargaSatuan * parseInt(jumlahBarang.value);
+      }
+    });
+
+    tambah.addEventListener('click', function() {
+      jumlahBarang.value = parseInt(jumlahBarang.value) + 1;
+      totalHarga.value = hargaSatuan * parseInt(jumlahBarang.value);
+    });
+
+    addToCartButton.addEventListener('click', function() {
+      const product = {
+        name: 'Susu Kedelai',
+        price: hargaSatuan,
+        quantity: parseInt(jumlahBarang.value),
+        total: hargaSatuan * parseInt(jumlahBarang.value)
+      };
+      cart.push(product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      cartCount.textContent = cart.length;
+    });
+  });
   </script>
 </body>
 </html>

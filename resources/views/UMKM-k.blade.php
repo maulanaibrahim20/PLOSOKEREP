@@ -11,10 +11,7 @@
   <!-- Font Awesome CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH1z6B8+Zt1Z7gL8b9LaE6A5+aF6rrgh/s3Rqs8pPv1gxd5F2Zwx+wRT7OoXtY/8PeAqTxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/UMKM-D.css">
-
-  <title>Desa Plosokerep</title>
+  <title>Keranjang Belanja</title>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark" style="background: rgb(9, 9, 117); background: linear-gradient(122deg, rgba(9, 9, 117, 1) 10%, rgba(0, 212, 255, 1) 63%); z-index: 1050;">
@@ -28,13 +25,13 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="/homepage"><i class="bi bi-house-door-fill"></i></a>
+            <a class="nav-link" href="/disini/index.html"><i class="bi bi-house-door-fill"></i></a>
           </li>
           <li class="nav-item dropdown" style="margin-right: 20px;">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-houses-fill"></i> Profil Desa </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="/sejarah">Sejarah Desa</a></li>
-              <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi</a></li>
+              <li><a class="dropdown-item" href="#">Visi dan Misi</a></li>
               <li><a class="dropdown-item" href="H_aparatur">Struktur Organisasi</a></li>
             </ul>
           </li>
@@ -64,81 +61,68 @@
             <a class="nav-link" href="#"><i class="bi bi-newspaper text-black"></i></i> Berita</a>
           </li>
           <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link login btn" href="#" style="background-color: blue;"> Login</a>
+            <a class="nav-link" href="#"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+          </li>
+          <li class="nav-item" style="margin-right: 20px;">
+            <a class="nav-link" href="/UMKM-k"><i class="bi bi-cart4"></i> <span id="cart-count" class="badge bg-danger">0</span></a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container mt-2 ">
-    <div class="info-container shadow p-1 mb-5 rounded">
-      <span class="fw-bold text-dark"><i class="bi bi-megaphone-fill info-icon "></i> Sekilas Info</span>
-      <div class="info-text">
-        <marquee behavior="" direction="">
-          <b>Selamat datang di Website Resmi UMKM Desa Plosokerep</b>
-        </marquee>
-      </div>
-    </div>
-  </div>
-  
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <img id="mainImage" src="{{URL ('gambar/umkm/kedelai-3.png')}}" class="img-fluid" alt="">
-        <div class="row mt-2">
-          <div class="col-4">
-            <img src="{{URL ('gambar/umkm/kedelai-1.jpeg')}}" class="img-thumbnail clickable-image" alt="">
-          </div>
-          <div class="col-4">
-            <img src="{{URL ('gambar/umkm/kedelai-2.jpg')}}" class="img-thumbnail clickable-image" alt="">
-          </div>
-          <div class="col-4">
-            <img src="{{URL ('gambar/umkm/kedelai-3.png')}}" class="img-thumbnail clickable-image" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="col-md-8">
-        <h3>Susu Kedelai</h3>
-        <p>Rp. 28.000</p>
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Deskripsi Produk</h5>
-            <p class="card-text">
-              Susu kedelai ndeso <br>
-              Komposisi: <br>
-              - 100% gula asli <br>
-              - Kedelai premium <br>
-              - Tepung terigu premium <br>
-              Kemasan: <br>
-              - 250 Gram <br>
-              <b>NB: Tersedia harga grosir & menerima pesanan</b>
-            </p>
-
-            <a href="/UMKM-D" class="btn btn-warning">Kembali</a>
-            <a href="https://wa.me/628976562320" class="btn btn-info">hubungi penjual</a>
-            <a href="/UMKM-c" class="btn btn-success">pesan</a>
-        </div>
-        </div>
-      </div>
-    </div>
+  <div class="container mt-5">
+    <h3>Keranjang Belanja</h3>
+    <div id="cart-items"></div>
+    <button id="checkout" class="btn btn-success mt-3">Check Out</button>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <!-- Font Awesome JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMp0RSK9sB0UGaAcVEOl8SKSTBSkT8wCHd1/6hsLoRF4XsF06HUET6hK6y/pw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- Custom JS -->
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-  const mainImage = document.getElementById("mainImage");
-  const clickableImages = document.querySelectorAll(".clickable-image");
+      const cartItemsContainer = document.getElementById('cart-items');
+      const checkoutButton = document.getElementById('checkout');
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-  clickableImages.forEach(image => {
-    image.addEventListener("click", function() {
-      mainImage.src = this.src;
+      function renderCart() {
+        cartItemsContainer.innerHTML = '';
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML = '<p>Keranjang kosong</p>';
+        } else {
+          cart.forEach((item, index) => {
+            cartItemsContainer.innerHTML += `
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">${item.name}</h5>
+                  <p class="card-text">Harga: Rp. ${item.price}</p>
+                  <p class="card-text">Jumlah: ${item.quantity}</p>
+                  <p class="card-text">Total: Rp. ${item.total}</p>
+                  <button class="btn btn-danger btn-sm remove-item" data-index="${index}">Hapus</button>
+                </div>
+              </div>
+            `;
+          });
+
+          document.querySelectorAll('.remove-item').forEach(button => {
+            button.addEventListener('click', function() {
+              const index = this.getAttribute('data-index');
+              cart.splice(index, 1);
+              localStorage.setItem('cart', JSON.stringify(cart));
+              renderCart();
+            });
+          });
+        }
+      }
+
+      checkoutButton.addEventListener('click', function() {
+        // Implementasi checkout dapat ditambahkan di sini
+        alert('Checkout berhasil!');
+        cart = [];
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCart();
+      });
+
+      renderCart();
     });
-  });
-});
   </script>
 </body>
 </html>

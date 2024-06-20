@@ -34,7 +34,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-houses-fill"></i> Profil Desa </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="/sejarah">Sejarah Desa</a></li>
-              <li><a class="dropdown-item" href="">Visi dan Misi</a></li>
+              <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi</a></li>
               <li><a class="dropdown-item" href="#">Struktur Organisasi</a></li>
             </ul>
           </li>
@@ -158,8 +158,14 @@
             <div class="container-fluid">
               <div class="row">
                 <div class="col">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis obcaecati corrupti hic asperiores cumque. Doloremque quasi quis, rem quod optio fugiat ipsa. Fugit dolor nesciunt ducimus non assumenda molestias quibusdam doloribus adipisci dolore tempore temporibus, enim reprehenderit cumque veniam necessitatibus nam molestiae et, accusantium inventore placeat, sit minus obcaecati commodi. Officia harum deserunt sint corrupti quae maxime minus eligendi molestias?
-              </div>
+                  <p>Berawal dari perisitwa Proklamasi Kemerdekaan Indonesia pada tanggal 17 bulan Agustus Tahun 1945, maka banyak posisi-posisi penting yang diduduki atau dikuasai kalangan militer dengan hal itu terjadilah banyak kecemburuan dari pihak yang tidak diberikan posisi penting di negara padahal ada awal kesamaan yaitu sama-sama berjuang mengusir penjajah demi Kesatuan dan Persatuan Negara Republik Indonesia, dari hal itu pihak-pihak yang tidak puas, membikin suatu perkumpulan/pergerakan dengan maksud untuk mendirikan negara didalam kedaulatan NKRI yaitu negara Islam Indonesia, yang kita kenal dalam sejarah Indonesia yaitu gerakan separatis pemberoktak NKRI yang disebut DI/TII.</p>
+
+                  <p>Pada waktu itu terjadilah banyak pemberontakan yang ingin memisahkan diri dari kedaulatan NKRI. Gerakan DI/TII ini ingin mendaulatkan Negara Islam dan juga ada pemberontak yang ingin mendaulatkan Jadi Negara Komunis atau sebutan lain Gerakan 30 September Partai Komunis Indonesia (G30S PKI), namun atas berkat Rahmat Allah semua gerakan pemberontakan tersebut kandas dan pupus ditangan Tentara Nasional Indonesia (TNI) dan perlawanan dari Rakyat Indonesia sendiri.</p>
+               
+                  <p>Dengan banyaknya pemberontakan DI/TII ke daerah-daerah di wilayah kesatuan NKRI. DI/TII juga masuk kewilayah Kabupaten Indramayu dan masuk ke wilayah Kecamatan Cikedung Kawedanan Losarang pada saat itu. Karena gal itu maka dengan tujuan mengamankan wilayah Cikedung Khususnya dan wilayah Indramayu umumnya maka TNI membuat markas di Karang Sari (Plosokerep) yang sekrang adalah merupakan gagasan dari Kuwu M. Tjarman untuk mendirikan Gedung Kantor Desa / Balaidesa, dengan tujuan untuk memberikan rasa nyaman kepada Pamong Desa dan memberikan pelayanan yang prima kepada masyarakat.</p>
+               
+                  Sumber-sumber pendapatan desa diantaranya adalah Tanah Bengkok (Tanah Carik) dan Tanah Titisara. Dikarenakan awalnya merupakan suatu kesatuan Wilayah Desa Rajasinga, PAD dari Tanah Bengkok dan Tanah Titisara Desa, seperti Desa Rajasingan, Desa Jatimulya, dan Desa Jatimunggul sampai sekarang terdapat diwilayah Desa Plosokerep
+                </div>
             </div>
           </div>
             </div>

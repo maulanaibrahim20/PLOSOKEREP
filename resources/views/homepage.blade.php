@@ -34,16 +34,16 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-houses-fill"></i> Profil Desa </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="/sejarah">Sejarah Desa</a></li>
-              <li><a class="dropdown-item" href="#">Visi dan Misi</a></li>
+              <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi</a></li>
               <li><a class="dropdown-item" href="H_aparatur">Struktur Organisasi</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown" style="margin-right: 20px;">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-rolodex"></i> Pelayanan </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Pengaduan</a></li>
-              <li><a class="dropdown-item" href="#">Pengajuan serat</a></li>
-              <li><a class="dropdown-item" href="#">UMKM</a></li>
+              <li><a class="dropdown-item" href="/H_pengaduan">Pengaduan</a></li>
+              <li><a class="dropdown-item" href="/H_surat">Pengajuan serat</a></li>
+              <li><a class="dropdown-item" href="/UMKM-D">UMKM</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown" style="margin-right: 20px;">

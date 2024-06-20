@@ -58,8 +58,11 @@ Route::get('/homepage', function () {
 Route::get('/sejarah', function () {
     return view('sejarah');
 });
-Route::get('/Berita', function () {
-    return view('Berita');
+Route::get('/sejarah', function () {
+    return view('sejarah');
+});
+Route::get('/visi-misi', function () {
+    return view('visi-misi');
 });
 Route::get('/Beritaklik', function () {
     return view('Beritaklik');
@@ -76,6 +79,9 @@ Route::get('/H_aparatur', function () {
 Route::get('/H_pengaduan', function () {
     return view('H_pengaduan');
 });
+Route::get('/H_surat', function () {
+    return view('H_surat');
+});
 Route::get('/UMKM-D', function () {
     return view('UMKM-D');
 });
@@ -84,4 +90,7 @@ Route::get('/UMKM-e', function () {
 });
 Route::get('/UMKM-c', function () {
     return view('UMKM-c');
+});
+Route::get('/UMKM-k', function () {
+    return view('UMKM-k');
 });
