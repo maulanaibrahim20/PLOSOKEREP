@@ -18,12 +18,20 @@ class HomeController extends Controller
         return view('homepage');
     }
 
-    public function index(){
-        $data = User::get();
-        return view('backend.user',compact('data'));
+    public function user(Request $request){
+        $data = new User;
+
+        if($request->get('search')){
+            $data = $data->where('name','LIKE','%'.$request->get('search').'%')
+            ->orWhere('email','LIKE','%'.$request->get('search').'%');
+        }
+
+        $data = $data->get();
+
+        return view('backend.user',compact('data','request'));
     }
 
-    public function create(){
+    public function create(){ 
         return view ('create');
     }
 

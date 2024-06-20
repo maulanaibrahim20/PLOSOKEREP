@@ -12,14 +12,22 @@ use PhpParser\Node\Expr\FuncCall;
 class AparaturController extends Controller
 {
  
-    public function aparatur(){
-        $data = Aparatur::get();
-        return view('backend.aparatur',compact('data'));
+    public function aparatur(Request $request){
+        $data = new Aparatur;
+
+        if($request->get('search')){
+            $data = $data->where('nama','LIKE','%'.$request->get('search').'%')
+            ->orWhere('jabatan','LIKE','%'.$request->get('search').'%');
+        }
+
+        $data = $data->get();
+
+        return view('backend.aparatur',compact('data','request'));
     }
 
     public function create(){
         
-        return view('backend.create');
+        return view('backend.aparatur-create');
     }
 
     public function store2(Request $request){

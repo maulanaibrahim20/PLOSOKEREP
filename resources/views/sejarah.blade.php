@@ -17,7 +17,8 @@
   <title>Desa Plosokerep</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark " style="background: rgb(9, 9, 117); background: linear-gradient(122deg, rgba(9, 9, 117, 1) 10%, rgba(0, 212, 255, 1) 63%); z-index: 1050;">
+  @include('layout.navbar')
+  {{-- <nav class="navbar navbar-expand-lg navbar-dark " style="background: rgb(9, 9, 117); background: linear-gradient(122deg, rgba(9, 9, 117, 1) 10%, rgba(0, 212, 255, 1) 63%); z-index: 1050;">
     <div class="container-fluid">
       <a class="navbar-brand logo" href="#">
         <img src="{{URL ('gambar/LOGO1.png')}}" alt="Logo" style="width:150px; height: 40px;"/>
@@ -69,7 +70,7 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> --}}
 
   <div class="container mt-4 ">
     <div class="row">

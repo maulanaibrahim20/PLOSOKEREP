@@ -27,6 +27,8 @@
   <link rel="stylesheet" href="{{ asset('lte/plugins/summernote/summernote-bs4.min.css') }}">
 
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+
+  @yield('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -213,14 +215,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href=# class="nav-link">
+                <a href="{{ route('admin.pengaduan') }}" class="nav-link">
                   <p>
                     Manajemen Pengaduan
                   </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href=# class="nav-link">
+                <a href="{{ route('admin.profildesa') }}" class="nav-link">
                   <p>
                     Manajemen Profil Desa
                   </p>
@@ -248,7 +250,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('admin.index') }}" class="nav-link">
+                <a href="{{ route('admin.user') }}" class="nav-link">
                   <p>
                     Manajemen Data User
                   </p>
@@ -323,5 +325,7 @@
 <script src="{{ asset('lte/dist/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('lte/dist/js/pages/dashboard.js') }}"></script>
+
+@yield('scripts')
 </body>
 </html>

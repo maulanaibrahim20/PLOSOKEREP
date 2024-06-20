@@ -9,7 +9,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Manajemen Aparatur Desa</h1>
+            <h1 class="m-0">Manajemen Profil Desa</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -22,7 +22,7 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-12">
-              <a href="{{ route('admin.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
+              <a href="{{ route('admin.create_profildesa') }}" class="btn btn-primary mb-3">Tambah Data</a>
               <div class="card">
                 {{-- <div class="card-header">
                   <h3 class="card-title">Responsive Hover Table</h3>
@@ -43,14 +43,12 @@
                 </div> --}}
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
-                  <table class="table table-hover text-nowrap" id="aparatur" >
+                  <table class="table table-hover text-nowrap" id="profildesa" >
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>Jabatan</th>
-                        <th>No.Hp</th>
-                        <th>Gambar</th>
+                        <th>Visi</th>
+                        <th>Misi</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -58,12 +56,10 @@
                       @foreach ($data as $d)
                         <tr>
                           <td>{{ $loop->iteration }}</td>
-                          <td>{{ $d->nama }}</td>
-                          <td>{{ $d->jabatan }}</td>
-                          <td>{{ $d->no_hp }}</td>
-                          <td><img src="{{ asset('storage/photo-aparatur/'.$d->gambar) }}" alt="" width="100"></td>
+                          <td>{{ $d->visi }}</td>
+                          <td>{{ $d->misi }}</td>
                           <td>
-                            <a href="{{ route('admin.aparatur.edit', ['id' => $d->id]) }}" class="btn btn-primary">
+                            <a href="{{ route('admin.profildesa.edit', ['id' => $d->id]) }}" class="btn btn-primary">
                               <i class="fas fa-pen"></i> Edit
                             </a>
                             <a data-toggle="modal" data-target="#modal-hapus{{ $d->id }}" class="btn btn-danger">
@@ -76,7 +72,7 @@
                             <div class="modal-content">
                               <div class="modal-header">
                                 <h4 class="modal-title">Konfirmasi Hapus Data</h4>
-                                <button type= "button" class="close" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
                               </div>
@@ -84,7 +80,7 @@
                                 <p>Apakah kamu yakin ingin menghapus data aparatur <b>{{ $d->nama }}</b></p>
                               </div>
                               <div class="modal-footer justify-content-between">
-                                <form action="{{ route('admin.aparatur.delete',['id' => $d->id]) }}" method="POST">
+                                <form action="{{ route('admin.profildesa.delete',['id' => $d->id]) }}" method="POST">
                                   @csrf
                                   @method('DELETE')
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
@@ -120,7 +116,7 @@
 
     <script>
         $(document).ready( function () {
-            $('#aparatur').DataTable();
+            $('#profildesa').DataTable();
         } );
     </script>
     
