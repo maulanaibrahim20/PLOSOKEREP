@@ -23,7 +23,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-rolodex"></i> Pelayanan </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="/H_pengaduan">Pengaduan</a></li>
-              <li><a class="dropdown-item" href="/H_surat">Pengajuan serat</a></li>
+              <li><a class="dropdown-item" href="/H_surat">Pengajuan surat</a></li>
               <li><a class="dropdown-item" href="/UMKM-D">UMKM</a></li>
             </ul>
           </li>

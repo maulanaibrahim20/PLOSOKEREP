@@ -33,14 +33,14 @@
                   <div class="card-body">
                     <div class="form-group">
                         <label for="visi">Visi</label>
-                        <textarea id="visi" name="visi" class="form-control">Visi</textarea>
+                        <textarea id="visi" name="visi" class="visi">Visi</textarea>
                         @error('visi')
                         <small>{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="misi">Misi</label>
-                        <textarea id="misi" name="misi" class="form-control">Misi</textarea>
+                        <textarea id="misi" name="misi" class="misi">Misi</textarea>
                         @error('misi')
                         <small>{{ $message }}</small>
                         @enderror
@@ -61,20 +61,11 @@
         </div><!-- /.container-fluid -->
       </section>
 </div>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 @endsection
 
-@section('scripts')
+{{-- @section('scripts')
     <!-- Pastikan path ke ckeditor.js benar -->
-    <script src="{{ asset('vendor/ckeditor/ckeditor/ckeditor.js') }}"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            if (typeof CKEDITOR !== 'undefined') {
-                // Inisialisasi CKEditor setelah DOM siap
-                CKEDITOR.replace('visi');
-                CKEDITOR.replace('misi');
-            } else {
-                console.error('CKEDITOR is not defined');
-            }
-        });
-    </script>
-@endsection
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+
+@endsection --}}

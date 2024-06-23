@@ -13,6 +13,7 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
+    // app/Http/Controllers/LoginController.php
     public function login_proses(Request $request){
         $request->validate([
             'email' => 'required',
@@ -22,14 +23,27 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('admin.dashboard');
+            $user = Auth::user();
+
+            if ($user->role == 'admin') {
+                return redirect()->route('admin.dashboard');
+            } elseif ($user->role == 'umkm') {
+                return redirect()->route('umkm.dashboard_umkm');
+            } elseif ($user->role == 'customer') {
+                return redirect()->route('homepage');
+            }
+
+            return redirect()->back()->with('failed', 'Role tidak dikenali');
         } else {
             return redirect()->back()->with('failed', 'Email atau Password Salah');
         }
     }
 
-    public function logout (){
+
+    public function logout(Request $request){
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect()->route('login')->with('Success','Kamu Berhasil Logout');
     }
 

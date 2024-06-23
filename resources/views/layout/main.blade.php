@@ -264,15 +264,17 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('logout') }}" class="nav-link">
-                  <p>
-                    Logout
-                  </p>
+                <a href="{{ route('logout') }}" class="nav-link"
+                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    <p>Logout</p>
                 </a>
-              </li>
-          
+            </li>
+            
         </ul>
       </nav>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+        @csrf
+      </form>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
