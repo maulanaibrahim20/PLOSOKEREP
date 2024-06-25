@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminUmkmController;
 use App\Http\Controllers\AparaturController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DataTableController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -63,7 +64,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin'], 'as' 
     Route::put('/update_profildesa/{id}',[ProfilDesaController::class, 'update_profildesa'])->name('profildesa.update');
     Route::delete('/delete_profildesa/{id}',[ProfilDesaController::class, 'delete_profildesa'])->name('profildesa.delete');
 
-
+    Route::get('/m_berita', [BeritaController::class, 'm_berita'])->name('m_berita');
+    Route::get('/create_m_berita',[BeritaController::class, 'create_m_berita'])->name('create_m_berita');
+    Route::post('/simpan_m_berita',[BeritaController::class, 'simpan_m_berita'])->name('simpan_m_berita');
+    Route::get('/edit_m_berita/{id}',[BeritaController::class, 'edit_m_berita'])->name('m_berita.edit');
+    Route::get('/show/{id}',[BeritaController::class, 'show'])->name('berita.show');
+    Route::put('/update_m_berita/{id}',[BeritaController::class, 'update_m_berita'])->name('m_berita.update');
+    Route::delete('/delete_m_berita/{id}',[BeritaController::class, 'delete_m_berita'])->name('m_berita.delete');
 
 });
 
@@ -134,4 +141,8 @@ Route::group(['prefix' => 'umkm', 'middleware' => ['auth', 'role:umkm'], 'as' =>
 Route::group(['middleware' => ['auth', 'role:customer']], function() {
     Route::get('/homepage', [HomeController::class, 'homepage'])->name('homepage');
     // Tambahkan rute customer lainnya di sini
+});
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
 });
