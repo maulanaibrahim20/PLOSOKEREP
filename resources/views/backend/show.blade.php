@@ -22,7 +22,7 @@
         <!-- Small boxes (Stat box) -->
         <div class="mt-3">
             <div class="col-12">
-                <div class="card-body table-responsive p-0">
+                <div class="card-body table-responsive p-0 mb-2">
                     <table class="table table-striped table-bordered">
                         <tr>
                             <th width="250px">Judul</th>
@@ -30,7 +30,7 @@
                         </tr> 
                         <tr>
                             <th>Deskripsi</th>
-                            <td>: {{ $berita->desc }}</td>
+                            <td>: {!! $berita->desc !!}</td>
                         </tr> 
                         <tr>
                             <th>Gambar</th>
@@ -59,7 +59,7 @@
                         </tr>
                     </table>
 
-                    <div class="float-end">
+                    <div class="float-end mt-1">
                         <a href="{{ route('admin.m_berita') }}" class="btn btn-secondary">Kembali</a>
                     </div>
     

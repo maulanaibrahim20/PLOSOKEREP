@@ -21,7 +21,7 @@
         <div class="container-fluid">
           <div class="row">
             <!-- left column -->
-            <div class="col-md-6">
+            <div class="col-md-12">
               <!-- general form elements -->
               <div class="card card-primary">
                 <div class="card-header">
@@ -45,7 +45,7 @@
 
                     <div class="form-group">
                         <label for="desc">Deskripsi</label>
-                        <textarea name="desc" id="desc" cols="30" rows="10" class="form-control">{{ old('desc', $berita->desc) }}</textarea>
+                        <textarea name="desc" id="myeditor" cols="30" rows="10" class="form-control">{{ old('desc', $berita->desc) }}</textarea>
                         @error('desc')
                           <small>{{ $message }}</small>
                         @enderror
@@ -56,14 +56,14 @@
                       <input type="file" name="img" id="img" class="form-control">
                       <div class="mt-1">
                         <small>Gambar Lama</small> <br>
-                        <img src="{{ asset('storage/gambar/berita/'.$berita->img) }}" alt="" width="30px">
+                        <img src="{{ asset('storage/gambar/berita/'.$berita->img) }}" alt="" width="30px" class="img-thumbnail img-preview">
                       </div>
                       @error('img')
                         <small>{{ $message }}</small>
                       @enderror
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="width: 20%">
                         <label for="status">Status</label>
                         <select name="status" id="status" class="form-control">
                             <option value="" hidden>-- Pilih --</option>
@@ -75,7 +75,7 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="width: 20%">
                         <label for="publish_date">Tanggal Terbit</label>
                         <input type="date" name="publish_date" id="publish_date" class="form-control" value="{{ old('publish_date', $berita->publish_date) }}">
                         @error('publish_date')
@@ -106,3 +106,36 @@
   </div>
     
 @endsection
+
+@push('js')
+<script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+<script>
+  var options = {
+    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{ csrf_token() }}',
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{ csrf_token() }}',
+    clipboard_handleImages: false
+};
+
+</script>
+
+<script>
+    CKEDITOR.replace('myeditor', options)
+
+    $("#img").change(function(){
+      previewImage(this);
+    });
+
+    function previewImage(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          $('.img-preview').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+</script>
+@endpush

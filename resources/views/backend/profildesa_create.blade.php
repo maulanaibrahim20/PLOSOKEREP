@@ -33,14 +33,14 @@
                   <div class="card-body">
                     <div class="form-group">
                         <label for="visi">Visi</label>
-                        <textarea id="visi" name="visi" class="visi">Visi</textarea>
+                        <textarea id="myeditor" name="visi" class="visi">Visi</textarea>
                         @error('visi')
                         <small>{{ $message }}</small>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="misi">Misi</label>
-                        <textarea id="misi" name="misi" class="misi">Misi</textarea>
+                        <textarea id="myeditor" name="misi" class="misi">Misi</textarea>
                         @error('misi')
                         <small>{{ $message }}</small>
                         @enderror
@@ -61,11 +61,23 @@
         </div><!-- /.container-fluid -->
       </section>
 </div>
-<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+
 @endsection
 
-{{-- @section('scripts')
-    <!-- Pastikan path ke ckeditor.js benar -->
-    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+@push('js')
+<script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+<script>
+  var options = {
+    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{ csrf_token() }}',
+    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{ csrf_token() }}',
+    clipboard_handleImages: false
+};
 
-@endsection --}}
+</script>
+
+<script>
+    CKEDITOR.replace('myeditor', options)
+</script>
+@endpush

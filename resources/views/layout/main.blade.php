@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="{{ asset('lte/plugins/summernote/summernote-bs4.min.css') }}">
 
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <!-- CKEditor -->
   <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>

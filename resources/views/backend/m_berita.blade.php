@@ -22,7 +22,7 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-12">
-              <a href="{{ route('admin.create_m_berita') }}" class="btn btn-primary mb-3">Tambah Data</a>
+              <a href="{{ route('admin.create_m_berita') }}" class="btn btn-primary mb-3">Buat Berita Desa</a>
               <div class="card">
                 <div class="card-body table-responsive p-0">
                   <table class="table table-hover text-nowrap" id="aparatur" >

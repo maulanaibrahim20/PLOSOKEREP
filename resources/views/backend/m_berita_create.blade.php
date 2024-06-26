@@ -20,7 +20,7 @@
         <div class="container-fluid">
           <div class="row">
             <!-- left column -->
-            <div class="col-md-6">
+            <div class="col-md-12">
               <!-- general form elements -->
               <div class="card card-primary">
                 <div class="card-header">
@@ -47,15 +47,18 @@
                         @enderror
                     </div>
                      
-                    <div class="form-group">
+                    <div class="form-group col-md-12">
                       <label for="img">Gambar (Max 2MB):</label>
                       <input type="file" name="img" id="img" class="form-control">
+                      <div class="mt-1">
+                        <img src="" class="img-thumbnail image-preview" width="100px">
+                      </div>
                       @error('img')
                         <small>{{ $message }}</small>
                       @enderror
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="width: 20%">
                         <label for="status">Status</label>
                         <select name="status" id="status" class="form-control">
                             <option value="" hidden>-- Pilih --</option>
@@ -67,7 +70,7 @@
                         @enderror
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group" style="width: 20%">
                         <label for="publish_date">Tanggal Terbit</label>
                         <input type="date" name="publish_date" id="publish_date" class="form-control">
                         @error('publish_date')
@@ -111,5 +114,20 @@
 
 <script>
     CKEDITOR.replace('myeditor', options)
+
+    $("#img").change(function(){
+      previewImage(this);
+    });
+
+    function previewImage(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          $('.image-preview').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
 </script>
 @endpush
