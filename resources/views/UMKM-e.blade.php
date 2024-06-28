@@ -90,7 +90,7 @@
       </div>
       <div class="col-md-8">
         <h3>Susu Kedelai</h3>
-        <p>Rp. 28.000</p>
+        <p><b>Rp. 28.000 </b></p>
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Deskripsi Produk</h5>

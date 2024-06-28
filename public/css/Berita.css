@@ -1,21 +1,6 @@
 body {
-<<<<<<< HEAD
     margin-top: 0px;
     font-family: Arial, sans-serif;
-=======
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    backdrop-filter: blur(3px);
-    margin: 0;
-    padding: 0;
-}
-
-
-
-.carousel {
-    z-index: 1;
->>>>>>> fb34a01e7c666c538c27922223602f740ba6ab84
 }
 
 .logo img {
@@ -103,16 +88,27 @@ body {
 }
 
 
-.jadwal-container {
+.info-container {
     display: flex;
-    overflow-x: auto;
-    width: 800px; /* Lebar jadwal sholat diambil dari lebar konten dikurangi lebar sidebar */
-    margin-left: 10px; /* Jarak antara jadwal sholat dan sidebar */
-  }
-  .jadwal-item {
-    flex: 0 0 auto;
-    width: 100px; /* Lebar setiap item jadwal sholat */
-    border: 1px solid #ccc; /* Tambahkan garis pemisah */
+    align-items: center;
     padding: 10px;
-    margin-right: 10px; /* Jarak antara setiap item */
+    background-color: #009b0f; /* Warna latar belakang yang disesuaikan */
+    color: white; /* Warna teks yang disesuaikan */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px; /* Radius border untuk sudut yang melengkung */
+  }
+
+.info-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  
+  .info-text {
+    flex-grow: 1;
+    background-color: white;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 10px;
   }

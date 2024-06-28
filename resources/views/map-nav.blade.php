@@ -2,7 +2,6 @@
 <html lang="id">
 
 <head>
-<<<<<<< HEAD
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,26 +16,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/pengaduan.css">
+    <link rel="stylesheet" href="css/map.css">
 
     <title>Desa Plosokerep</title>
-=======
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-  <!-- Font Awesome CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH1z6B8+Zt1Z7gL8b9LaE6A5+aF6rrgh/s3Rqs8pPv1gxd5F2Zwx+wRT7OoXtY/8PeAqTxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/styles.css">
-  <title>Desa Plosokerep</title>
->>>>>>> fb34a01e7c666c538c27922223602f740ba6ab84
 </head>
 
 <body>
-<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top"
         style="background: rgb(9, 9, 117); background: linear-gradient(122deg, rgba(9, 9, 117, 1) 10%, rgba(0, 212, 255, 1) 63%); z-index: 1050;">
         <div class="container-fluid">
@@ -99,50 +84,36 @@
             </div>
         </div>
     </nav>
-
-    <div class="container mt-2">
-        <div class="info-container shadow p-1 mb-5 rounded">
-            <i class="bi bi-megaphone-fill info-icon"></i>
-            <span class="fw-bold text-dark">Sekilas Info</span>
-            <div class="info-text">
-                <marquee behavior="" direction="">
-                    <b>Selamat datang di Website Resmi UMKM Desa Plosokerep</b>
-                </marquee>
+    <br>
+    <br>
+    <div class="card text-center cardl">
+        <div class="card-header">
+            <b>MAP WILAYAH DESA PLOSOKEREP</b>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="responsive-map-container">
+              <iframe class="responsive-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31714.880030170756!2d108.12779004999999!3d-6.47600405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6ecbc254f159e7%3A0x5a1bd9656311b724!2sPlosokerep%2C%20Kec.%20Terisi%2C%20Kabupaten%20Indramayu%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1719541754809!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            </div>
+            <div class="col">
+              <div class="info-container bg-white p-3">
+                <h2>Informasi Lokasi</h2>
+                <p><strong>Negara:</strong> Indonesia</p>
+                <p><strong>Provinsi:</strong> Jawa Barat</p>
+                <p><strong>Kabupaten:</strong> Indramayu</p>
+                <p><strong>Kecamatan:</strong> Terisi</p>
+                <p><strong>Kode Kemendagri:</strong> 32.12.26.2004</p>
+                <p><strong>Luas:</strong> 7,61 km²</p>
+                <p><strong>Jumlah penduduk:</strong> 5.595 jiwa</p>
+                <p><strong>Kepadatan:</strong> 735,27 jiwa/km²</p>
+            </div>
+            </div>
+          </div>
             </div>
         </div>
     </div>
-    <div class="container py-3">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center">
-                            <img src="{{ URL('gambar/logo.png') }}" class="center-image" width="200px" height="250px"
-                                alt="">
-                        </div>
-                        <br>
-                        <h2 class="card-title text-center mb-4">PENGADUAN MASYARAKAT</h2>
-                        <form>
-                            <div class="mb-3">
-                                <label for="namaLengkap" class="form-label">Nama Lengkap:</label>
-                                <input type="text" class="form-control" id="namaLengkap" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="kontak" class="form-label">Kontak yang dapat dihubungi:</label>
-                                <input type="text" class="form-control" id="kontak" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="rincianPengaduan" class="form-label">Rincian Pengaduan:</label>
-                                <textarea class="form-control" id="rincianPengaduan" rows="4" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Kirim</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
@@ -150,40 +121,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
         integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMp0RSK9sB0UGaAcVEOl8SKSTBSkT8wCHd1/6hsLoRF4XsF06HUETeKRWPL5Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-=======
-  @include('layout.navbar')
-  <div class="container mt-4">
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title text-center mb-4">PENGADUAN MASYARAKAT</h2>
-        @if(session('success'))
-          <div class="alert alert-success">
-              {{ session('success') }}
-          </div>
-        @endif
-        <form action="{{ route('simpan_pengaduan') }}" method="POST">
-          @csrf
-          <div class="mb-3">
-            <label for="namaLengkap" class="form-label">Nama Lengkap:</label>
-            <input type="text" class="form-control" id="namaLengkap" name="nama" required>
-          </div>
-          <div class="mb-3">
-            <label for="kontak" class="form-label">Kontak yang dapat dihubungi:</label>
-            <input type="text" class="form-control" id="kontak" name="no_tlp" required>
-          </div>
-          <div class="mb-3">
-            <label for="rincianPengaduan" class="form-label">Rincian Pengaduan:</label>
-            <textarea class="form-control" id="rincianPengaduan" name="rincian_pengaduan" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary w-100">Kirim</button>
-        </form>
-      </div>
-    </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <!-- Font Awesome JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMp0RSK9sB0UGaAcVEOl8SKSTBSkT8wCHd1/6hsLoRF4XsF06HUETeKRWPL5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
->>>>>>> fb34a01e7c666c538c27922223602f740ba6ab84
 </body>
 
 </html>

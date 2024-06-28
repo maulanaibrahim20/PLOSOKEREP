@@ -28,7 +28,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item" style="margin-right: 20px;">
+          <li class="nav-item" style="margin-right: 20px; color: white;">
             <a class="nav-link" href="/disini/index.html"><i class="bi bi-house-door-fill"></i></a>
           </li>
           <li class="nav-item dropdown" style="margin-right: 20px;">
@@ -67,8 +67,8 @@
           <li class="nav-item" style="margin-right: 20px;">
             <a class="nav-link login btn" href="#" style="background-color: blue;"> Login</a>
           </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="/umkm-k"><i class="bi bi-cart4"></i> <span id="cart-count" class="badge bg-danger">0</span></a>
+          <li class="nav-item text-light" style="margin-right: 20px;">
+            <a class="nav-link" href="/UMKM-k"><i class="bi bi-cart4"></i> <span id="cart-count" class="badge bg-danger">0</span></a>
           </li>
           
         </ul>
