@@ -24,7 +24,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" href="/H_pengaduan">Pengaduan</a></li>
               <li><a class="dropdown-item" href="/H_surat">Pengajuan surat</a></li>
-              <li><a class="dropdown-item" href="/UMKM-D">UMKM</a></li>
+              <li><a class="dropdown-item" href={{route('umkm_d')}}>UMKM</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown" style="margin-right: 20px;">

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
+use App\Models\Pengaduan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -11,13 +13,24 @@ class HomeController extends Controller
 {   
 
     public function dashboard(){
-         return view('backend.dashboard');
+         return view('backend.dashboard', [
+            'total_berita' => Berita::count(),
+            'total_user' => User::count(),
+            'total_pengaduan' => Pengaduan::count(),
+            'latest_berita' => Berita::whereStatus(1)->latest()->take(5)->get(),
+            'popular_berita' => Berita::whereStatus(1)->orderBy('views', 'desc')->take(5)->get() 
+         ]);
      }
 
     public function homepage(){
-        return view('homepage');
+        return view('homepage', [
+            'latest_post' => Berita::whereStatus(1)->latest()->take(3)->get(),
+            'popular_berita' => Berita::whereStatus(1)->orderBy('views', 'desc')->take(5)->get(),
+            'berita' => Berita::latest()->get()
+        ]);
     }
 
+    
     public function user(Request $request){
         $data = new User;
 

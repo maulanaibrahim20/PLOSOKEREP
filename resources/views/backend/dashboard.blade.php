@@ -18,19 +18,6 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
-                <p>Berita Desa</p>
-              </div>
-              <div class="icon">
-                <i class="nav-icon fas fa-newspaper"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
@@ -78,13 +65,26 @@
             <!-- small box -->
             <div class="small-box bg-secondary">
               <div class="inner">
-                <h3>65</h3>
+                <h3>3</h3>
                 <p>Surat Masuk</p>
               </div>
               <div class="icon">
                 <i class="ion ion-email"></i>
               </div>
               <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{$total_berita}}</h3>
+                <p>Berita Desa</p>
+              </div>
+              <div class="icon">
+                <i class="nav-icon fas fa-newspaper"></i>
+              </div>
+              <a href="{{ route('admin.m_berita') }}" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -116,7 +116,61 @@
             </div>
           </div>
           <!-- ./col -->
+
+          
         </div>
+        <div class="row">
+          <div class="col-6">
+            <h3>Berita Terbaru</h3>
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Judul</th>
+                  <th>Tanggal Buat</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                @foreach ($latest_berita as $item)
+                    <tr>
+                      <td>{{ $loop->iteration }}</td>
+                      <td>{{ $item->title }}</td>
+                      <td>{{ $item->created_at }}</td>
+                      <td> <a href="{{ route('admin.berita.show', ['id' => $item->id]) }}" class="btn btn-secondary">Detail</a></td>
+                    </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+
+          <div class="col-6">
+            <h3>Berita Terpopuler</h3>
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Judul</th>
+                  <th>dilihat</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                @foreach ($popular_berita as $item)
+                    <tr>
+                      <td>{{ $loop->iteration }}</td>
+                      <td>{{ $item->title }}</td>
+                      <td>{{ $item->views }}</td>
+                      <td> <a href="{{ route('admin.berita.show', ['id' => $item->id]) }}" class="btn btn-secondary">Detail</a></td>
+                    </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+       
       </div>
     </section>
     

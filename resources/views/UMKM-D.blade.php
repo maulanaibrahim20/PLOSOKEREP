@@ -18,59 +18,7 @@
 </head>
 <body>
   @include('layout.navbar')
-  {{-- <nav class="navbar navbar-expand-lg navbar-dark" style="background: rgb(9, 9, 117); background: linear-gradient(122deg, rgba(9, 9, 117, 1) 10%, rgba(0, 212, 255, 1) 63%); z-index: 1050;">
-    <div class="container-fluid">
-      <a class="navbar-brand logo" href="#">
-        <img src="{{URL ('gambar/LOGO1.png')}}" alt="Logo" style="width:150px; height: 40px;"/>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="/disini/index.html"><i class="bi bi-house-door-fill"></i></a>
-          </li>
-          <li class="nav-item dropdown" style="margin-right: 20px;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-houses-fill"></i> Profil Desa </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="/sejarah">Sejarah Desa</a></li>
-              <li><a class="dropdown-item" href="#">Visi dan Misi</a></li>
-              <li><a class="dropdown-item" href="H_aparatur">Struktur Organisasi</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown" style="margin-right: 20px;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-rolodex"></i> Pelayanan </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Pengaduan</a></li>
-              <li><a class="dropdown-item" href="#">Pengajuan serat</a></li>
-              <li><a class="dropdown-item" href="#">UMKM</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown" style="margin-right: 20px;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pie-chart-fill"></i> Data Desa </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Data Penduduk</a></li>
-              <li><a class="dropdown-item" href="#">Data Wilayah</a></li>
-              <li><a class="dropdown-item" href="#">Data Pendidikan</a></li>
-            </ul>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="#"><i class="bi bi-geo-alt-fill"></i> Peta</a>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="#"><i class="bi bi-image-fill"></i> Galeri</a>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="#"><i class="bi bi-newspaper text-black"></i></i> Berita</a>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link login btn" href="#" style="background-color: blue;"> Login</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> --}}
+
 
   <div class="container mt-2 ">
     <div class="info-container shadow p-1 mb-5 rounded">
@@ -84,23 +32,27 @@
     </div>
   </div>
   <div class="container py-3">
-    <img src="{{URL ('gambar/tubnail.png')}}" class="img-fluid" alt="">
-    <div class="container">
-      <div class="row row-cols-1 row-cols-md-3 g-5 py-5">
-        <div class="col">
-          <div class="card custom-card">
-          <img src="{{URL ('gambar/kedelai.jpg')}}" class="card-img-top" alt="">
-          <div class="card-body">
-            <h5 class="card-title">SUSU KEDELAI</h5>
+    <div class="container py-3">
+      <img src="{{URL ('gambar/tubnail.png')}}" class="img-fluid" alt="">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-4 g-5 py-5">
+          @foreach ($product as $item)  
+          <div class="col mb-3">
+            <div class="card custom-card">
+              <img src="{{asset('storage/gambar/Product/'.$item->img_produk)}}" class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title">{{ $item->nama_produk }}</h5>
+              </div>
+              <div class="d-flex justify-content-around mb-3">
+                <h5>Rp. {{$item->harga}}</h5>
+                <a href="{{ route('umkm_e', ['id' => $item->id]) }}" class="btn btn-primary">Lihat Produk</a>
+              </div>
+            </div>
           </div>
-          <div class="d-flex justify-content-around mb-3">
-            <h5>Rp20.000</h5>
-            <a href="/UMKM-e" class="btn btn-primary">Lihat Produk</a>
-          </div>
+          @endforeach
         </div>
       </div>
     </div>
-  </div>
   </div>
   
 

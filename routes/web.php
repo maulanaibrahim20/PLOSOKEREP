@@ -7,6 +7,7 @@ use App\Http\Controllers\DataTableController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilDesaController;
 use App\Models\Aparatur;
 use App\Models\Pengaduan;
@@ -82,6 +83,16 @@ Route::get('/H_pengaduan',[PengaduanController::class, 'H_pengaduan'])->name('H_
 Route::post('/simpan_pengaduan',[PengaduanController::class, 'simpan_pengaduan'])->name('simpan_pengaduan');
 Route::delete('/delete_pengaduan/{id}', [PengaduanController::class, 'delete_pengaduan'])->name('delete_pengaduan');
 
+Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
+Route::get('/berita', [BeritaController::class, 'berita'])->name('berita');
+Route::get('/beritaklik', [BeritaController::class, 'beritaklik'])->name('beritaklik');
+Route::get('/beritaklik/{id}', [BeritaController::class, 'beritaklik'])->name('beritaklik');
+
+//Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
+Route::get('/umkm_d', [ProductController::class, 'umkm_d'])->name('umkm_d');
+Route::get('/umkm_e', [ProductController::class, 'umkm_e'])->name('umkm_e');
+Route::get('/umkm_e/{id}', [ProductController::class, 'umkm_e'])->name('umkm_e');
+
 
 
 Route::get('/homepage', function () { 
@@ -96,9 +107,9 @@ Route::get('/sejarah', function () {
 Route::get('/visi-misi', function () {
     return view('visi-misi');
 });
-Route::get('/Beritaklik', function () {
-    return view('Beritaklik');
-});
+// Route::get('/Beritaklik', function () {
+//     return view('Beritaklik');
+// });
 // Route::get('/login', function () {
 //     return view('auth.login');
 // });
@@ -114,31 +125,40 @@ Route::get('/H_aparatur', function () {
 Route::get('/H_surat', function () {
     return view('H_surat');
 });
-Route::get('/UMKM-D', function () {
-    return view('UMKM-D');
-});
-Route::get('/UMKM-e', function () {
-    return view('UMKM-e');
-});
+// Route::get('/UMKM-D', function () {
+//     return view('UMKM-D');
+// });
+// Route::get('/UMKM-e', function () {
+//     return view('UMKM-e');
+// });
 Route::get('/UMKM-c', function () {
     return view('UMKM-c');
 });
 Route::get('/UMKM-k', function () {
     return view('UMKM-k');
 });
-Route::get('/berita', function () {
-    return view('berita');
-});
+// Route::get('/berita', function () {
+//     return view('berita');
+// });
 
 
 Route::group(['prefix' => 'umkm', 'middleware' => ['auth', 'role:umkm'], 'as' => 'umkm.'], function(){
     Route::get('/dashboard_umkm', [AdminUmkmController::class, 'dashboard_umkm'])->name('dashboard_umkm');
+    Route::get('/product', [AdminUmkmController::class, 'product'])->name('product');
+
+    Route::get('/product', [ProductController::class, 'product'])->name('product');
+    Route::get('/create_produk',[ProductController::class, 'create_produk'])->name('create_produk');
+    Route::post('/simpan_produk',[ProductController::class, 'simpan_produk'])->name('simpan_produk');
+    Route::get('/edit_produk/{id}', [ProductController::class, 'edit_produk'])->name('produk.edit');
+    Route::get('/show/{id}',[ProductController::class, 'show'])->name('berita.show');
+    Route::put('/update_produk/{id}', [ProductController::class, 'update_produk'])->name('produk.update');
+    Route::delete('/delete_produk/{id}',[ProductController::class, 'delete_produk'])->name('produk.delete');
     
 
 
 });
 
-Route::group(['middleware' => ['auth', 'role:customer']], function() {
+Route::group(['middleware' => ['guest']], function() {
     Route::get('/homepage', [HomeController::class, 'homepage'])->name('homepage');
     // Tambahkan rute customer lainnya di sini
 });

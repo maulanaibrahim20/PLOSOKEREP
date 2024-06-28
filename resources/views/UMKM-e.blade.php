@@ -86,18 +86,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <img id="mainImage" src="{{URL ('gambar/umkm/kedelai-3.png')}}" class="img-fluid" alt="">
-        <div class="row mt-2">
-          <div class="col-4">
-            <img src="{{URL ('gambar/umkm/kedelai-1.jpeg')}}" class="img-thumbnail clickable-image" alt="">
-          </div>
-          <div class="col-4">
-            <img src="{{URL ('gambar/umkm/kedelai-2.jpg')}}" class="img-thumbnail clickable-image" alt="">
-          </div>
-          <div class="col-4">
-            <img src="{{URL ('gambar/umkm/kedelai-3.png')}}" class="img-thumbnail clickable-image" alt="">
-          </div>
-        </div>
+        <img id="mainImage" src="{{ asset('storage/gambar/Product/' . $Product->img_produk) }}" class="img-fluid" alt="">
       </div>
       <div class="col-md-8">
         <h3>Susu Kedelai</h3>
@@ -116,7 +105,7 @@
               <b>NB: Tersedia harga grosir & menerima pesanan</b>
             </p>
 
-            <a href="/UMKM-D" class="btn btn-warning">Kembali</a>
+            <a href={{route('umkm_d')}} class="btn btn-warning">Kembali</a>
             <a href="https://wa.me/628976562320" class="btn btn-info">hubungi penjual</a>
             <a href="/UMKM-c" class="btn btn-success">pesan</a>
         </div>

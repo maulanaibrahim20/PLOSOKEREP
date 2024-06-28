@@ -59,8 +59,11 @@
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: blue">
-    <a href="index3.html" class="brand-link">
+    <a href=# class="brand-link">
       <span class="brand-text font-weight-light">Dashboard Admin</span>
+    </a>
+    <a href=# class="brand-link">
+      <span class="brand-text font-weight-light">{{ auth()->user()->email}}</span>
     </a>
 
     <div class="sidebar mt-3 pb-3 mb-3 d-flex">

@@ -16,6 +16,29 @@ class BeritaController extends Controller
         ]);
     }
 
+    public function berita(){
+        return view('berita',[
+            'latest_post' => Berita::latest()->first(),
+            'popular_berita' => Berita::whereStatus(1)->orderBy('views', 'desc')->take(5)->get(),
+            'berita' => Berita::wherestatus(1)->latest()->get()
+        ]);
+    }
+
+    // public function beritaklik(){
+    //     return view('beritaklik',[
+    //         'berita' => Berita::wherestatus(1)->latest()->get()
+    //     ]);
+        
+    // }
+
+    public function beritaklik($id) {
+        $berita = Berita::findOrFail($id);
+        $berita->increment('views'); // Tambahkan jumlah tampilan
+        return view('beritaklik', compact('berita'));
+    }
+    
+    
+
     public function create_m_berita(){
         return view('backend.m_berita_create');
     }
@@ -41,7 +64,17 @@ class BeritaController extends Controller
         ]);
     }
 
-    public function delete_m_berita(BeritaRequest $request,$id){
+    // public function delete_m_berita(BeritaRequest $request,$id){
+    //     $data = Berita::find($id);
+
+    //     if($data){
+    //         $data->delete();
+    //     }
+
+    //     return redirect()->route('admin.m_berita');
+    // }
+
+    public function delete_m_berita(Request $request,$id){
         $data = Berita::find($id);
 
         if($data){

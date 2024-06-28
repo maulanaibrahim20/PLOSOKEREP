@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends('layout.umkm_main')
 @section('css')
 <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.css" />
 @endsection
@@ -9,7 +9,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Manajemen Berita Desa</h1>
+            <h1 class="m-0">Data Produk</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -22,39 +22,34 @@
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="col-12">
-              <a href="{{ route('admin.create_m_berita') }}" class="btn btn-primary mb-3">Buat Berita Desa</a>
+              <a href="{{ route('umkm.create_produk') }}" class="btn btn-primary mb-3">Tambah Produk</a>
               <div class="card">
                 <div class="card-body table-responsive p-0">
-                  <table class="table table-hover text-nowrap" id="aparatur" >
+                  <table class="table table-hover text-nowrap" id="aparatur" style="max-width: 100px">
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Judul</th>
-                        <th>Lihat</th>
-                        <th>Status</th>
-                        <th>Terbit</th>
+                        <th>SKU</th>
+                        <th>Nama Produk</th>
+                        <th>Deskripsi</th>
+                        <th>Harga</th>
+                        <th>Jumlah</th>
+                        <th>Gambar</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($berita as $d)
+                      @foreach ($products as $d)
                         <tr>
                           <td>{{ $loop->iteration }}</td>
-                          <td>{{ $d->title }}</td> 
-                          <td>{{ $d->views }}</td>
-                          @if ($d->status == 0)
-                            <td>
-                                <span class="badge bg-danger">Private</span>
-                            </td>
-                          @else
-                            <td>
-                                <span class="badge bg-success">Published</span>
-                            </td>
-                          @endif
-                          <td>{{ $d->publish_date }}</td>
+                          <td>{{ $d->sku }}</td> 
+                          <td>{{ $d->nama_produk }}</td> 
+                          <td>{!! $d->desc_produk !!}</td>
+                          <td>{{ $d->harga }}</td>
+                          <td>{{ $d->jml_produk }}</td>
+                          <td><img src="{{ asset('storage/gambar/Product/'.$d->img_produk) }}" alt="" width="100"></td>
                           <td>
-                            <a href="{{ route('admin.berita.show', ['id' => $d->id]) }}" class="btn btn-secondary">Detail</a>
-                            <a href="{{ route('admin.m_berita.edit', ['id' => $d->id]) }}" class="btn btn-primary">
+                            <a href="{{ route('umkm.produk.edit', ['id' => $d->id]) }}" class="btn btn-primary">
                                 <i class="fas fa-pen"></i> Edit
                             </a>
                             <a data-toggle="modal" data-target="#modal-hapus{{ $d->id }}" class="btn btn-danger">
@@ -72,12 +67,12 @@
                                 </button>
                               </div>
                               <div class="modal-body">
-                                <p>Apakah kamu yakin ingin menghapus Berita <b>{{ $d->title }}</b></p>
+                                <p>Apakah kamu yakin ingin menghapus Produk <b>{{ $d->nama_produk }}</b></p>
                               </div>
                               <div class="modal-footer justify-content-between">
-                                <form action="{{ route('admin.m_berita.delete',['id' => $d->id]) }}" method="POST">
-                                  @csrf
+                                <form action="{{ route('umkm.produk.delete',['id' => $d->id]) }}" method="POST">
                                   @method('DELETE')
+                                  @csrf
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
                                   <button type="submit" class="btn btn-primary">Ya, Hapus</button>
                                 </form>

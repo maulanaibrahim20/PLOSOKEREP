@@ -114,36 +114,30 @@
         <br>
         <div class="card shadow p-0 mb-3 bg-body rounded">
           <div class="card-body p-0">
-            <h5 class="card-title text-center py-2 m-0 " style="background-color: #00D1FF;">Berita Ter-update</h5>
+            <h5 class="card-title text-center py-2 m-0 " style="background-color: #00D1FF;">Berita Desa Terkini</h5>
           </div>
           <br>
           <div class="container-fluid">
-            <div class="row">
-              <div class="col-12 col-md-4 mb-3">
-                <div class="card shadow p-0 bg-body rounded">
-                  <img src="{{URL('gambar/berita.jpg')}}" class="card-img-top"  alt="...">
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <div class="col-12">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                  @foreach ($latest_post as $item)
+                  <div class="col-12 col-md-4 mb-3">
+                    <div class="card card-custom shadow p-0 bg-body rounded">
+                      <img src="{{asset('storage/gambar/berita/'.$item->img)}}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <div class="small text-muted">{{$item->created_at->format('d-m-y')}}</div>
+                        <h5 class="card-title">{{ $item->title }}</h5>
+                        <p class="card-text">
+                          {{ Str::limit(strip_tags($item->desc), 30, '...') }}
+                        </p>
+                        
+                      </div>
+                      <a href="{{ route('beritaklik', ['id' => $item->id]) }}" class="btn btn-primary">Baca</a>
+                    </div>
                   </div>
+                  @endforeach
                 </div>
               </div>
-              <div class="col-12 col-md-4 mb-3">
-                <div class="card shadow p-0 bg-body rounded">
-                  <img src="{{URL('gambar/berita.jpg')}}" class="card-img-top"  alt="...">
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-md-4 mb-3">
-                <div class="card shadow p-0 bg-body rounded">
-                  <img src="{{URL('gambar/berita.jpg')}}" class="card-img-top"  alt="...">
-                  <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
