@@ -29,7 +29,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{ route('aparatur.update', ['id' => $data->id]) }}" method="POST">
+                <form action="{{ route('admin.aparatur.update', ['id' => $data->id]) }}" method="POST">
                   @csrf
                   @method("PUT")
                   <div class="card-body">
@@ -56,7 +56,7 @@
                   </div>
                     <div class="form-group">
                       <label for="gambar">Gambar:</label>
-                      <input type="file" name="gambar" id="gambar" value={{$data->gambar}} >
+                      <input type="file" name="gambar" id="gambar" value={{$data->gambar}}>
                       @error('gambar')
                         <small>{{ $message }}</small>
                       @enderror

@@ -1,6 +1,21 @@
 body {
+<<<<<<< HEAD
     margin-top: 0px;
     font-family: Arial, sans-serif;
+=======
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(3px);
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.carousel {
+    z-index: 1;
+>>>>>>> fb34a01e7c666c538c27922223602f740ba6ab84
 }
 
 .logo img {

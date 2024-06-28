@@ -22,6 +22,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top"
         style="background: rgb(9, 9, 117); background: linear-gradient(122deg, rgba(9, 9, 117, 1) 10%, rgba(0, 212, 255, 1) 63%); z-index: 1050;">
         <div class="container-fluid">
@@ -84,6 +85,9 @@
             </div>
         </div>
     </nav>
+=======
+  @include('layout.navbar')
+>>>>>>> fb34a01e7c666c538c27922223602f740ba6ab84
 
     <div class="container mt-4 pt-5">
         <div class="row">

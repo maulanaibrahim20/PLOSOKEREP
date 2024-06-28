@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
+use Illuminate\Support\ServiceProvider;
 
 return [
 
@@ -186,6 +187,8 @@ return [
          * Package Service Providers...
          */
 
+         UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -210,6 +213,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+
+        // 'Image' => \Intervention\Image\Facades\Image::class,
     ])->toArray(),
 
 ];

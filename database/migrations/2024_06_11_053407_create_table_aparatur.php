@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('jabatan');
             $table->string('no_hp'); 
-            $table->string('gambar');
+            $table->string('gambar')->nullable();
             $table->timestamps();
         });
     }
