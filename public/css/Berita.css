@@ -112,3 +112,14 @@ body {
     border-radius: 5px;
     margin-left: 10px;
   }
+
+  .card {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-img-top {
+    height: 100px; /* Atur tinggi gambar sesuai kebutuhan */
+    object-fit: cover; /* Mengatur gambar agar mengisi area dengan mempertahankan aspek ratio */
+}

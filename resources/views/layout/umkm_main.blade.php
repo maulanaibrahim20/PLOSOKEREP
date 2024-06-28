@@ -73,28 +73,31 @@
                with font-awesome or any other icon font library -->
                <li class="nav-item">
                 <a href="{{ route('umkm.dashboard_umkm') }}" class="nav-link">
-                  <i class="nav-icon fas fa-th"></i>
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Dashboard
                   </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href=# class="nav-link">
-                  <p>
-                    Laporan Penjualan
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
                 <a href="{{ route('umkm.product') }}" class="nav-link">
+                  <i class="nav-icon fas fa-box-open"></i>
                   <p>
                     Data Produk
                   </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href=# class="nav-link">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-chart-line"></i>
+                  <p>
+                    Laporan Penjualan
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-clipboard-list"></i>
                   <p>
                     Data Pesanan
                   </p>
@@ -105,7 +108,8 @@
                   <i class="nav-icon fas fa-sign-out-alt"></i>
                   <p>Logout</p>
                 </a>
-              </li>
+              </li>    
+              
         </ul>
       </nav>
       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

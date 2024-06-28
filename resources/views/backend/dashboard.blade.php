@@ -29,7 +29,7 @@
               <div class="icon">
                 <i class="ion ion-chatbubbles"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -43,7 +43,7 @@
               <div class="icon">
                 <i class="ion ion-person"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -57,7 +57,7 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -71,7 +71,7 @@
               <div class="icon">
                 <i class="ion ion-email"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <div class="col-lg-3 col-6">
@@ -98,7 +98,7 @@
               <div class="icon">
                 <i class="nav-icon fas fa-user"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -112,7 +112,7 @@
               <div class="icon">
                 <i class="ion ion-clipboard"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="#" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

@@ -1,8 +1,6 @@
 body {
-<<<<<<< HEAD
     margin-top: 0px;
     font-family: Arial, sans-serif;
-=======
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,7 +13,6 @@ body {
 
 .carousel {
     z-index: 1;
->>>>>>> fb34a01e7c666c538c27922223602f740ba6ab84
 }
 
 .logo img {

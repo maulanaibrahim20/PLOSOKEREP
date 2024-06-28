@@ -18,60 +18,7 @@
 </head>
 <body>
   @include('layout.navbar')
-  {{-- <nav class="navbar navbar-expand-lg navbar-dark " style="background: rgb(9, 9, 117); background: linear-gradient(122deg, rgba(9, 9, 117, 1) 10%, rgba(0, 212, 255, 1) 63%); z-index: 1050;">
-    <div class="container-fluid">
-      <a class="navbar-brand logo" href="#">
-        <img src="{{URL ('gambar/LOGO1.png')}}" alt="Logo" style="width:150px; height: 40px;"/>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="/disini/index.html"><i class="bi bi-house-door-fill"></i></a>
-          </li>
-          <li class="nav-item dropdown" style="margin-right: 20px;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-houses-fill"></i> Profil Desa </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="/">Sejarah Desa</a></li>
-              <li><a class="dropdown-item" href="#">Visi dan Misi</a></li>
-              <li><a class="dropdown-item" href="#">Struktur Organisasi</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown" style="margin-right: 20px;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-rolodex"></i> Pelayanan </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Pelayanan KTP</a></li>
-              <li><a class="dropdown-item" href="#">Pelayanan KK</a></li>
-              <li><a class="dropdown-item" href="#">Pelayanan Akta Kelahiran</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown" style="margin-right: 20px;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pie-chart-fill"></i> Data Desa </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Data Penduduk</a></li>
-              <li><a class="dropdown-item" href="#">Data Wilayah</a></li>
-              <li><a class="dropdown-item" href="#">Data Pendidikan</a></li>
-            </ul>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="#"><i class="bi bi-geo-alt-fill"></i> Peta</a>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="#"><i class="bi bi-image-fill"></i> Galeri</a>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="#"><i class="bi bi-newspaper text-black"></i></i> Berita</a>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link login btn" href="#" style="background-color: blue;"> Login</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> --}}
-  <br>
+  
   <div class="container">
     <div class="container-fluid " >
       <div class="shadow-sm p-3 mb-5 bg-body rounded">
@@ -94,7 +41,7 @@
           <i class="bi bi-calendar"></i> {{$berita->created_at->format('d-m-y')}} &nbsp;
           <i class="bi bi-eye"></i> {{$berita->views}}
         </div>
-        <p class="card-text">
+        <p class="card-text" >
           {!! $berita->desc !!}
         </p>
       </div>
