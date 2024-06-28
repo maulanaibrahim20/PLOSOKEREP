@@ -86,18 +86,3 @@ body {
         overflow-y: auto;
     }
 }
-
-
-.jadwal-container {
-    display: flex;
-    overflow-x: auto;
-    width: 800px; /* Lebar jadwal sholat diambil dari lebar konten dikurangi lebar sidebar */
-    margin-left: 10px; /* Jarak antara jadwal sholat dan sidebar */
-  }
-  .jadwal-item {
-    flex: 0 0 auto;
-    width: 100px; /* Lebar setiap item jadwal sholat */
-    border: 1px solid #ccc; /* Tambahkan garis pemisah */
-    padding: 10px;
-    margin-right: 10px; /* Jarak antara setiap item */
-  }

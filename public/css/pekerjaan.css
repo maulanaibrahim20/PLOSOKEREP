@@ -9,11 +9,6 @@ body {
 
 /* Navbar Styles */
 
-.img-wrapper{
-    max-width: 100%;
-    height: 23vw;
-}
-
 .navbar .nav-link {
     color: white !important;
 }

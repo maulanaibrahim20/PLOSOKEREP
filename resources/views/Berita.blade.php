@@ -12,15 +12,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH1z6B8+Zt1Z7gL8b9LaE6A5+aF6rrgh/s3Rqs8pPv1gxd5F2Zwx+wRT7OoXtY/8PeAqTxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/Berita.css">
 
   <title>Desa Plosokerep</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark " style="background: rgb(9, 9, 117); background: linear-gradient(122deg, rgba(9, 9, 117, 1) 10%, rgba(0, 212, 255, 1) 63%); z-index: 1050;">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgb(9, 9, 117); background: linear-gradient(122deg, rgba(9, 9, 117, 1) 10%, rgba(0, 212, 255, 1) 63%); z-index: 1050;">
     <div class="container-fluid">
       <a class="navbar-brand logo" href="#">
-        <img src="{{URL ('gambar/LOGO1.png')}}" alt="Logo" style="width:150px; height: 40px;"/>
+        <img src="{{URL('gambar/LOGO1.png')}}" alt="Logo" style="width:150px; height: 40px;"/>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -28,61 +28,62 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="/disini/index.html"><i class="bi bi-house-door-fill"></i></a>
+            <a class="nav-link" href="/homepage"><i class="bi bi-house-door-fill"></i></a>
           </li>
           <li class="nav-item dropdown" style="margin-right: 20px;">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-houses-fill"></i> Profil Desa </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="/">Sejarah Desa</a></li>
-              <li><a class="dropdown-item" href="#">Visi dan Misi</a></li>
-              <li><a class="dropdown-item" href="#">Struktur Organisasi</a></li>
+              <li><a class="dropdown-item" href="/sejarah">Sejarah Desa</a></li>
+              <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi</a></li>
+              <li><a class="dropdown-item" href="H_aparatur">Struktur Organisasi</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown" style="margin-right: 20px;">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-rolodex"></i> Pelayanan </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Pelayanan KTP</a></li>
-              <li><a class="dropdown-item" href="#">Pelayanan KK</a></li>
-              <li><a class="dropdown-item" href="#">Pelayanan Akta Kelahiran</a></li>
+              <li><a class="dropdown-item" href="/H_pengaduan">Pengaduan</a></li>
+              <li><a class="dropdown-item" href="/H_surat">Pengajuan serat</a></li>
+              <li><a class="dropdown-item" href="/UMKM-D">UMKM</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown" style="margin-right: 20px;">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pie-chart-fill"></i> Data Desa </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Data Penduduk</a></li>
-              <li><a class="dropdown-item" href="#">Data Wilayah</a></li>
-              <li><a class="dropdown-item" href="#">Data Pendidikan</a></li>
+              <li><a class="dropdown-item" href="/kelamin">Kelamin</a></li>
+              <li><a class="dropdown-item" href="/pekerjaan">Pekerjaan</a></li>
+              <li><a class="dropdown-item" href="/agama">Agama</a></li>
             </ul>
           </li>
           <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="#"><i class="bi bi-geo-alt-fill"></i> Peta</a>
+            <a class="nav-link" href="/map-nav"><i class="bi bi-geo-alt-fill"></i> Peta</a>
           </li>
           <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="#"><i class="bi bi-image-fill"></i> Galeri</a>
+            <a class="nav-link" href="/galeri"><i class="bi bi-image-fill"></i> Galeri</a>
           </li>
           <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="#"><i class="bi bi-newspaper text-black"></i></i> Berita</a>
+            <a class="nav-link" href="/Berita"><i class="bi bi-newspaper text-black"></i> Berita</a>
           </li>
           <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link login btn" href="#" style="background-color: blue;"> Login</a>
+            <a class="nav-link login btn" href="{{route('login')}}" style="background-color: blue;"> Login</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
   <br>
-  <div class="container">
-    <div class="container-fluid " >
-      <div class="shadow-sm p-3 mb-5 bg-body rounded">
-        <i class="bi bi-megaphone-fill" style="background-color: red; width: 50px; height: 50px;"></i>
-    <marquee behavior="" direction="">
-      <b>SELAMAT DATANG DI WEBSITE DESA PLOSOKEREP DENGAN TUJUAN MEMPROMOSIKAN DESA</b>
-    </marquee>
+  <br>
+  <br>
+  <div class="container mt-12 ">
+    <div class="info-container shadow p-1 mb-5 rounded">
+      <i class="bi bi-megaphone-fill info-icon "></i>
+      <span class="fw-bold text-dark">Sekilas Info</span>
+      <div class="info-text">
+        <marquee behavior="" direction="">
+          <b>Selamat datang di Website Resmi UMKM Desa Plosokerep</b>
+        </marquee>
+      </div>
     </div>
-    </div>
-  </div>
-
-  
+  </div> 
   <div class="container">
     <div class="row shadow-sm p-3 mb-5 bg-body-tertiary rounded bg-primary text-light">
       <h3 class="text-center"><i class="bi bi-newspaper"></i> BERITA DESA PLOSOKEREP</h3>
@@ -93,7 +94,7 @@
         <div class="row row-cols-1 row-cols-md-3 g-4 shadow-sm p-3 mb-5 bg-body-tertiary rounded">
           <div class="col">
             <div class="card">
-              <img src="..." class="card-img-top" alt="...">
+              <img src="{{URL ('gambar/berita.jpg')}}" class="card-img-top" alt="...">
               <div class="card-body">
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
@@ -101,7 +102,7 @@
           </div>
           <div class="col">
             <div class="card">
-              <img src="..." class="card-img-top" alt="...">
+              <img src="{{URL ('gambar/berita.jpg')}}" class="card-img-top" alt="...">
               <div class="card-body">
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
@@ -109,7 +110,7 @@
           </div>
           <div class="col">
             <div class="card">
-              <img src="..." class="card-img-top" alt="...">
+              <img src="{{URL ('gambar/berita.jpg')}}" class="card-img-top" alt="...">
               <div class="card-body">
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
@@ -117,7 +118,7 @@
           </div>
           <div class="col">
             <div class="card">
-              <img src="..." class="card-img-top" alt="...">
+              <img src="{{URL ('gambar/berita.jpg')}}" class="card-img-top" alt="...">
               <div class="card-body">
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
@@ -125,7 +126,7 @@
           </div>
           <div class="col">
             <div class="card">
-              <img src="..." class="card-img-top" alt="...">
+              <img src="{{URL ('gambar/berita.jpg')}}" class="card-img-top" alt="...">
               <div class="card-body">
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
@@ -133,7 +134,7 @@
           </div>
           <div class="col">
             <div class="card">
-              <img src="..." class="card-img-top" alt="...">
+              <img src="{{URL ('gambar/berita.jpg')}}" class="card-img-top" alt="...">
               <div class="card-body">
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               </div>
@@ -149,8 +150,7 @@
           </li>
           <li class="list-group-item bg-light">
             <ul class="list-unstyled">
-              <li><a href="#" class="text-success d-block"><i class="bi bi-caret-right-fill"></i> Berita Ter-kini</a></li>
-              <li><a href="#" class="text-success d-block"><i class="bi bi-caret-right-fill"></i> UMKM DESA</a></li>
+              <li><a href="/UMKM-D" class="text-success d-block"><i class="bi bi-caret-right-fill"></i> UMKM DESA</a></li>
             </ul>
           </li>
 

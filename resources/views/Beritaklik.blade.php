@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH1z6B8+Zt1Z7gL8b9LaE6A5+aF6rrgh/s3Rqs8pPv1gxd5F2Zwx+wRT7OoXtY/8PeAqTxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/beritaklik.css">
 
   <title>Desa Plosokerep</title>
 </head>
@@ -71,12 +71,15 @@
     </div>
   </nav>
   <br>
-  <div class="container">
-    <div class="container-fluid " >
-      <div class="shadow-sm p-3 mb-5 bg-body rounded">
-        <i class="bi bi-megaphone-fill" style="background-color: red; width: 50px; height: 50px;"></i>
-    <marquee behavior="" direction="">hallo temen</marquee>
-    </div>
+  <div class="container mt-2 ">
+    <div class="info-container shadow p-1 mb-5 rounded">
+      <i class="bi bi-megaphone-fill info-icon "></i>
+      <span class="fw-bold text-dark">Sekilas Info</span>
+      <div class="info-text">
+        <marquee behavior="" direction="">
+          <b>Selamat datang di Website Resmi UMKM Desa Plosokerep</b>
+        </marquee>
+      </div>
     </div>
   </div>
 

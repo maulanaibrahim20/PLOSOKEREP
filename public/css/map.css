@@ -1,0 +1,27 @@
+
+body {
+    margin-top: 0px;
+    font-family: Arial, sans-serif;
+}
+
+.logo img {
+    height: 100px;
+}
+
+/* Navbar Styles */
+.navbar .nav-link {
+    color: white !important;
+}
+
+.cardl {
+    width: 80%;
+    margin: auto;
+    margin-top: 80px;
+}
+
+@media (max-width: 992px) {
+    .cardl {
+        width: 100%;
+        margin-top: 20px;
+    }
+}

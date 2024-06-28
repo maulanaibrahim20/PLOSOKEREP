@@ -29,6 +29,16 @@
     margin-left: 10px;
   }
   
+  .center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.custom-card {
+    max-width: 400px;
+    margin: auto;
+}
+
   .card-img-top {
     border-radius: 50px;
     padding: 10px;

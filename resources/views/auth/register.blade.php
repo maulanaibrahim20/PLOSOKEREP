@@ -56,10 +56,11 @@
                     <label for="role">Role :</label>
                     <input type="text" class="form-control" id="role" name="role" value="{{ old('role') }}" required>
                 </div>
+                 <br>
                 @error('role')
                     <small>{{ $message }}</small>
                 @enderror 
-                <button type="submit" class="btn btn-success btn-block">DAFTAR</button>
+                <button type="submit" class="btn btn-success btn-block ">DAFTAR</button>
             </form> 
             <p class="mt-3 text-center">Sudah Punya Akun? <a href="{{route('login')}}">Login</a></p>
         </div>

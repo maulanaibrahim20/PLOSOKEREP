@@ -94,3 +94,18 @@ Route::get('/UMKM-c', function () {
 Route::get('/UMKM-k', function () {
     return view('UMKM-k');
 });
+Route::get('/agama', function () {
+    return view('agama');
+});
+Route::get('/kelamin', function () {
+    return view('kelamin');
+});
+Route::get('/pekerjaan', function () {
+    return view('pekerjaan');
+});
+Route::get('/map-nav', function () {
+    return view('map-nav');
+});
+Route::get('/Berita', function () {
+    return view('Berita');
+});

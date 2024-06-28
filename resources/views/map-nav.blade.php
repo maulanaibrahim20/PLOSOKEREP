@@ -16,7 +16,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/surat.css">
+    <link rel="stylesheet" href="css/map.css">
 
     <title>Desa Plosokerep</title>
 </head>
@@ -84,54 +84,36 @@
             </div>
         </div>
     </nav>
-
-    <div class="container mt-2">
-        <div class="info-container shadow p-1 mb-5 rounded">
-            <i class="bi bi-megaphone-fill info-icon"></i>
-            <span class="fw-bold text-dark">Sekilas Info</span>
-            <div class="info-text">
-                <marquee behavior="" direction="">
-                    <b>Selamat datang di Website Resmi UMKM Desa Plosokerep</b>
-                </marquee>
+    <br>
+    <br>
+    <div class="card text-center cardl">
+        <div class="card-header">
+            <b>MAP WILAYAH DESA PLOSOKEREP</b>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <div class="responsive-map-container">
+              <iframe class="responsive-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31714.880030170756!2d108.12779004999999!3d-6.47600405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6ecbc254f159e7%3A0x5a1bd9656311b724!2sPlosokerep%2C%20Kec.%20Terisi%2C%20Kabupaten%20Indramayu%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1719541754809!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            </div>
+            <div class="col">
+              <div class="info-container bg-white p-3">
+                <h2>Informasi Lokasi</h2>
+                <p><strong>Negara:</strong> Indonesia</p>
+                <p><strong>Provinsi:</strong> Jawa Barat</p>
+                <p><strong>Kabupaten:</strong> Indramayu</p>
+                <p><strong>Kecamatan:</strong> Terisi</p>
+                <p><strong>Kode Kemendagri:</strong> 32.12.26.2004</p>
+                <p><strong>Luas:</strong> 7,61 km²</p>
+                <p><strong>Jumlah penduduk:</strong> 5.595 jiwa</p>
+                <p><strong>Kepadatan:</strong> 735,27 jiwa/km²</p>
+            </div>
+            </div>
+          </div>
             </div>
         </div>
     </div>
-    <div class="container py-3">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center">
-                            <img src="{{ URL('gambar/logo.png') }}" class="center-image" width="200px" height="250px"
-                                alt="">
-                        </div>
-                        <br>
-                        <h2 class="card-title text-center mb-4">PENGADUAN MASYARAKAT</h2>
-                        <form>
-                            <div class="mb-3">
-                                <label for="namaLengkap" class="form-label">Nama Lengkap:</label>
-                                <input type="text" class="form-control" id="namaLengkap" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="nik" class="form-label">NIK:</label>
-                                <input type="text" class="form-control" id="nik" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="nomorHp" class="form-label">Nomor HP:</label>
-                                <input type="text" class="form-control" id="nomorHp" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="uploadSurat" class="form-label">Upload Surat:</label>
-                                <input type="file" class="form-control" id="uploadSurat" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Kirim</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
