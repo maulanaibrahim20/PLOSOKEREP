@@ -26,21 +26,21 @@
 <body>
   @include('layout.navbar')
 
-  <div class="container mt-4">
+  <div class="container mt-4 ">
     <div class="row">
-      <div class="col-12 col-md-4 sidebar" id="kiri">
+      <div class="col-12 col-md-4 sidebar bg-primary" id="kiri">
         <img src="{{URL('gambar/logo.png')}}" alt="logo" style="width: 128px; height: 159px; display: block; margin: 0 auto; margin-top:2rem;" id="logo1">
-        <h1 class="text-center ">Desa Plosokerep</h1>
-        <p class="text-center">Kec. Terisi, Kabupaten Indramayu, Jawa Barat</p>
+        <h1 class="text-center text-light fw-bolder">Desa Plosokerep</h1>
+        <p class="text-center text-light fw-bolder">Kec. Terisi, Kabupaten Indramayu, Jawa Barat</p>
         <div class="row">
           <div class="col-4 d-flex justify-content-center mb-2">
             <button type="button" class="btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="height: 100px; width: 100%;">
-              <img src="{{URL('gambar/icon/kontak.png')}}" alt="" style="width: 30px; height: 30px; display: block; margin: 0 auto;">
+              <i class="bi bi-person-lines-fill"></i>
               <p style="font-size: 10px; text-align: center;">Kontak Desa</p>
             </button>
       
             <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade fw-bolder" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -68,36 +68,36 @@
           </div>
       
           <div class="col-4 d-flex justify-content-center mb-2">
-            <button class="btn btn-primary" style="height: 100px; width: 100%;">
-              <img src="/icon/desa.png" alt="" style="width: 30px; height: 30px; display: block; margin: 0 auto;">
+            <button class="btn btn-success" style="height: 100px; width: 100%;">
+              <i class="bi bi-people-fill"></i>
               <p style="font-size: 14px; text-align: center;">Aparatur Desa</p>
             </button>
           </div>
       
           <div class="col-4 d-flex justify-content-center mb-2">
-            <button class="btn btn-primary" style="height: 100px; width: 100%;">
-              <img src="/icon/pesan.png" alt="" style="width: 30px; height: 30px; display: block; margin: 0 auto;">
+            <button class="btn btn-success" style="height: 100px; width: 100%;">
+              <i class="bi bi-houses-fill"></i>
               <p style="font-size: 14px; text-align: center;">Tentang Desa</p>
             </button>
           </div>
       
           <div class="col-4 d-flex justify-content-center mb-2">
-            <button class="btn btn-primary" style="height: 100px; width: 100%;">
-              <img src="/icon/lokasi.png" alt="" style="width: 30px; height: 30px; display: block; margin: 0 auto;">
-              <p style="font-size: 14px; text-align: center;">Lokasi Desa</p>
+            <button class="btn btn-success" style="height: 100px; width: 100%;">
+              <i class="bi bi-newspaper"></i>
+              <p style="font-size: 14px; text-align: center;">berita</p>
             </button>
           </div>
       
           <div class="col-4 d-flex justify-content-center mb-2">
-            <button class="btn btn-primary" style="height: 100px; width: 100%;">
-              <img src="/icon/maps.png" alt="" style="width: 30px; height: 30px; display: block; margin: 0 auto;">
+            <button class="btn btn-success" style="height: 100px; width: 100%;">
+              <i class="bi bi-map-fill"></i>
               <p style="font-size: 14px; text-align: center;">Peta Desa</p>
             </button>
           </div>
       
           <div class="col-4 d-flex justify-content-center mb-2">
-            <button class="btn btn-primary" style="height: 100px; width: 100%;">
-              <img src="/icon/umkm.png" alt="" style="width: 30px; height: 30px; display: block; margin: 0 auto;">
+            <button class="btn btn-success" style="height: 100px; width: 100%;">
+              <i class="bi bi-basket2-fill"></i>
               <p style="font-size: 14px; text-align: center;">UMKM Desa</p>
             </button>
           </div>
