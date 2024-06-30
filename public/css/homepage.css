@@ -1,0 +1,109 @@
+body {
+    margin-top: 0px;
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(3px);
+    margin: 0;
+    padding: 0;
+}
+
+.logo img {
+    height: 100px;
+}
+
+/* Navbar Styles */
+
+
+/* .navbar .nav-link {
+    color: white !important;
+} */
+
+/* Sidebar Styles */
+.sidebar {
+    position: relative;
+    top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.sidebar img#logo1 {
+    width: 128px;
+    height: 159px;
+    display: block;
+    margin: 0 auto;
+}
+
+.sidebar h1,
+.sidebar p {
+    text-align: center;
+}
+
+.sidebar .btn-success {
+    height: 100px;
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar .btn-success img {
+    width: 30px;
+    height: 30px;
+}
+
+.sidebar .btn-success p {
+    font-size: 10px;
+    text-align: center;
+}
+
+/* Modal Styles */
+.modal-body img {
+    height: 90px;
+    width: 90px;
+    display: block;
+    margin: 0 auto;
+}
+
+.modal-body button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Container Styles */
+.container {
+    margin-top: 20px;
+}
+
+@media (max-width: 767px) {
+    .sidebar {
+        height: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .container .row .sidebar {
+        height: calc(100vh - 80px); /* Adjust for the height of the navbar */
+        overflow-y: auto;
+    }
+}
+
+
+.jadwal-container {
+    display: flex;
+    overflow-x: auto;
+    width: 800px; /* Lebar jadwal sholat diambil dari lebar konten dikurangi lebar sidebar */
+    margin-left: 10px; /* Jarak antara jadwal sholat dan sidebar */
+  }
+  .jadwal-item {
+    flex: 0 0 auto;
+    width: 100px; /* Lebar setiap item jadwal sholat */
+    border: 1px solid #ccc; /* Tambahkan garis pemisah */
+    padding: 10px;
+    margin-right: 10px; /* Jarak antara setiap item */
+  }
