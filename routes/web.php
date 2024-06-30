@@ -3,14 +3,14 @@
 use App\Http\Controllers\AdminUmkmController;
 use App\Http\Controllers\AparaturController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\DataTableController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilDesaController;
-use App\Models\Aparatur;
-use App\Models\Pengaduan;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,146 +24,116 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login',[LoginController::class, 'index'])->name('login');
-Route::post('/login-proses',[LoginController::class, 'login_proses'])->name('login-proses');
+// Rute untuk halaman login dan register
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/register',[LoginController::class, 'register'])->name('register');
-Route::post('/register-proses',[LoginController::class, 'register_proses'])->name('register-proses');
+// Rute untuk logout mengarahkan ke homepage
+//Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('guest');
 
-Route::get('/',[HomeController::class, 'homepage']);
+// Rute untuk halaman beranda dapat diakses oleh siapa saja
+Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 Route::get('/homepage', [HomeController::class, 'homepage'])->name('homepage');
 
+// Rute untuk register
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/register-proses', [LoginController::class, 'register_proses'])->name('register-proses');
+
+// Group untuk admin dengan middleware auth dan role admin
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin'], 'as' => 'admin.'], function(){
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
-    // Route::get('/',[HomeController::class, 'homepage']);
-    // Route::get('/homepage', [HomeController::class, 'homepage'])->name('homepage');
-
-
-
-    Route::get('/user',[HomeController::class, 'user'])->name('user');
-
-    Route::get('/aparatur',[AparaturController::class, 'aparatur'])->name('aparatur');
-    Route::get('/create',[AparaturController::class, 'create'])->name('create');
-    Route::post('/store2',[AparaturController::class, 'store2'])->name('store2');
-    Route::get('/edit/{id}',[AparaturController::class, 'edit'])->name('aparatur.edit');
-    Route::put('/update/{id}',[AparaturController::class, 'update'])->name('aparatur.update');
-    Route::delete('/delete/{id}',[AparaturController::class, 'delete'])->name('aparatur.delete');
-
-   
+    Route::get('/user', [HomeController::class, 'user'])->name('user');
+    Route::get('/aparatur', [AparaturController::class, 'aparatur'])->name('aparatur');
+    Route::get('/create', [AparaturController::class, 'create'])->name('create');
+    Route::post('/store2', [AparaturController::class, 'store2'])->name('store2');
+    Route::get('/edit/{id}', [AparaturController::class, 'edit'])->name('aparatur.edit');
+    Route::put('/update/{id}', [AparaturController::class, 'update'])->name('aparatur.update');
+    Route::delete('/delete/{id}', [AparaturController::class, 'delete'])->name('aparatur.delete');
     Route::get('/pengaduan', [PengaduanController::class, 'pengaduan'])->name('pengaduan');
-    //Route::get('/create_pengaduan',[PengaduanController::class, 'create_pengaduan'])->name('create_pengaduan');
-    Route::post('/simpan_pengaduan',[PengaduanController::class, 'simpan_pengaduan'])->name('simpan_pengaduan');
-    Route::get('/edit_pengaduan/{id}',[PengaduanController::class, 'edit_pengaduan'])->name('Pengaduan.edit');
-    Route::put('/update_pengaduan/{id}',[PengaduanController::class, 'update_pengaduan'])->name('Pengaduan.update');
-    Route::delete('/delete_pengaduan/{id}',[PengaduanController::class, 'delete_pengaduan'])->name('Pengaduan.delete');
-
+    Route::post('/simpan_pengaduan', [PengaduanController::class, 'simpan_pengaduan'])->name('simpan_pengaduan');
+    Route::get('/edit_pengaduan/{id}', [PengaduanController::class, 'edit_pengaduan'])->name('Pengaduan.edit');
+    Route::put('/update_pengaduan/{id}', [PengaduanController::class, 'update_pengaduan'])->name('Pengaduan.update');
+    Route::delete('/delete_pengaduan/{id}', [PengaduanController::class, 'delete_pengaduan'])->name('Pengaduan.delete');
     Route::get('/profildesa', [ProfilDesaController::class, 'profildesa'])->name('profildesa');
-    Route::get('/create_profildesa',[ProfilDesaController::class, 'create_profildesa'])->name('create_profildesa');
-    Route::post('/simpan_profildesa',[ProfilDesaController::class, 'simpan_profildesa'])->name('simpan_profildesa');
-    Route::get('/edit_profildesa/{id}',[ProfilDesaController::class, 'edit_profildesa'])->name('profildesa.edit');
-    Route::put('/update_profildesa/{id}',[ProfilDesaController::class, 'update_profildesa'])->name('profildesa.update');
-    Route::delete('/delete_profildesa/{id}',[ProfilDesaController::class, 'delete_profildesa'])->name('profildesa.delete');
-
+    Route::get('/create_profildesa', [ProfilDesaController::class, 'create_profildesa'])->name('create_profildesa');
+    Route::post('/simpan_profildesa', [ProfilDesaController::class, 'simpan_profildesa'])->name('simpan_profildesa');
+    Route::get('/edit_profildesa/{id}', [ProfilDesaController::class, 'edit_profildesa'])->name('profildesa.edit');
+    Route::put('/update_profildesa/{id}', [ProfilDesaController::class, 'update_profildesa'])->name('profildesa.update');
+    Route::delete('/delete_profildesa/{id}', [ProfilDesaController::class, 'delete_profildesa'])->name('profildesa.delete');
     Route::get('/m_berita', [BeritaController::class, 'm_berita'])->name('m_berita');
-    Route::get('/create_m_berita',[BeritaController::class, 'create_m_berita'])->name('create_m_berita');
-    Route::post('/simpan_m_berita',[BeritaController::class, 'simpan_m_berita'])->name('simpan_m_berita');
-    Route::get('/edit_m_berita/{id}',[BeritaController::class, 'edit_m_berita'])->name('m_berita.edit');
-    Route::get('/show/{id}',[BeritaController::class, 'show'])->name('berita.show');
-    Route::put('/update_m_berita/{id}',[BeritaController::class, 'update_m_berita'])->name('m_berita.update');
-    Route::delete('/delete_m_berita/{id}',[BeritaController::class, 'delete_m_berita'])->name('m_berita.delete');
-
+    Route::get('/create_m_berita', [BeritaController::class, 'create_m_berita'])->name('create_m_berita');
+    Route::post('/simpan_m_berita', [BeritaController::class, 'simpan_m_berita'])->name('simpan_m_berita');
+    Route::get('/edit_m_berita/{id}', [BeritaController::class, 'edit_m_berita'])->name('m_berita.edit');
+    Route::get('/show/{id}', [BeritaController::class, 'show'])->name('berita.show');
+    Route::put('/update_m_berita/{id}', [BeritaController::class, 'update_m_berita'])->name('m_berita.update');
+    Route::delete('/delete_m_berita/{id}', [BeritaController::class, 'delete_m_berita'])->name('m_berita.delete');
 });
 
-// Route::get('/H_pengaduan', function () {
-//     return view('H_pengaduan');
-// })->name('H_pengaduan');
+// Rute untuk pengaduan masyarakat
 Route::get('/pengaduan', [PengaduanController::class, 'pengaduan'])->name('pengaduan');
-Route::get('/H_pengaduan',[PengaduanController::class, 'H_pengaduan'])->name('H_pengaduan');
-Route::post('/simpan_pengaduan',[PengaduanController::class, 'simpan_pengaduan'])->name('simpan_pengaduan');
+Route::get('/H_pengaduan', [PengaduanController::class, 'H_pengaduan'])->name('H_pengaduan');
+Route::post('/simpan_pengaduan', [PengaduanController::class, 'simpan_pengaduan'])->name('simpan_pengaduan');
 Route::delete('/delete_pengaduan/{id}', [PengaduanController::class, 'delete_pengaduan'])->name('delete_pengaduan');
 
+// Rute untuk berita
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
 Route::get('/berita', [BeritaController::class, 'berita'])->name('berita');
 Route::get('/beritaklik', [BeritaController::class, 'beritaklik'])->name('beritaklik');
 Route::get('/beritaklik/{id}', [BeritaController::class, 'beritaklik'])->name('beritaklik');
 
-//Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
+// Rute untuk UMKM
 Route::get('/umkm_d', [ProductController::class, 'umkm_d'])->name('umkm_d');
 Route::get('/umkm_e', [ProductController::class, 'umkm_e'])->name('umkm_e');
 Route::get('/umkm_e/{id}', [ProductController::class, 'umkm_e'])->name('umkm_e');
+Route::get('/umkm_c/{id}', [ProductController::class, 'umkm_c'])->name('umkm_c');
 
-
-
-Route::get('/homepage', function () { 
-    return view('homepage');
-});
-Route::get('/sejarah', function () {
-    return view('sejarah');
-});
+// Rute halaman statis
 Route::get('/sejarah', function () {
     return view('sejarah');
 });
 Route::get('/visi-misi', function () {
     return view('visi-misi');
 });
-// Route::get('/Beritaklik', function () {
-//     return view('Beritaklik');
-// });
-// Route::get('/login', function () {
-//     return view('auth.login');
-// });
-// Route::get('/Daftar', function () {
-//     return view('Daftar');
-// });
 Route::get('/H_aparatur', function () {
     return view('H_aparatur');
 });
-// Route::get('/H_pengaduan', function () {
-//     return view('H_pengaduan');
-// });
 Route::get('/H_surat', function () {
     return view('H_surat');
-});
-// Route::get('/UMKM-D', function () {
-//     return view('UMKM-D');
-// });
-// Route::get('/UMKM-e', function () {
-//     return view('UMKM-e');
-// });
-Route::get('/UMKM-c', function () {
-    return view('UMKM-c');
 });
 Route::get('/UMKM-k', function () {
     return view('UMKM-k');
 });
-// Route::get('/berita', function () {
-//     return view('berita');
-// });
 
-
+// Group untuk UMKM dengan middleware auth dan role umkm
 Route::group(['prefix' => 'umkm', 'middleware' => ['auth', 'role:umkm'], 'as' => 'umkm.'], function(){
     Route::get('/dashboard_umkm', [AdminUmkmController::class, 'dashboard_umkm'])->name('dashboard_umkm');
     Route::get('/product', [AdminUmkmController::class, 'product'])->name('product');
-
     Route::get('/product', [ProductController::class, 'product'])->name('product');
-    Route::get('/create_produk',[ProductController::class, 'create_produk'])->name('create_produk');
-    Route::post('/simpan_produk',[ProductController::class, 'simpan_produk'])->name('simpan_produk');
+    Route::get('/create_produk', [ProductController::class, 'create_produk'])->name('create_produk');
+    Route::post('/simpan_produk', [ProductController::class, 'simpan_produk'])->name('simpan_produk');
     Route::get('/edit_produk/{id}', [ProductController::class, 'edit_produk'])->name('produk.edit');
-    Route::get('/show/{id}',[ProductController::class, 'show'])->name('berita.show');
+    Route::get('/show/{id}', [ProductController::class, 'show'])->name('berita.show');
     Route::put('/update_produk/{id}', [ProductController::class, 'update_produk'])->name('produk.update');
-    Route::delete('/delete_produk/{id}',[ProductController::class, 'delete_produk'])->name('produk.delete');
-    
-
-
+    Route::delete('/delete_produk/{id}', [ProductController::class, 'delete_produk'])->name('produk.delete');
 });
 
-Route::group(['middleware' => ['guest']], function() {
-    Route::get('/homepage', [HomeController::class, 'homepage'])->name('homepage');
-    // Tambahkan rute customer lainnya di sini
-});
-
+// Group untuk file manager dengan middleware auth
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
+// Group untuk rute yang memerlukan autentikasi
+Route::middleware('auth')->group(function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('Cart');
+    Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::post('/cart/update/{id}', [CartController::class, 'updateCart'])->name('cart.update');
+    Route::post('/cart/remove/{id}', [CartController::class, 'removeCartItem'])->name('cart.remove');
+    Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+    
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+
+    // Routes for Admin UMKM to manage orders
+    Route::get('/admin/orders', [AdminUmkmController::class, 'orders'])->name('admin.orders');
 
 });

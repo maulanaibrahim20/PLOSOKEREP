@@ -36,6 +36,11 @@ class ProductController extends Controller
         $Product = Product::findOrFail($id);
         return view('UMKM-e', compact('Product'));
     }
+
+    public function umkm_c($id) {
+        $Product = Product::findOrFail($id);
+        return view('UMKM-c', compact('Product'));
+    }
     
     
 

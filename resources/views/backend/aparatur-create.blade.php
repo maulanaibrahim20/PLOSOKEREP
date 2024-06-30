@@ -47,13 +47,6 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                      <label for="InputNohp">NO.HP</label>
-                      <input type="text" class="form-control" id="InputNohp" name="no.hp" placeholder="No.HP">
-                      @error('no.hp')
-                      <small>{{ $message }}</small>
-                      @enderror
-                  </div>
-                    <div class="form-group">
                       <label for="gambar">Gambar:</label>
                       <input type="file" name="gambar" id="gambar" required>
                       @error('gambar')

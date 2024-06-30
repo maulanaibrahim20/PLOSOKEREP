@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
+    
     public function index() {
         return view('auth.login');
     }
@@ -40,11 +41,13 @@ class LoginController extends Controller
     }
 
 
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('homepage')->with('Success','Kamu Berhasil Logout');
+
+        return redirect('/');
     }
 
     public function register() {

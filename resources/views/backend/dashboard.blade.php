@@ -23,13 +23,13 @@
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>{{$total_pengaduan}}</sup></h3>
                 <p>Pengaduan Masyarakat</p>
               </div>
               <div class="icon">
                 <i class="ion ion-chatbubbles"></i>
               </div>
-              <a href="#" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('admin.m_berita') }}" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -92,7 +92,7 @@
             <!-- small box -->
             <div class="small-box bg-primary">
               <div class="inner">
-                <h3>65</h3>
+                <h3>{{$total_user}}</h3>
                 <p>Data User</p>
               </div>
               <div class="icon">

@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('table_aparatur', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->string('jabatan'); 
-            $table->string('gambar')->nullable();
-            $table->timestamps();
+        Schema::table('carts', function (Blueprint $table) {
+            $table->string('customer_name')->nullable();
+            $table->string('customer_address')->nullable();
         });
+        
     }
 
     /**
@@ -25,6 +23,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('table_aparatur');
+        Schema::table('carts', function (Blueprint $table) {
+            //
+        });
     }
 };

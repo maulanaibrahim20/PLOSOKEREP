@@ -5,11 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Aparatur extends Model
+class Order extends Model
 {
     use HasFactory;
-
-    protected $table = 'table_aparatur';
-
-    protected $fillable = ['nama', 'jabatan', 'gambar'];
+    protected $guarded =[];
 }

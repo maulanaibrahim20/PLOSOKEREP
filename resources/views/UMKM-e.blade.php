@@ -18,59 +18,7 @@
 </head>
 <body>
   @include('layout.navbar')
-  {{-- <nav class="navbar navbar-expand-lg navbar-dark" style="background: rgb(9, 9, 117); background: linear-gradient(122deg, rgba(9, 9, 117, 1) 10%, rgba(0, 212, 255, 1) 63%); z-index: 1050;">
-    <div class="container-fluid">
-      <a class="navbar-brand logo" href="#">
-        <img src="{{URL ('gambar/LOGO1.png')}}" alt="Logo" style="width:150px; height: 40px;"/>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="/homepage"><i class="bi bi-house-door-fill"></i></a>
-          </li>
-          <li class="nav-item dropdown" style="margin-right: 20px;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-houses-fill"></i> Profil Desa </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="/sejarah">Sejarah Desa</a></li>
-              <li><a class="dropdown-item" href="/visi-misi">Visi dan Misi</a></li>
-              <li><a class="dropdown-item" href="H_aparatur">Struktur Organisasi</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown" style="margin-right: 20px;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-rolodex"></i> Pelayanan </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Pengaduan</a></li>
-              <li><a class="dropdown-item" href="#">Pengajuan serat</a></li>
-              <li><a class="dropdown-item" href="#">UMKM</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown" style="margin-right: 20px;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pie-chart-fill"></i> Data Desa </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Data Penduduk</a></li>
-              <li><a class="dropdown-item" href="#">Data Wilayah</a></li>
-              <li><a class="dropdown-item" href="#">Data Pendidikan</a></li>
-            </ul>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="#"><i class="bi bi-geo-alt-fill"></i> Peta</a>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="#"><i class="bi bi-image-fill"></i> Galeri</a>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="#"><i class="bi bi-newspaper text-black"></i></i> Berita</a>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link login btn" href="#" style="background-color: blue;"> Login</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> --}}
+
 
   <div class="container mt-2 ">
     <div class="info-container shadow p-1 mb-5 rounded">
@@ -89,25 +37,18 @@
         <img id="mainImage" src="{{ asset('storage/gambar/Product/' . $Product->img_produk) }}" class="img-fluid" alt="">
       </div>
       <div class="col-md-8">
-        <h3>Susu Kedelai</h3>
-        <p><b>Rp. 28.000 </b></p>
+        <h3>{{$Product->nama_produk}}</h3>
+        <p><b>Rp. {{$Product->harga}}</b></p>
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Deskripsi Produk</h5>
             <p class="card-text">
-              Susu kedelai ndeso <br>
-              Komposisi: <br>
-              - 100% gula asli <br>
-              - Kedelai premium <br>
-              - Tepung terigu premium <br>
-              Kemasan: <br>
-              - 250 Gram <br>
-              <b>NB: Tersedia harga grosir & menerima pesanan</b>
+              {!! $Product->desc_produk !!}
             </p>
 
             <a href={{route('umkm_d')}} class="btn btn-warning">Kembali</a>
             <a href="https://wa.me/628976562320" class="btn btn-info">hubungi penjual</a>
-            <a href="/UMKM-c" class="btn btn-success">pesan</a>
+            <a href="{{ route('umkm_c', ['id' => $Product->id]) }}" class="btn btn-success">pesan</a>
         </div>
         </div>
       </div>

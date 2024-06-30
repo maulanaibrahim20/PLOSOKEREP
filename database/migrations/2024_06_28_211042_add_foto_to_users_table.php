@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('table_aparatur', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->string('jabatan'); 
-            $table->string('gambar')->nullable();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('foto')->nullable()->default('default_avatar.png')->after('role');
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('table_aparatur');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('foto');
+        });
     }
 };

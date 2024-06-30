@@ -34,7 +34,6 @@ class AparaturController extends Controller
        $validator = Validator::make($request->all(),[
             'nama' => 'required',
             'jabatan' => 'required',
-            'no_hp' => 'required',
             'gambar' => 'required|mimes:png,jpg,jpeg|max:2048',
        ]);
 
@@ -48,7 +47,6 @@ class AparaturController extends Controller
 
        $data['nama']      = $request->nama;
        $data['jabatan']   = $request->jabatan;
-       $data['no_hp']     = $request->no_hp;
        $data['gambar']    = $filename;
 
        Aparatur::create($data);
@@ -66,7 +64,6 @@ class AparaturController extends Controller
         $validator = Validator::make($request->all(),[
             'nama' => 'required',
             'jabatan' => 'required',
-            'no_hp' => 'required',
             'gambar' => 'required|mimes:png,jpg,jpeg|max:2048',
        ]);
 
@@ -74,7 +71,6 @@ class AparaturController extends Controller
 
        $data['nama']      = $request->nama;
        $data['jabatan']   = $request->jabatan;
-       $data['no_hp']     = $request->no_hp;
        $data['gambar']    = $request->gambar;
 
        Aparatur::whereId($id)->update($data);
