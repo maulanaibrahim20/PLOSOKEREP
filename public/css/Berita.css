@@ -15,90 +15,17 @@ body {
 }
 
 /* Sidebar Styles */
-.sidebar {
-    position: relative;
-    top: 20px;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-}
-
-.sidebar img#logo1 {
-    width: 128px;
-    height: 159px;
-    display: block;
-    margin: 0 auto;
-}
-
-.sidebar h1,
-.sidebar p {
-    text-align: center;
-}
-
-.sidebar .btn-success {
-    height: 100px;
-    width: 100%;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.sidebar .btn-success img {
-    width: 30px;
-    height: 30px;
-}
-
-.sidebar .btn-success p {
-    font-size: 10px;
-    text-align: center;
-}
-
-/* Modal Styles */
-.modal-body img {
-    height: 90px;
-    width: 90px;
-    display: block;
-    margin: 0 auto;
-}
-
-.modal-body button {
-    width: 100%;
-    margin-top: 10px;
-}
-
-/* Container Styles */
-.container {
-    margin-top: 20px;
-}
-
-@media (max-width: 767px) {
-    .sidebar {
-        height: auto;
-    }
-}
-
-@media (min-width: 768px) {
-    .container .row .sidebar {
-        height: calc(100vh - 80px); /* Adjust for the height of the navbar */
-        overflow-y: auto;
-    }
-}
-
-
 .info-container {
     display: flex;
     align-items: center;
     padding: 10px;
-    background-color: #009b0f; /* Warna latar belakang yang disesuaikan */
-    color: white; /* Warna teks yang disesuaikan */
+    background-color: #009b0f;
+    color: white;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    border-radius: 5px; /* Radius border untuk sudut yang melengkung */
+    border-radius: 5px;
   }
-
-.info-icon {
+  
+  .info-icon {
     width: 20px;
     height: 20px;
     margin-right: 10px;
@@ -112,14 +39,7 @@ body {
     border-radius: 5px;
     margin-left: 10px;
   }
-
-  .card {
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-img-top {
-    height: 100px; /* Atur tinggi gambar sesuai kebutuhan */
-    object-fit: cover; /* Mengatur gambar agar mengisi area dengan mempertahankan aspek ratio */
+  
+  .no-underline {
+    text-decoration: none;
 }

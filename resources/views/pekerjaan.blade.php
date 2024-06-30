@@ -11,60 +11,11 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background: rgb(9, 9, 117); background: linear-gradient(122deg, rgba(9, 9, 117, 1) 10%, rgba(0, 212, 255, 1) 63%); z-index: 1050;">
-    <div class="container-fluid">
-      <a class="navbar-brand logo" href="#">
-        <img src="{{URL ('gambar/LOGO1.png')}}" alt="Logo" style="width:150px; height: 40px;"/>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="/disini/index.html"><i class="bi bi-house-door-fill"></i></a>
-          </li>
-          <li class="nav-item dropdown" style="margin-right: 20px;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-houses-fill"></i> Profil Desa </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="/sejarah">Sejarah Desa</a></li>
-              <li><a class="dropdown-item" href="#">Visi dan Misi</a></li>
-              <li><a class="dropdown-item" href="H_aparatur">Struktur Organisasi</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown" style="margin-right: 20px;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-rolodex"></i> Pelayanan </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Pengaduan</a></li>
-              <li><a class="dropdown-item" href="#">Pengajuan serat</a></li>
-              <li><a class="dropdown-item" href="#">UMKM</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown" style="margin-right: 20px;">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pie-chart-fill"></i> Data Desa </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="/kelamin">Kelamin</a></li>
-              <li><a class="dropdown-item" href="/pekerjaan">Pekerjaan</a></li>
-              <li><a class="dropdown-item" href="/agama">Agama</a></li>
-            </ul>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="#"><i class="bi bi-geo-alt-fill"></i> Peta</a>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="#"><i class="bi bi-image-fill"></i> Galeri</a>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link" href="#"><i class="bi bi-newspaper text-black"></i></i> Berita</a>
-          </li>
-          <li class="nav-item" style="margin-right: 20px;">
-            <a class="nav-link login btn" href="#" style="background-color: blue;"> Login</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+@include('layout/navbar')
 
+<br>
+<br>
+<br>
   <div class="container mt-5">
     <h3>DATA PEKERJAAN DI DESA PLOSOKEREP</h3>
     <div class="row">
@@ -106,6 +57,8 @@
       </div>
     </div>
   </div>
+
+  @include('layout/copyright')
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-k6RqeWeci5ZR/LvMR0sA0FfDOMp0RSK9sB0UGaAcVEOl8SKSTBSkT8wCHd1/6hsLoRF4XsF06HUETeKRWPL5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

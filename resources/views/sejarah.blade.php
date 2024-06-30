@@ -17,82 +17,128 @@
   <title>Desa Plosokerep</title>
 </head>
 <body>
-  @include('layout.navbar')
+  @include('layout/navbar')
 
 
   <div class="container mt-4 pt-5">
     <div class="row">
-      <div class="col-12 col-md-4 sidebar mt-4 bg-primary" id="kiri">
-        <img src="{{URL('gambar/logo.png')}}" alt="logo" style="width: 128px; height: 159px; display: block; margin: 0 auto;" id="logo1">
-        <h1 class="text-center">Desa Plosokerep</h1>
-        <p class="text-center">Kec. Terisi, Kabupaten Indramayu, Jawa Barat</p>
+      <div class="col-12 col-md-4 sidebar bg-primary" id="kiri">
+        <img src="{{ URL('gambar/logo.png') }}" alt="logo"
+            style="width: 128px; height: 159px; display: block; margin: 0 auto; margin-top:2rem;"
+            id="logo1">
+        <h1 class="text-center text-light fw-bolder">Desa Plosokerep</h1>
+        <p class="text-center text-light fw-bolder">Kec. Terisi, Kabupaten Indramayu, Jawa Barat</p>
         <div class="row">
-          <div class="col-4 d-flex justify-content-center mb-2">
-            <button type="button" class="btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="height: 100px; width: 100%;">
-              <img src="{{URL('gambar/icon/kontak.png')}}" alt="" style="width: 30px; height: 30px; display: block; margin: 0 auto;">
-              <p style="font-size: 10px; text-align: center;">Kontak Desa</p>
-            </button>
+            <div class="col-4 d-flex justify-content-center mb-2">
+                <button type="button" class="btn-success" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop" style="height: 100px; width: 100%;">
+                    <i class="bi bi-person-lines-fill"></i>
+                    <p style="font-size: 10px; text-align: center;">Kontak Desa</p>
+                </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body text-center">
-                    <img src="{{URL('gambar/avatar.png')}}" alt="" style="height: 90px; width: 90px; display: block; margin: 0 auto;">
-                    <br><br>
-                    <button type="button" class="btn" style="background: rgb(0, 255, 20); background: linear-gradient(135deg, rgba(0, 255, 20, 1) 10%, rgba(0, 195, 32, 1) 62%); width: 100%;">
-                      <i class="bi bi-whatsapp"></i> <b><a href="https://wa.me/628976562320" style="color: white;">whatsapp</a></b>
-                    </button>
-                    <button type="button" class="btn mt-2" style="background: rgb(0,142,255); background: linear-gradient(96deg, rgba(0,142,255,1) 10%, rgba(205,192,68,1) 37%, rgba(195,0,158,1) 62%, rgba(195,0,0,1) 79%);">
-                      <i class="bi bi-instagram"></i> <b><a href="https://instagram.com" style="color: white;">Instagram</a></b>
-                    </button>
-                    <button type="button" class="btn mt-2" style="background: rgb(4, 0, 255);">
-                      <i class="bi bi-facebook"></i> <b><a href="https://facebook.com" style="color: white;">Facebook</a></b>
-                    </button>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                  </div>
+                <!-- Modal -->
+                <div class="modal fade fw-bolder" id="staticBackdrop" data-bs-backdrop="static"
+                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <img src="{{ URL('gambar/avatar.png') }}" alt=""
+                                    style="height: 90px; width: 90px; display: block; margin: 0 auto;">
+                                <br><br>
+                                <button type="button" class="btn"
+                                    style="background: rgb(0, 255, 20); background: linear-gradient(135deg, rgba(0, 255, 20, 1) 10%, rgba(0, 195, 32, 1) 62%); width: 100%;">
+                                    <i class="bi bi-whatsapp"></i> <b><a href="https://wa.me/628976562320"
+                                            style="color: white;">whatsapp</a></b>
+                                </button>
+                                <button type="button" class="btn mt-2"
+                                    style="background: rgb(0,142,255); background: linear-gradient(96deg, rgba(0,142,255,1) 10%, rgba(205,192,68,1) 37%, rgba(195,0,158,1) 62%, rgba(195,0,0,1) 79%);">
+                                    <i class="bi bi-instagram"></i> <b><a href="https://instagram.com"
+                                            style="color: white;">Instagram</a></b>
+                                </button>
+                                <button type="button" class="btn mt-2" style="background: rgb(4, 0, 255);">
+                                    <i class="bi bi-facebook"></i> <b><a href="https://facebook.com"
+                                            style="color: white;">Facebook</a></b>
+                                </button>
+                                <button type="button" class="btn mt-2" style="background: rgb(255, 0, 0);">
+                                    <i class="bi bi-youtube"></i> <b><a href="https://youtube.com"
+                                            style="color: white;">Youtube</a></b>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-      
+
+            <div class="col-4 d-flex justify-content-center mb-2">
+              <a href="/H_aparatur" class="btn btn-success" style="height: 100px; width: 100%;">
+                  <i class="bi bi-people-fill"></i>
+                  <p style="font-size: 14px; text-align: center;">Aparatur Desa</p>
+              </a>
           </div>
-          <div class="col-4 d-flex justify-content-center mb-2">
-            <button type="button" class="btn-success" style="height: 100px; width: 100%;">
-              <img src="{{URL('gambar/icon/berita.png')}}" alt="" style="width: 30px; height: 30px; display: block; margin: 0 auto;">
-              <p style="font-size: 10px; text-align: center;">Berita</p>
-            </button>
+          
+
+            <div class="col-4 d-flex justify-content-center mb-2">
+                <a href="/sejarah" class="btn btn-success" style="height: 100px; width: 100%;">
+                    <i class="bi bi-houses-fill"></i>
+                    <p style="font-size: 14px; text-align: center;">Tentang Desa</p>
+                </a>
+            </div>
+
+            <div class="col-4 d-flex justify-content-center mb-2">
+                <a href="/berita" class="btn btn-success" style="height: 100px; width: 100%;">
+                    <i class="bi bi-newspaper"></i>
+                    <p style="font-size: 14px; text-align: center;">berita</p>
+                </a>
+            </div>
+
+            <div class="col-4 d-flex justify-content-center mb-2">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#peta"
+                    style="height: 100px; width: 100%;">
+                    <i class="bi bi-person-lines-fill"></i>
+                    <p style="font-size: 10px; text-align: center;">peta desa</p>
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade fw-bolder" id="peta" data-bs-backdrop="static"
+                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-xl"> <!-- Menggunakan modal-xl untuk ukuran ekstra besar -->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe class="embed-responsive-item"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31714.880030170756!2d108.12779004999999!3d-6.47600405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6ecbc254f159e7%3A0x5a1bd9656311b724!2sPlosokerep%2C%20Kec.%20Terisi%2C%20Kabupaten%20Indramayu%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1719541754809!5m2!1sid!2sid"
+                                        style="border:0; width: 100%; height: 500px;" allowfullscreen=""
+                                        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="col-4 d-flex justify-content-center mb-2">
+              <a href="/umkm_d" class="btn btn-success" style="height: 100px; width: 100%;">
+                  <i class="bi bi-basket2-fill"></i>
+                  <p style="font-size: 14px; text-align: center;">UMKM Desa</p>
+              </a>
           </div>
-          <div class="col-4 d-flex justify-content-center mb-2">
-            <button type="button" class="btn-success" style="height: 100px; width: 100%;">
-              <img src="{{URL('gambar/icon/galeri.png')}}" alt="" style="width: 30px; height: 30px; display: block; margin: 0 auto;">
-              <p style="font-size: 10px; text-align: center;">Tentang Desa</p>
-            </button>
-          </div>
-          <div class="col-4 d-flex justify-content-center mb-2">
-            <button type="button" class="btn-success" style="height: 100px; width: 100%;">
-              <img src="{{URL('gambar/icon/umkm.png')}}" alt="" style="width: 30px; height: 30px; display: block; margin: 0 auto;">
-              <p style="font-size: 10px; text-align: center;">UMKM</p>
-            </button>
-          </div>
-          <div class="col-4 d-flex justify-content-center mb-2">
-            <button type="button" class="btn-success" style="height: 100px; width: 100%;">
-              <img src="{{URL('gambar/icon/surat.png')}}" alt="" style="width: 30px; height: 30px; display: block; margin: 0 auto;">
-              <p style="font-size: 10px; text-align: center;">Pengajuan Surat</p>
-            </button>
-          </div>
-          <div class="col-4 d-flex justify-content-center mb-2">
-            <button type="button" class="btn-success" style="height: 100px; width: 100%;">
-              <img src="{{URL('gambar/icon/pengaduan.png')}}" alt="" style="width: 30px; height: 30px; display: block; margin: 0 auto;">
-              <p style="font-size: 10px; text-align: center;">Pengaduan</p>
-            </button>
-          </div>
+          
         </div>
-      </div>
+    </div>
+
       <div class="col-12 col-md-8">
         <div class="container" >
           <div class="card text-center" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">

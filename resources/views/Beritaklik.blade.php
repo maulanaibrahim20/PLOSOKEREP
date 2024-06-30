@@ -53,9 +53,8 @@
           </li>
           <li class="list-group-item bg-light">
             <ul class="list-unstyled">
-              <li><a href="#" class="text-success d-block"><i class="bi bi-caret-right-fill"></i> UMKM 1</a></li>
-              <li><a href="#" class="text-success d-block"><i class="bi bi-caret-right-fill"></i> UMKM 2</a></li>
-              <li><a href="#" class="text-success d-block"><i class="bi bi-caret-right-fill"></i> UMKM 3</a></li>
+              <li><a href="/umkm_d" class="text-success d-block"><i class="bi bi-caret-right-fill"></i> UMKM</a></li>
+              <li><a href="/berita" class="text-success d-block"><i class="bi bi-caret-right-fill"></i> Berita</a></li>
             </ul>
           </li>
 
