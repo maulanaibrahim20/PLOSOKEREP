@@ -106,6 +106,28 @@ Route::get('/UMKM-k', function () {
     return view('UMKM-k');
 });
 
+Route::get('/map-nav', function () {
+    return view('map-nav');
+});
+
+Route::get('/kelamin', function () {
+    return view('kelamin');
+});
+
+Route::get('/pekerjaan', function () {
+    return view('pekerjaan');
+});
+
+Route::get('/agama', function () {
+    return view('agama');
+});
+
+Route::get('/galeri', function () {
+    return view('galeri');
+});
+
+
+
 // Group untuk UMKM dengan middleware auth dan role umkm
 Route::group(['prefix' => 'umkm', 'middleware' => ['auth', 'role:umkm'], 'as' => 'umkm.'], function(){
     Route::get('/dashboard_umkm', [AdminUmkmController::class, 'dashboard_umkm'])->name('dashboard_umkm');
