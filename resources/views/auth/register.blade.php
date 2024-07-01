@@ -54,8 +54,13 @@
                 </div>
                 <div class="form-group">
                     <label for="role">Role :</label>
-                    <input type="text" class="form-control" id="role" name="role" value="{{ old('role') }}" required>
+                    <select class="form-control" id="role" name="role" required>
+                        <option value="">Pilih Role</option>
+                        <option value="customer" {{ old('role') == 'customer' ? 'selected' : '' }}>Customer</option>
+                        <option value="umkm" {{ old('role') == 'umkm' ? 'selected' : '' }}>UMKM</option>
+                    </select>
                 </div>
+                
                  <br>
                 @error('role')
                     <small>{{ $message }}</small>

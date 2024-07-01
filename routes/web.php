@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\DataTableController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilDesaController;
@@ -125,15 +126,24 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 
 // Group untuk rute yang memerlukan autentikasi
 Route::middleware('auth')->group(function () {
-    Route::get('/cart', [CartController::class, 'index'])->name('Cart');
-    Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
-    Route::post('/cart/update/{id}', [CartController::class, 'updateCart'])->name('cart.update');
-    Route::post('/cart/remove/{id}', [CartController::class, 'removeCartItem'])->name('cart.remove');
-    Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+    // Route::get('/cart', [CartController::class, 'index'])->name('Cart');
+    // Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+    // Route::post('/cart/update/{id}', [CartController::class, 'updateCart'])->name('cart.update');
+    // Route::post('/cart/remove/{id}', [CartController::class, 'removeCartItem'])->name('cart.remove');
+    // Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
     
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 
     // Routes for Admin UMKM to manage orders
-    Route::get('/admin/orders', [AdminUmkmController::class, 'orders'])->name('admin.orders');
+    //  
 
+    Route::get('/checkout', [OrderController::class, 'index']);
+    Route::post('/checkout/{id}', [OrderController::class, 'checkout'])->name('checkout');
+    // Route::post('/cart/add/{id}', [OrderController::class, 'addToCart'])->name('cart.add');
+
+    Route::get('/cart', [OrderController::class, 'viewCart'])->name('cart.view'); // Route baru untuk menampilkan keranjang
+
+    Route::get('/checkout', [OrderController::class, 'checkoutForm'])->name('checkout.form');
+
+    Route::delete('/order/{id}', [OrderController::class, 'delete'])->name('order.delete'); // Route baru untuk menghapus order
 });

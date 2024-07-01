@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <a href={{route('Cart')}}>Keranjang</a>
+                            <a href={{route('cart.view')}}>Keranjang</a>
                         </div>
                     </div>
                 </div>

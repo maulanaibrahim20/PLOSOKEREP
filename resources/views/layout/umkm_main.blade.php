@@ -95,14 +95,16 @@
                   </p>
                 </a>
               </li>
+              @if(auth()->check() && auth()->user()->hasRole('umkm'))
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('admin.orders') }}" class="nav-link">
                   <i class="nav-icon fas fa-clipboard-list"></i>
                   <p>
                     Data Pesanan
                   </p>
                 </a>
               </li>
+              @endif
               <li class="nav-item">
                 <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                   <i class="nav-icon fas fa-sign-out-alt"></i>

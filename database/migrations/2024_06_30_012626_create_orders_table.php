@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('address');
+            $table->string('phone');
             $table->integer('qty');
+            $table->bigInteger('total_price');
+            $table->enum('status', ['Unpaid','Paid']);
             $table->timestamps(  );
         });
     }
