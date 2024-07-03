@@ -36,6 +36,8 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/', [HomeController::class, 'homepage'])->name('homepage');
 Route::get('/homepage', [HomeController::class, 'homepage'])->name('homepage');
 
+
+
 // Rute untuk register
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register-proses', [LoginController::class, 'register_proses'])->name('register-proses');
@@ -123,6 +125,10 @@ Route::get('/agama', function () {
 
 Route::get('/galeri', function () {
     return view('galeri');
+});
+
+Route::get('/homepageadmin', function () {
+    return view('homepageadmin');
 });
 
 
