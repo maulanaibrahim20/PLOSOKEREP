@@ -32,16 +32,9 @@
                   @csrf
                   <div class="card-body">
                     <div class="form-group">
-                        <label for="visi">Visi</label>
-                        <textarea id="myeditor" name="visi" class="visi">Visi</textarea>
+                        <label for="visi_misi">Visi & Misi</label>
+                        <textarea id="myeditor" name="visi_misi" class="visi_misi"></textarea>
                         @error('visi')
-                        <small>{{ $message }}</small>
-                        @enderror
-                    </div>
-                    <div class="form-group">
-                        <label for="misi">Misi</label>
-                        <textarea id="myeditor" name="misi" class="misi">Misi</textarea>
-                        @error('misi')
                         <small>{{ $message }}</small>
                         @enderror
                     </div>
@@ -49,7 +42,7 @@
                   <!-- /.card-body -->
   
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                   </div>
                 </form>
               </div>

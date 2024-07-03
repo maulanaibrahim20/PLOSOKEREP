@@ -46,18 +46,14 @@
                   <table class="table table-hover text-nowrap" id="profildesa" >
                     <thead>
                       <tr>
-                        <th>No</th>
-                        <th>Visi</th>
-                        <th>Misi</th>
+                        <th>Visi & Misi</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                       @foreach ($data as $d)
                         <tr>
-                          <td>{{ $loop->iteration }}</td>
-                          <td>{{ $d->visi }}</td>
-                          <td>{{ $d->misi }}</td>
+                          <td>{!! $d->visi_misi !!}</td>
                           <td>
                             <a href="{{ route('admin.profildesa.edit', ['id' => $d->id]) }}" class="btn btn-primary">
                               <i class="fas fa-pen"></i> Edit

@@ -24,7 +24,6 @@
 <body>
   @include('layout.navbar')
 
-
     <div class="container mt-2">
         <div class="info-container shadow p-1 mb-5 rounded">
             <i class="bi bi-megaphone-fill info-icon"></i>
@@ -47,25 +46,33 @@
                         </div>
                         <br>
                         <h2 class="card-title text-center mb-4">PENGAJUAN SURAT</h2>
-                        <form>
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        <form action="{{ route('pengajuan.surat.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="mb-3">
-                                <label for="namaLengkap" class="form-label">Nama Lengkap:</label>
-                                <input type="text" class="form-control" id="namaLengkap" required>
+                                <label for="nama_lengkap" class="form-label">Nama Lengkap:</label>
+                                <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" required>
                             </div>
                             <div class="mb-3">
                                 <label for="nik" class="form-label">NIK:</label>
-                                <input type="text" class="form-control" id="nik" required>
+                                <input type="text" class="form-control" id="nik" name="nik" required>
                             </div>
                             <div class="mb-3">
-                                <label for="nomorHp" class="form-label">Nomor HP:</label>
-                                <input type="text" class="form-control" id="nomorHp" required>
+                                <label for="nomor_hp" class="form-label">Nomor HP:</label>
+                                <input type="text" class="form-control" id="nomor_hp" name="nomor_hp" required>
                             </div>
                             <div class="mb-3">
-                                <label for="uploadSurat" class="form-label">Upload Surat:</label>
-                                <input type="file" class="form-control" id="uploadSurat" required>
+                                <label for="upload_surat" class="form-label">Upload Surat:</label>
+                                <input type="file" class="form-control" id="upload_surat" name="upload_surat" accept=".pdf,.doc,.docx" required>
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Kirim</button>
                         </form>
+                        
+                        
                     </div>
                 </div>
             </div>

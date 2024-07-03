@@ -22,32 +22,22 @@ class ProfilDesaController extends Controller
     }
 
     public function create_profildesa(){
-        
         return view('backend.profildesa_create');
     }
 
     public function simpan_profildesa(Request $request){
        $validator = Validator::make($request->all(),[
-            'visi' => 'required|string',
-            'misi' => 'required|string',
+            'visi_misi' => 'required|string',
        ]);
 
+       if($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
 
-    if($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
-
+       $data['visi_misi'] = $request->visi_misi;
        
-
-       $data['visi']      = $request->visi;
-       $data['misi']   = $request->misi;
-       
-       
-
        ProfilDesa::create($data);
 
        return redirect()->route('admin.profildesa');
     }
-
-    
 
     public function delete_profildesa(Request $request,$id){
         $data = ProfilDesa::find($id);
@@ -57,5 +47,12 @@ class ProfilDesaController extends Controller
         }
 
         return redirect()->route('admin.profildesa');
+    }
+
+    // Tambahkan metode ini untuk menampilkan visi_misi di view
+    public function show_visi_misi(){
+        $pd = ProfilDesa::first(); // Asumsikan hanya ada satu profil desa, jadi kita ambil yang pertama
+
+        return view('visi-misi', compact('pd'));
     }
 }

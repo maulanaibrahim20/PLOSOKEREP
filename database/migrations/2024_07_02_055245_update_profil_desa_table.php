@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('carts', function (Blueprint $table) {
-            $table->decimal('total_price', 8, 2)->nullable()->change();
+        Schema::table('profil_desa', function (Blueprint $table) {
+            $table->longText('visi_misi');
+            $table->dropColumn('visi');
+            $table->dropColumn('misi');
         });
     }
 
@@ -21,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('carts', function (Blueprint $table) {
-            $table->decimal('total_price', 8, 2)->nullable(false)->change();
+        Schema::table('profil_desa', function (Blueprint $table) {
+            $table->text('visi');
+            $table->text('misi');
+            $table->dropColumn('visi_misi');
         });
     }
 };

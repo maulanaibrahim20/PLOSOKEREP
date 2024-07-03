@@ -71,8 +71,8 @@
                 <div class="card ketua-card shadow p-3 mb-5 bg-info rounded">
                     <img src="{{ URL('Struktur/kuwu.jpeg') }}" class="card-img-top img-fluid rounded-2" alt="Foto">
                     <div class="card-body">
-                        <h5 class="card-title text-light fw-light">KARMIN</h5>
-                        <p class="card-text">Ketua</p>
+                        <h5 class="card-title text-light fw-light">Sadani</h5>
+                        <p class="card-text">Kepala Desa Plosokerep</p>
                     </div>
                 </div>
             </div>
@@ -80,173 +80,23 @@
                 <div class="container-fluid p-0 bg-info">
                     <div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
-                            <!-- Start of first slide -->
-                            <div class="carousel-item active">
+                            @foreach ($aparaturChunks as $key => $chunk)
+                            <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                                 <div class="row align-items-center">
+                                    @foreach ($chunk as $item)
                                     <div class="col-md-3">
                                         <div class="card bg-info">
-                                            <img src="{{ URL('Struktur/ARIS SUPRIADI.png') }}" class="card-img-top img-fluid"
-                                                alt="...">
+                                            <img src="{{ asset('storage/photo-aparatur/' . $item->gambar) }}" class="card-img-top img-fluid" alt="...">
                                             <div class="card-body">
-                                                <h5 class="card-title text-light fw-light">MISTA</h5>
-                                                <p class="card-text">Anggota</p>
+                                                <h5 class="card-title text-light fw-light">{{ $item->nama }}</h5>
+                                                <p class="card-text">{{ $item->jabatan }}</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <div class="card bg-info">
-                                            <img src="{{ URL('Struktur/MISTA.png') }}" class="card-img-top img-fluid"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-light fw-light">MISTA</h5>
-                                                <p class="card-text">Anggota</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="card bg-info">
-                                            <img src="{{ URL('Struktur/FARIDI.png') }}" class="card-img-top img-fluid"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-light fw-light">MISTA</h5>
-                                                <p class="card-text">Anggota</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="card bg-info">
-                                            <img src="{{ URL('Struktur/ARIS SUPRIADI.png') }}" class="card-img-top img-fluid"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-light fw-light">MISTA</h5>
-                                                <p class="card-text">Anggota</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
-                            <!-- End of first slide -->
-
-                            <!-- Repeat this block for each additional slide -->
-                            <div class="carousel-item">
-                                <div class="row align-items-center">
-                                    <div class="col-md-3">
-                                        <div class="card bg-info">
-                                            <img src="{{ URL('Struktur/ARIS SUPRIADI.png') }}" class="card-img-top img-fluid"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-light fw-light">MISTA</h5>
-                                                <p class="card-text">Anggota</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="card bg-info">
-                                            <img src="{{ URL('Struktur/ARIS SUPRIADI.png') }}" class="card-img-top img-fluid"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-light fw-light">MISTA</h5>
-                                                <p class="card-text">Anggota</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="card bg-info">
-                                            <img src="{{ URL('Struktur/ARIS SUPRIADI.png') }}" class="card-img-top img-fluid"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-light fw-light">MISTA</h5>
-                                                <p class="card-text">Anggota</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="card bg-info">
-                                            <img src="{{ URL('Struktur/ARIS SUPRIADI.png') }}" class="card-img-top img-fluid"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-light fw-light">MISTA</h5>
-                                                <p class="card-text">Anggota</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End of additional slide -->
-
-                            <!-- Repeat this block for each additional slide -->
-                            <div class="carousel-item">
-                                <div class="row align-items-center">
-                                    <div class="col-md-3">
-                                        <div class="card bg-info">
-                                            <img src="{{ URL('Struktur/ARIS SUPRIADI.png') }}" class="card-img-top img-fluid"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-light fw-light">MISTA0</h5>
-                                                <p class="card-text">Anggota</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="card bg-info">
-                                            <img src="{{ URL('Struktur/ARIS SUPRIADI.png') }}" class="card-img-top img-fluid"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-light fw-light">MISTA1</h5>
-                                                <p class="card-text">Anggota</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="card bg-info">
-                                            <img src="{{ URL('Struktur/ARIS SUPRIADI.png') }}" class="card-img-top img-fluid"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-light fw-light">MISTA2</h5>
-                                                <p class="card-text">Anggota</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="card bg-info">
-                                            <img src="{{ URL('Struktur/ARIS SUPRIADI.png') }}" class="card-img-top img-fluid"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-light fw-light">MISTA3</h5>
-                                                <p class="card-text">Anggota</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End of additional slide -->
-
-                            <!-- Repeat this block for each additional slide -->
-                            <div class="carousel-item">
-                                <div class="row align-items-center">
-                                    <div class="col-md-3">
-                                        <div class="card bg-info">
-                                            <img src="{{ URL('Struktur/ARIS SUPRIADI.png') }}" class="card-img-top img-fluid"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-light fw-light">MISTA4</h5>
-                                                <p class="card-text">Anggota</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="card bg-info">
-                                            <img src="{{ URL('Struktur/ARIS SUPRIADI.png') }}" class="card-img-top img-fluid"
-                                                alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title text-light fw-light">MISTA5</h5>
-                                                <p class="card-text">Anggota</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End of additional slide -->
+                            @endforeach
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

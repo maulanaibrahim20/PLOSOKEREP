@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PengaduanController;
+use App\Http\Controllers\PengajuanSuratController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\UserController;
@@ -89,16 +90,20 @@ Route::get('/umkm_e', [ProductController::class, 'umkm_e'])->name('umkm_e');
 Route::get('/umkm_e/{id}', [ProductController::class, 'umkm_e'])->name('umkm_e');
 Route::get('/umkm_c/{id}', [ProductController::class, 'umkm_c'])->name('umkm_c');
 
+// Rute untuk Aparatur
+Route::get('/H_aparatur', [AparaturController::class, 'H_aparatur'])->name('H_aparatur');
+
+
 // Rute halaman statis
 Route::get('/sejarah', function () {
     return view('sejarah');
 });
-Route::get('/visi-misi', function () {
-    return view('visi-misi');
-});
-Route::get('/H_aparatur', function () {
-    return view('H_aparatur');
-});
+// Route::get('/visi-misi', function () {
+//     return view('visi-misi');
+// });
+// Route::get('/H_aparatur', function () {
+//     return view('H_aparatur');
+// });
 Route::get('/H_surat', function () {
     return view('H_surat');
 });
@@ -169,3 +174,9 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/order/{id}', [OrderController::class, 'delete'])->name('order.delete'); // Route baru untuk menghapus order
 });
+
+Route::post('/pengajuan-surat', [PengajuanSuratController::class, 'store'])->name('pengajuan.surat.store');
+Route::get('/admin/manajemen_pengajuan_surat', [PengajuanSuratController::class, 'index'])->name('admin.manajemen_pengajuan_surat');
+Route::delete('/admin/manajemen_pengajuan_surat/{id}', [PengajuanSuratController::class, 'destroy'])->name('admin.pengajuan_surat.delete');
+
+Route::get('/visi-misi', [ProfilDesaController::class, 'show_visi_misi'])->name('visi-misi');

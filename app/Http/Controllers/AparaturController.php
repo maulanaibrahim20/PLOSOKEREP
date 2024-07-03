@@ -12,6 +12,16 @@ use PhpParser\Node\Expr\FuncCall;
 class AparaturController extends Controller
 {
  
+    public function H_aparatur()
+    {
+        $aparatur = Aparatur::all();
+
+        $aparaturChunks = $aparatur->chunk(4); // Membagi data aparatur menjadi grup berisi 4 item
+        return view('H_aparatur', compact('aparaturChunks'));
+    }
+
+
+
     public function aparatur(Request $request){
         $data = new Aparatur;
 
