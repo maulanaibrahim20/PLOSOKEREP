@@ -8,10 +8,10 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  background-color: #009b0f;
-  color: white;
+  background-color: #009b0f; /* Warna latar belakang yang disesuaikan */
+  color: white; /* Warna teks yang disesuaikan */
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border-radius: 5px;
+  border-radius: 5px; /* Radius border untuk sudut yang melengkung */
 }
 
 .info-icon {

@@ -18,7 +18,10 @@
 </head>
 <body>
   @include('layout.navbar')
-
+  <br>
+  <br>
+  <br>
+  <br>
 
   <div class="container mt-2 ">
     <div class="info-container shadow p-1 mb-5 rounded">

@@ -16,7 +16,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/stylesA.css">
 
 
 
@@ -24,20 +24,10 @@
 </head>
 
 <body>
-    @include('layout.navbar')
+    @include('layout.navbaradmin')
 
     <br>
     <br>
-    <br>
-    <div class="container mt-3">
-    <div class="info-container shadow p-1 mb-5 rounded">
-      <div class="info-text">
-        <marquee behavior="" direction="">
-          <b>Selamat datang di Website Resmi UMKM Desa Plosokerep</b>
-        </marquee>
-      </div>
-    </div>
-  </div>
     <div class="container mt-4 ">
         <div class="row">
             <div class="col-12 col-md-4 sidebar bg-primary" id="kiri">
@@ -93,12 +83,12 @@
                     </div>
 
                     <div class="col-4 d-flex justify-content-center mb-2">
-                      <a href="/H_aparatur" class="btn btn-success" style="height: 100px; width: 100%;">
-                          <i class="bi bi-people-fill"></i>
-                          <p style="font-size: 14px; text-align: center;">Aparatur Desa</p>
-                      </a>
-                  </div>
-                  
+                        <a href="/H_aparatur" class="btn btn-success" style="height: 100px; width: 100%;">
+                            <i class="bi bi-people-fill"></i>
+                            <p style="font-size: 14px; text-align: center;">Aparatur Desa</p>
+                        </a>
+                    </div>
+
 
                     <div class="col-4 d-flex justify-content-center mb-2">
                         <a href="/sejarah" class="btn btn-success" style="height: 100px; width: 100%;">
@@ -148,127 +138,30 @@
 
 
                     <div class="col-4 d-flex justify-content-center mb-2">
-                      <a href="/umkm_d" class="btn btn-success" style="height: 100px; width: 100%;">
-                          <i class="bi bi-basket2-fill"></i>
-                          <p style="font-size: 14px; text-align: center;">UMKM Desa</p>
-                      </a>
-                  </div>
-                  
+                        <a href="/umkm_d" class="btn btn-success" style="height: 100px; width: 100%;">
+                            <i class="bi bi-basket2-fill"></i>
+                            <p style="font-size: 14px; text-align: center;">UMKM Desa</p>
+                        </a>
+                    </div>
+
                 </div>
             </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
 
             <div class="col-12 col-md-8 mt-2">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="text-center">JADWAL SHOLAT</h4>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group">
-                            <h5 class="text-center"><i class="bi bi-geo-alt-fill"></i> Indramayu</h5>
-                        </ul>
-                    </div>
-                    <div class="card-footer text-body-secondary">
-                        Tanggal: <span id="current-date"></span>
-                    </div>
-                </div>
+
                 <br>
-                <div class="card shadow p-0 mb-3 bg-body rounded">
-                    <div class="card-body p-0">
-                        <h5 class="card-title text-center py-2 m-0 " style="background-color: #00D1FF;">Berita
-                            Ter-update</h5>
-                    </div>
-                    <br>
-                    <div class="container-fluid">
-                        <div class="row row-cols-1 row-cols-md-4 g-4">
-                            @foreach ($latest_post as $item)
-                                <div class="col-4">
-                                    <div class="card card-custom shadow p-0 bg-body rounded h-100">
-                                        <div class="card-img-top-wrapper" style="height: 200px; overflow: hidden;">
-                                            <img src="{{ asset('storage/gambar/berita/' . $item->img) }}"
-                                                class="card-img-top h-100 w-100 object-fit-cover" alt="...">
-                                        </div>
-                                        <div class="card-body d-flex flex-column">
-                                            <div class="small text-muted">{{ $item->created_at->format('d-m-y') }}
-                                            </div>
-                                            <h5 class="card-title">{{ $item->title }}</h5>
-                                            <p class="card-text flex-grow-1">
-                                                {{ Str::limit(strip_tags($item->desc), 30, '...') }}
-                                            </p>
-                                            <a href="{{ route('beritaklik', ['id' => $item->id]) }}"
-                                                class="btn btn-primary mt-auto">Baca</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
+                
         </div>
     </div>
 
     @include('layout/copyright')
 
-    <script>
-        // Ambil data dari API Aladhan
-        fetch('https://api.aladhan.com/v1/calendar?latitude=-6.3264&longitude=108.32&method=2')
-            .then(response => response.json())
-            .then(data => {
-                // Ambil data jadwal sholat untuk hari ini
-                const today = new Date();
-                const hijriDate = data.data[0].date.hijri;
-                const gregorianDate = data.data[0].date.gregorian;
 
-                const imsak = data.data[0].timings.Imsak.substring(0, 5);
-                const fajr = data.data[0].timings.Fajr.substring(0, 5);
-                const dhuhr = data.data[0].timings.Dhuhr.substring(0, 5);
-                const asr = data.data[0].timings.Asr.substring(0, 5);
-                const maghrib = data.data[0].timings.Maghrib.substring(0, 5);
-                const isha = data.data[0].timings.Isha.substring(0, 5);
-
-                // Tampilkan data jadwal sholat dalam elemen HTML
-                document.querySelector('.list-group').innerHTML += `
-          <li class="list-group-item text-light bg-success d-flex justify-content-between align-items-center">
-            Imsak
-            <span class="badge text-bg-primary rounded-pill">${imsak}</span>
-          </li>
-          <li class="list-group-item text-light d-flex bg-primary justify-content-between align-items-center">
-            Shubuh
-            <span class="badge text-bg-primary rounded-pill">${fajr}</span>
-          </li>
-          <li class="list-group-item text-light d-flex bg-success justify-content-between align-items-center">
-            Dzuhur
-            <span class="badge text-bg-primary rounded-pill">${dhuhr}</span>
-          </li>
-          <li class="list-group-item text-light d-flex bg-primary justify-content-between align-items-center">
-            Ashar
-            <span class="badge text-bg-primary rounded-pill">${asr}</span>
-          </li>
-          <li class="list-group-item text-light d-flex  bg-success justify-content-between align-items-center">
-            Maghrib
-            <span class="badge text-bg-primary rounded-pill">${maghrib}</span>
-          </li>
-          <li class="list-group-item text-light d-flex bg-primary justify-content-between align-items-center">
-            Isya
-            <span class="badge text-bg-primary rounded-pill">${isha}</span>
-          </li>
-        `;
-
-                // Format tanggal Gregorian untuk ditampilkan
-                const formattedDate = new Date(gregorianDate).toLocaleDateString('id-ID', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-
-                // Tampilkan tanggal Gregorian di footer
-                document.getElementById('current-date').textContent = formattedDate;
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">

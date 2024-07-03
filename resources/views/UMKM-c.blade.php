@@ -12,13 +12,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH1z6B8+Zt1Z7gL8b9LaE6A5+aF6rrgh/s3Rqs8pPv1gxd5F2Zwx+wRT7OoXtY/8PeAqTxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/UMKM-D.css">
+  <link rel="stylesheet" href="css/UMKM-c.css">
 
   <title>Desa Plosokerep</title>
 </head>
 <body>
   @include('layout.navbar')
-
+  <br>
+  <br>
+  <br>
   <div class="container mt-2 ">
     <div class="info-container shadow p-1 mb-5 rounded">
       <span class="fw-bold text-dark"><i class="bi bi-megaphone-fill info-icon "></i> Sekilas Info</span>

@@ -1,25 +1,7 @@
-body {
-    margin-top: 0px;
-    font-family: Arial, sans-serif;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    backdrop-filter: blur(3px);
-    margin: 0;
-    padding: 0;
-}
 
 .logo img {
     height: 100px;
 }
-
-/* Navbar Styles */
-
-
-/* .navbar .nav-link {
-    color: white !important;
-} */
-
 /* Sidebar Styles */
 .sidebar {
     position: relative;
@@ -75,10 +57,6 @@ body {
     margin-top: 10px;
 }
 
-/* Container Styles */
-.container {
-    margin-top: 20px;
-}
 
 @media (max-width: 767px) {
     .sidebar {
