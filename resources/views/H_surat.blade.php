@@ -22,7 +22,7 @@
 </head>
 
 <body>
-  @include('layout.navbar')
+  @include('layout.navbaradmin')
 
 
     <div class="container mt-2">

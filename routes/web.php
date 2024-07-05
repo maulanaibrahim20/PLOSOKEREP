@@ -88,7 +88,13 @@ Route::get('/beritaklik/{id}', [BeritaController::class, 'beritaklik'])->name('b
 Route::get('/umkm_d', [ProductController::class, 'umkm_d'])->name('umkm_d');
 Route::get('/umkm_e', [ProductController::class, 'umkm_e'])->name('umkm_e');
 Route::get('/umkm_e/{id}', [ProductController::class, 'umkm_e'])->name('umkm_e');
-Route::get('/umkm_c/{id}', [ProductController::class, 'umkm_c'])->name('umkm_c');
+Route::get('/umkm_ca/{id}', [ProductController::class, 'umkm_c'])->name('umkm_c');
+
+// Rute untuk UMKM
+Route::get('/umkm_da', [ProductController::class, 'umkm_da'])->name('umkm_da');
+Route::get('/umkm_ea', [ProductController::class, 'umkm_ea'])->name('umkm_ea');
+Route::get('/umkm_ea/{id}', [ProductController::class, 'umkm_ea'])->name('umkm_ea');
+Route::get('/umkm_ca/{id}', [ProductController::class, 'umkm_ca'])->name('umkm_ca');
 
 // Rute halaman statis
 Route::get('/sejarah', function () {
@@ -130,7 +136,6 @@ Route::get('/galeri', function () {
 Route::get('/homepageadmin', function () {
     return view('homepageadmin');
 });
-
 
 
 // Group untuk UMKM dengan middleware auth dan role umkm

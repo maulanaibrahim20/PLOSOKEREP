@@ -1,10 +1,4 @@
 body {
-    margin-top: 0px;
-    font-family: Arial, sans-serif;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    backdrop-filter: blur(3px);
     margin: 0;
     padding: 0;
 }
@@ -28,22 +22,6 @@ body {
     margin-left: 10px;
   }
   
-
-
-.carousel {
-    z-index: 1;
-}
-
-.logo img {
-    height: 100px;
-}
-
-/* Navbar Styles */
-
-
-.navbar .nav-link {
-    color: white !important;
-}
 
 /* Sidebar Styles */
 .sidebar {

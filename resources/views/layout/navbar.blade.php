@@ -1,5 +1,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
+<style>
+    .navbar .nav-link {
+    color: white !important;
+}
+</style>
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top"
     style="background: rgb(9, 9, 117); background: linear-gradient(122deg, rgba(9, 9, 117, 1) 10%, rgba(0, 212, 255, 1) 63%); z-index: 1050;">
