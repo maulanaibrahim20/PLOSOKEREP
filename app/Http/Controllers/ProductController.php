@@ -25,6 +25,13 @@ class ProductController extends Controller
         ]);
     }
 
+    public function umkm_da(){
+        return view('UMKM-Da',[
+            'latest_post' => Product::latest()->first(),
+            'product' => Product::latest()->get()
+        ]);
+    }
+
     // public function umkm_e(){
     //     return view('UMKM-e',[
     //         'Product' => Product::latest()->get()
@@ -37,9 +44,19 @@ class ProductController extends Controller
         return view('UMKM-e', compact('Product'));
     }
 
+    public function umkm_ea($id) {
+        $Product = Product::findOrFail($id);
+        return view('UMKM-ea', compact('Product'));
+    }
+
     public function umkm_c($id) {
         $Product = Product::findOrFail($id);
         return view('UMKM-c', compact('Product'));
+    }
+
+    public function umkm_ca($id) {
+        $Product = Product::findOrFail($id);
+        return view('UMKM-ca', compact('Product'));
     }
     
     

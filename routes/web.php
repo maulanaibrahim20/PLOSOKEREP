@@ -16,6 +16,8 @@ use App\Http\Controllers\PengajuanSuratController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\UserController;
+use App\Models\Pengaduan;
+use App\Models\PengajuanSurat;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -112,17 +114,8 @@ Route::get('/berita', [BeritaController::class, 'berita'])->name('berita');
 Route::get('/beritaklik', [BeritaController::class, 'beritaklik'])->name('beritaklik');
 Route::get('/beritaklik/{id}', [BeritaController::class, 'beritaklik'])->name('beritaklik');
 
-// Rute untuk UMKM
-Route::get('/umkm_d', [ProductController::class, 'umkm_d'])->name('umkm_d');
-Route::get('/umkm_e', [ProductController::class, 'umkm_e'])->name('umkm_e');
-Route::get('/umkm_e/{id}', [ProductController::class, 'umkm_e'])->name('umkm_e');
-Route::get('/umkm_ca/{id}', [ProductController::class, 'umkm_c'])->name('umkm_c');
 
-// Rute untuk UMKM
-Route::get('/umkm_da', [ProductController::class, 'umkm_da'])->name('umkm_da');
-Route::get('/umkm_ea', [ProductController::class, 'umkm_ea'])->name('umkm_ea');
-Route::get('/umkm_ea/{id}', [ProductController::class, 'umkm_ea'])->name('umkm_ea');
-Route::get('/umkm_ca/{id}', [ProductController::class, 'umkm_ca'])->name('umkm_ca');
+
 
 // Rute untuk Aparatur
 Route::get('/H_aparatur', [AparaturController::class, 'H_aparatur'])->name('H_aparatur');
@@ -191,7 +184,14 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 Route::middleware('auth')->group(function () {
 
     Route::get('/homepageadmin', [HomeController::class, 'homepageadmin'])->name('homepageadmin');
-    
+    // Rute untuk UMKM
+    Route::get('/umkm_da', [ProductController::class, 'umkm_da'])->name('umkm_da');
+    Route::get('/umkm_ea', [ProductController::class, 'umkm_ea'])->name('umkm_ea');
+    Route::get('/umkm_ea/{id}', [ProductController::class, 'umkm_ea'])->name('umkm_ea');
+    Route::get('/umkm_ca/{id}', [ProductController::class, 'umkm_ca'])->name('umkm_ca');
+    Route::get('/umkm_ka/{id}', [ProductController::class, 'umkm_ka'])->name('umkm_ka');
+    Route::get('/surata', [PengajuanSuratController::class, 'surata'])->name('surata');
+    Route::get('/pengaduanadmin', [PengaduanController::class, 'pengaduanadmin'])->name('pengaduanadmin');
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
     Route::put('/profile', [UserController::class, 'updateProfile'])->name('profile.update');
 
@@ -212,5 +212,7 @@ Route::middleware('auth')->group(function () {
 Route::post('/pengajuan-surat', [PengajuanSuratController::class, 'store'])->name('pengajuan.surat.store');
 Route::get('/admin/manajemen_pengajuan_surat', [PengajuanSuratController::class, 'index'])->name('admin.manajemen_pengajuan_surat');
 Route::delete('/admin/manajemen_pengajuan_surat/{id}', [PengajuanSuratController::class, 'destroy'])->name('admin.pengajuan_surat.delete');
+
+
 
 Route::get('/visi-misi', [ProfilDesaController::class, 'show_visi_misi'])->name('visi-misi');

@@ -31,6 +31,12 @@ class PengajuanSuratController extends Controller
         return redirect()->back()->with('success', 'Pengajuan surat berhasil dikirim.');
     }
 
+    public function surata()
+    {
+        
+        return view('H_surata');
+    }
+
     public function index()
     {
         $data = PengajuanSurat::all();

@@ -48,7 +48,7 @@
               </div>
               <div class="d-flex justify-content-around mb-3">
                 <h5>Rp. {{$item->harga}}</h5>
-                <a href="{{ route('umkm_e', ['id' => $item->id]) }}" class="btn btn-primary">Lihat Produk</a>
+                <a href="{{ route('umkm_ea', ['id' => $item->id]) }}" class="btn btn-primary">Lihat Produk</a>
               </div>
             </div>
           </div>

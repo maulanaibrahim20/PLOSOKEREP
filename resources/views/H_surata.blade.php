@@ -22,7 +22,7 @@
 </head>
 
 <body>
-  @include('layout.navbar')
+  @include('layout.navbaradmin')
 
     <div class="container mt-2">
         <div class="info-container shadow p-1 mb-5 rounded">

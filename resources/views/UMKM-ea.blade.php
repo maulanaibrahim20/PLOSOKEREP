@@ -46,7 +46,7 @@
               {!! $Product->desc_produk !!}
             </p>
 
-            <a href={{route('umkm_d')}} class="btn btn-warning">Kembali</a>
+            <a href={{route('umkm_da')}} class="btn btn-warning">Kembali</a>
             <a href="https://wa.me/628976562320" class="btn btn-info">hubungi penjual</a>
             <a href="{{ route('umkm_ca', ['id' => $Product->id]) }}" class="btn btn-success">pesan</a>
         </div>

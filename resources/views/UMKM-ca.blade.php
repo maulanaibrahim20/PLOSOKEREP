@@ -43,15 +43,11 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">BUAT PESANAN</h5>
-                    <form action="{{ route('cart.add', $Product->id) }}" method="POST">
+                    <form action="{{ route('checkout', $Product->id) }}" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama</label>
                             <input type="text" class="form-control" id="nama" name="customer_name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="mb-3">
                             <label for="noTelepon" class="form-label">No Telepon</label>

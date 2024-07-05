@@ -25,6 +25,12 @@ class PengaduanController extends Controller
         return view('H_pengaduan');
     }
 
+    public function pengaduanadmin()
+    {
+        
+        return view('H_pengaduanadmin');
+    }
+
     public function simpan_pengaduan(Request $request) {
         $validator = Validator::make($request->all(), [
             'nama' => 'required|string|max:255',
