@@ -11,11 +11,11 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+@include('layout/navbar')
 
-  @include('layout/navbar')
-  <br>
-  <br>
-
+<br>
+<br>
+<br>
   <div class="container mt-5">
     <h3>DATA JENIS KELAMIN DI DESA PLOSOKEREP</h3>
     <div class="row">
@@ -24,68 +24,60 @@
           <thead>
             <tr>
               <th>NO</th>
-              <th>Kelompok</th>
-              <th>No</th>
-              <th>%</th>
+              <th>jenis Kelamin</th>
+              <th>Jumlah</th>
             </tr>
           </thead>
           <tbody>
+            @foreach($jk as $kerja)
             <tr>
-              <td>1</td>
-              <td>Laki-Laki</td>
-              <td contenteditable="true" class="data-value">601</td>
-              <td>52%</td>
+                <td>{{ $kerja->id }}</td>
+                <td>{{ $kerja->jk }}</td>
+                <td contenteditable="true" class="data-value">{{ $kerja->jumlah }}</td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>Perempuan</td>
-              <td contenteditable="true" class="data-value">240</td>
-              <td>48%</td>
-            </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
       <div class="col-md-6">
-        <canvas id="genderChart"></canvas>
+        <canvas id="jobChart"></canvas>
       </div>
     </div>
   </div>
-<br>
-<br>
+
   @include('layout/copyright')
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMp0RSK9sB0UGaAcVEOl8SKSTBSkT8wCHd1/6hsLoRF4XsF06HUETeKRWPL5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-k6RqeWeci5ZR/LvMR0sA0FfDOMp0RSK9sB0UGaAcVEOl8SKSTBSkT8wCHd1/6hsLoRF4XsF06HUETeKRWPL5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
+    // Ambil data jk dari Blade ke JavaScript
+    const jkData = @json($jk->pluck('jumlah'));
+    const jkLabels = @json($jk->pluck('jk'));
+
+    // Definisikan palet warna untuk chart
+    const colors = ['#00d4ff', '#4B515D', '#FFBB28', '#FF8042', '#00C49F', '#FFD700', '#7B68EE', '#FFA07A', '#20B2AA', '#778899'];
+
     // Fungsi untuk memperbarui chart
     function updateChart() {
       const dataValues = document.querySelectorAll('.data-value');
-      const lakiLaki = parseInt(dataValues[0].textContent) || 0;
-      const perempuan = parseInt(dataValues[1].textContent) || 0;
-      const total = lakiLaki + perempuan;
-
-      genderChart.data.datasets[0].data = [lakiLaki, perempuan];
-      genderChart.data.labels = ['Laki-Laki: ' + ((lakiLaki / total) * 100).toFixed(2) + '%', 'Perempuan: ' + ((perempuan / total) * 100).toFixed(2) + '%'];
-      genderChart.update();
+      const updatedData = Array.from(dataValues).map(cell => parseInt(cell.textContent) || 0);
+      jobChart.data.datasets[0].data = updatedData;
+      jobChart.update();
     }
 
-    const ctx = document.getElementById('genderChart').getContext('2d');
+    const ctx = document.getElementById('jobChart').getContext('2d');
     const data = {
-      labels: ['Laki-Laki', 'Perempuan'],
+      labels: jkLabels,
       datasets: [{
-        data: [600, 240, ],
-        backgroundColor: ['#00d4ff', '#4B515D',]
+        data: jkData,
+        backgroundColor: colors.slice(0, jkData.length) // Gunakan warna dari palet untuk setiap dataset
       }]
     };
     const config = {
       type: 'pie',
       data: data,
       options: {
-        responsive: true,
         plugins: {
-          legend: {
-            position: 'top',
-          },
           tooltip: {
             callbacks: {
               label: function(tooltipItem) {
@@ -96,7 +88,7 @@
         }
       },
     };
-    const genderChart = new Chart(ctx, config);
+    const jobChart = new Chart(ctx, config);
 
     // Tambahkan event listener pada tabel untuk mendeteksi perubahan
     document.querySelectorAll('.data-value').forEach(cell => {

@@ -25,30 +25,17 @@
             <tr>
               <th>NO</th>
               <th>Pekerjaan</th>
-              <th>No</th>
+              <th>Jumlah</th>
             </tr>
           </thead>
           <tbody>
+            @foreach($pekerjaan as $kerja)
             <tr>
-              <td>1</td>
-              <td>Petani</td>
-              <td contenteditable="true" class="data-value">1500</td>
+                <td>{{ $kerja->id }}</td>
+                <td>{{ $kerja->pekerjaan }}</td>
+                <td contenteditable="true" class="data-value">{{ $kerja->jumlah }}</td>
             </tr>
-            <tr>
-              <td>2</td>
-              <td>PNS</td>
-              <td contenteditable="true" class="data-value">300</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Wirausaha</td>
-              <td contenteditable="true" class="data-value">400</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Lainnya</td>
-              <td contenteditable="true" class="data-value">200</td>
-            </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
@@ -63,24 +50,27 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-k6RqeWeci5ZR/LvMR0sA0FfDOMp0RSK9sB0UGaAcVEOl8SKSTBSkT8wCHd1/6hsLoRF4XsF06HUETeKRWPL5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
+    // Ambil data pekerjaan dari Blade ke JavaScript
+    const pekerjaanData = @json($pekerjaan->pluck('jumlah'));
+    const pekerjaanLabels = @json($pekerjaan->pluck('pekerjaan'));
+
+    // Definisikan palet warna untuk chart
+    const colors = ['#00d4ff', '#4B515D', '#FFBB28', '#FF8042', '#00C49F', '#FFD700', '#7B68EE', '#FFA07A', '#20B2AA', '#778899'];
+
     // Fungsi untuk memperbarui chart
     function updateChart() {
       const dataValues = document.querySelectorAll('.data-value');
-      const petani = parseInt(dataValues[0].textContent) || 0;
-      const pns = parseInt(dataValues[1].textContent) || 0;
-      const wirausaha = parseInt(dataValues[2].textContent) || 0;
-      const lainnya = parseInt(dataValues[3].textContent) || 0;
-
-      jobChart.data.datasets[0].data = [petani, pns, wirausaha, lainnya];
+      const updatedData = Array.from(dataValues).map(cell => parseInt(cell.textContent) || 0);
+      jobChart.data.datasets[0].data = updatedData;
       jobChart.update();
     }
 
     const ctx = document.getElementById('jobChart').getContext('2d');
     const data = {
-      labels: ['Petani', 'PNS', 'Wirausaha', 'Lainnya'],
+      labels: pekerjaanLabels,
       datasets: [{
-        data: [1500, 300, 400, 200],
-        backgroundColor: ['#00d4ff', '#4B515D', '#FFBB28', '#FF8042']
+        data: pekerjaanData,
+        backgroundColor: colors.slice(0, pekerjaanData.length) // Gunakan warna dari palet untuk setiap dataset
       }]
     };
     const config = {

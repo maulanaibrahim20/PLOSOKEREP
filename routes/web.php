@@ -1,13 +1,16 @@
 <?php
 
 use App\Http\Controllers\AdminUmkmController;
+use App\Http\Controllers\AgamaController;
 use App\Http\Controllers\AparaturController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DataTableController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JkController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PekerjaanController;
 use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PengajuanSuratController;
 use App\Http\Controllers\ProductController;
@@ -72,6 +75,29 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin'], 'as' 
     Route::get('/show/{id}', [BeritaController::class, 'show'])->name('berita.show');
     Route::put('/update_m_berita/{id}', [BeritaController::class, 'update_m_berita'])->name('m_berita.update');
     Route::delete('/delete_m_berita/{id}', [BeritaController::class, 'delete_m_berita'])->name('m_berita.delete');
+
+    Route::get('/m_pekerjaan', [PekerjaanController::class, 'm_pekerjaan'])->name('m_pekerjaan');
+    Route::get('/create_pekerjaan', [PekerjaanController::class, 'create_pekerjaan'])->name('create_pekerjaan');
+    Route::post('/simpan_pekerjaan', [PekerjaanController::class, 'simpan_pekerjaan'])->name('simpan_pekerjaan');
+    Route::get('/edit_pekerjaan/{id}', [PekerjaanController::class, 'edit_pekerjaan'])->name('pekerjaan.edit');
+    Route::put('/update_pekerjaan/{id}', [PekerjaanController::class, 'update_pekerjaan'])->name('pekerjaan.update');
+    Route::delete('/delete_pekerjaan/{id}', [PekerjaanController::class, 'delete_pekerjaan'])->name('pekerjaan.delete');
+
+    Route::get('/m_agama', [AgamaController::class, 'm_agama'])->name('m_agama');
+    Route::get('/create_agama', [AgamaController::class, 'create_agama'])->name('create_agama');
+    Route::post('/simpan_agama', [AgamaController::class, 'simpan_agama'])->name('simpan_agama');
+    Route::get('/edit_agama/{id}', [AgamaController::class, 'edit_agama'])->name('agama.edit');
+    Route::put('/update_agama/{id}', [AgamaController::class, 'update_agama'])->name('agama.update');
+    Route::delete('/delete_agama/{id}', [AgamaController::class, 'delete_agama'])->name('agama.delete');
+
+    Route::get('/m_jk', [JkController::class, 'm_jk'])->name('m_jk');
+    Route::get('/create_jk', [JkController::class, 'create_jk'])->name('create_jk');
+    Route::post('/simpan_jk', [JkController::class, 'simpan_jk'])->name('simpan_jk');
+    Route::get('/edit_jk/{id}', [JkController::class, 'edit_jk'])->name('jk.edit');
+    Route::put('/update_jk/{id}', [JkController::class, 'update_jk'])->name('jk.update');
+    Route::delete('/delete_jk/{id}', [JkController::class, 'delete_jk'])->name('jk.delete');
+
+    Route::get('/datapenduduk', [HomeController::class, 'datapenduduk'])->name('datapenduduk');
 });
 
 // Rute untuk pengaduan masyarakat
@@ -96,16 +122,15 @@ Route::get('/umkm_c/{id}', [ProductController::class, 'umkm_c'])->name('umkm_c')
 Route::get('/H_aparatur', [AparaturController::class, 'H_aparatur'])->name('H_aparatur');
 
 
+Route::get('/pekerjaan', [PekerjaanController::class, 'pekerjaan'])->name('pekerjaan');
+Route::get('/agama', [AgamaController::class, 'agama'])->name('agama');
+Route::get('/kelamin', [jkController::class, 'kelamin'])->name('kelamin');
+
 // Rute halaman statis
 Route::get('/sejarah', function () {
     return view('sejarah');
 });
-// Route::get('/visi-misi', function () {
-//     return view('visi-misi');
-// });
-// Route::get('/H_aparatur', function () {
-//     return view('H_aparatur');
-// });
+
 Route::get('/H_surat', function () {
     return view('H_surat');
 });
@@ -117,17 +142,17 @@ Route::get('/map-nav', function () {
     return view('map-nav');
 });
 
-Route::get('/kelamin', function () {
-    return view('kelamin');
-});
+// Route::get('/kelamin', function () {
+//     return view('kelamin');
+// });
 
-Route::get('/pekerjaan', function () {
-    return view('pekerjaan');
-});
+// Route::get('/pekerjaan', function () {
+//     return view('pekerjaan');
+// });
 
-Route::get('/agama', function () {
-    return view('agama');
-});
+// Route::get('/agama', function () {
+//     return view('agama');
+// });
 
 Route::get('/galeri', function () {
     return view('galeri');
@@ -159,13 +184,11 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 
 // Group untuk rute yang memerlukan autentikasi
 Route::middleware('auth')->group(function () {
-    // Route::get('/cart', [CartController::class, 'index'])->name('Cart');
-    // Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
-    // Route::post('/cart/update/{id}', [CartController::class, 'updateCart'])->name('cart.update');
-    // Route::post('/cart/remove/{id}', [CartController::class, 'removeCartItem'])->name('cart.remove');
-    // Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+
+    Route::get('/homepageadmin', [HomeController::class, 'homepageadmin'])->name('homepageadmin');
     
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+    Route::put('/profile', [UserController::class, 'updateProfile'])->name('profile.update');
 
     // Routes for Admin UMKM to manage orders
     //  

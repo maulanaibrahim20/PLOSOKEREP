@@ -4,58 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap 5 Carousel with Cards</title>
+    {{-- <link rel="icon" type="image/x-icon" href="{{ URL('gambar/LOGO1.png') }}"> --}}
+    <link rel="stylesheet" href="css/aparatur.css">
+    <title>Desa Plosokerep</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .card {
-            margin: 2px;
-            width: 15rem;
-        }
-
-        .carousel-inner .row {
-            display: flex;
-            justify-content: center;
-        }
-
-        .carousel-container {
-            border: 2px solid #007bff;
-            padding: 10px;
-            margin-top: 20px;
-        }
-
-        .carousel-item .card {
-            width: 100%;
-            border: none;
-            margin-right: 10px;
-        }
-
-        .carousel-item .card img {
-            width: 100%;
-            height: auto;
-        }
-
-        .ketua-card {
-            max-width: 15rem;
-            margin-bottom: 20px;
-        }
-
-        @media (min-width: 992px) {
-            .carousel-container {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-            }
-
-            .carousel-container .carousel {
-                flex: 1;
-                margin-left: 20px;
-            }
-
-            .carousel-container .ketua-card {
-                flex: 0 0 30%;
-            }
-        }
-    </style>
 </head>
 
 <body>

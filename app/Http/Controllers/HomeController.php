@@ -27,6 +27,10 @@ class HomeController extends Controller
          ]);
      }
 
+     public function datapenduduk(){
+        return view('backend.datapenduduk');
+    }
+
     public function homepage(){
         return view('homepage', [
             'latest_post' => Berita::whereStatus(1)->latest()->take(3)->get(),
@@ -34,6 +38,10 @@ class HomeController extends Controller
             'berita' => Berita::latest()->get(),
             'pd' => ProfilDesa::latest()->get()
         ]);
+    }
+
+    public function homepageadmin(){
+        return view('homepageadmin');
     }
 
     

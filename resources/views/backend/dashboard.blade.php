@@ -18,7 +18,7 @@
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
         <div class="row">
-          <!-- ./col -->
+          <!-- Pengaduan Masyarakat -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-success">
@@ -29,38 +29,38 @@
               <div class="icon">
                 <i class="ion ion-chatbubbles"></i>
               </div>
-              <a href="{{ route('admin.m_berita') }}" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('admin.pengaduan') }}" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
+          <!-- Profil Desa -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
+                <h3>&nbsp;</h3>
                 <p>Profil Desa</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person"></i>
               </div>
-              <a href="#" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('admin.profildesa') }}" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
+          <!-- Data Penduduk -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-primary">
               <div class="inner">
-                <h3>65</h3>
+                <h3>&nbsp;</h3>
                 <p>Data Penduduk</p>
               </div>
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="#" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('admin.datapenduduk') }}" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
+          <!-- Surat Masuk -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-secondary">
@@ -71,9 +71,10 @@
               <div class="icon">
                 <i class="ion ion-email"></i>
               </div>
-              <a href={{route('admin.manajemen_pengajuan_surat')}} class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="{{ route('admin.manajemen_pengajuan_surat') }}" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
+          <!-- Berita Desa -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-info">
@@ -87,7 +88,7 @@
               <a href="{{ route('admin.m_berita') }}" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
+          <!-- Data User -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-primary">
@@ -101,7 +102,7 @@
               <a href="{{ route('admin.user') }}" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
+          <!-- Aparatur Desa -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
             <div class="small-box bg-danger">
@@ -115,10 +116,8 @@
               <a href="{{ route('admin.aparatur') }}" class="small-box-footer">Lihat <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
-
-          
         </div>
+
         <div class="row">
           <div class="col-6">
             <h3>Berita Terbaru</h3>
@@ -131,7 +130,6 @@
                   <th>Action</th>
                 </tr>
               </thead>
-
               <tbody>
                 @foreach ($latest_berita as $item)
                     <tr>
@@ -152,11 +150,10 @@
                 <tr>
                   <th>No</th>
                   <th>Judul</th>
-                  <th>dilihat</th>
+                  <th>Dilihat</th>
                   <th>Action</th>
                 </tr>
               </thead>
-
               <tbody>
                 @foreach ($popular_berita as $item)
                     <tr>
@@ -173,8 +170,6 @@
        
       </div>
     </section>
-    
     <!-- /.content -->
-  </div>
-    
+</div>
 @endsection
