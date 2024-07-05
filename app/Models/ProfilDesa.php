@@ -11,8 +11,8 @@ class ProfilDesa extends Model
     protected $table = 'profil_desa';
 
     protected $fillable = [
-        'visi',
-        'misi',
+        'visi_misi',
+        
     ];
 
 }

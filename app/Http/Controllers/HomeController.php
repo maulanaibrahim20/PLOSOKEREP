@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aparatur;
 use App\Models\Berita;
 use App\Models\Pengaduan;
+use App\Models\PengajuanSurat;
+use App\Models\ProfilDesa;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -17,17 +20,28 @@ class HomeController extends Controller
             'total_berita' => Berita::count(),
             'total_user' => User::count(),
             'total_pengaduan' => Pengaduan::count(),
+            'total_surat' => PengajuanSurat::count(),
+            'total_aparatur' => Aparatur::count(),
             'latest_berita' => Berita::whereStatus(1)->latest()->take(5)->get(),
             'popular_berita' => Berita::whereStatus(1)->orderBy('views', 'desc')->take(5)->get() 
          ]);
      }
 
+     public function datapenduduk(){
+        return view('backend.datapenduduk');
+    }
+
     public function homepage(){
         return view('homepage', [
             'latest_post' => Berita::whereStatus(1)->latest()->take(3)->get(),
             'popular_berita' => Berita::whereStatus(1)->orderBy('views', 'desc')->take(5)->get(),
-            'berita' => Berita::latest()->get()
+            'berita' => Berita::latest()->get(),
+            'pd' => ProfilDesa::latest()->get()
         ]);
+    }
+
+    public function homepageadmin(){
+        return view('homepageadmin');
     }
 
     

@@ -12,15 +12,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH1z6B8+Zt1Z7gL8b9LaE6A5+aF6rrgh/s3Rqs8pPv1gxd5F2Zwx+wRT7OoXtY/8PeAqTxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/visi-misi.css">
 
   <title>Desa Plosokerep</title>
 </head>
 <body>
   @include('layout/navbar')
 
-<br>
-<br>
+  <br>
+  <br>
   <div class="container mt-4 pt-5">
     <div class="row">
       <div class="col-12 col-md-4 sidebar bg-primary" id="kiri">
@@ -82,7 +82,6 @@
               </a>
           </div>
           
-
             <div class="col-4 d-flex justify-content-center mb-2">
                 <a href="/sejarah" class="btn btn-success" style="height: 100px; width: 100%;">
                     <i class="bi bi-houses-fill"></i>
@@ -127,9 +126,6 @@
                 </div>
             </div>
 
-
-
-
             <div class="col-4 d-flex justify-content-center mb-2">
               <a href="/umkm_d" class="btn btn-success" style="height: 100px; width: 100%;">
                   <i class="bi bi-basket2-fill"></i>
@@ -141,56 +137,13 @@
     </div>
 
       <div class="col-12 col-md-8">
-        <div class="container" >
+        <div class="container">
             <div class="card text-break">
                 <div class="card-header text-center">
                     <b>Visi & Misi Desa Plosokerep Tahun 2015-2021</b>
                 </div>
                 <div class="card-body">
-                    <b class="text-center">Visi Desa</b>
-                    <p>
-                        <i class="bi bi-caret-right-fill"></i> Membangun, Menata, Pemerintahan Desa yang Baik
-                        dan Bersih guna terwujudnya masyarakat desa yang BERDIKARI
-                    </p>
-                    <p>
-                        <i class="bi bi-caret-right-fill"></i> Berwawasan : Mempunyai Konsepsi Cara Pandang
-                    </p>
-                    <p>
-                        <i class="bi bi-caret-right-fill"></i> Dedikasi : Sebuah pengorbanan tenaga, pikiran, dan waktu demi keberhasilan suatu usaha yang mempunyai tujuan mulia.
-                    </p>
-                    <p>
-                        <i class="bi bi-caret-right-fill"></i> Kooperatif : Saling ketergantungan positif, bertanggung jawab penuh, tatap muka, komunikasi dengan sesama, evaluasi proses masyarakat.
-                    </p>
-            
-                    <p>
-                        <i class="bi bi-caret-right-fill"></i> Religius : Kepercayaan terhadap Allah SWT.
-                    </p>
-                    <br>
-                    <p>
-                      <b>misi Desa</b>
-                    </p>
-                    <p>
-                      <i class="bi bi-caret-right-fill"></i> Mewujudkan Persatuan dan Kesatuan masyarakat desa plosokerep yang aman, stabil, sejahtera, demokrasi dan berdaulat, serta berperan aktif dalam menciptakan kerukunan beragama, berbangsa dan bernegara sesuai asas dasar negara indonesia Pancasila dan Undang-Undang Dasar 1945
-                  </p>
-                  <p>
-                      <i class="bi bi-caret-right-fill"></i> Menyelenggarakan Pemerintahan Desa yang Bersih dari korupsi dan bentuk-bentuk penyelewengan lainnya.
-                  </p>
-                  <p>
-                      <i class="bi bi-caret-right-fill"></i> Melayani, mengayomi, dan memberikan rasa aman dan nyaman kepada masyarakat.
-                  </p>
-                  <p>
-                      <i class="bi bi-caret-right-fill"></i>Memberikan peluang kepada lembaga-lembaga desa untuk mengembangkan sayapnya sesuai dengan TUPOKSINYA
-                  </p>
-                  <p>
-                      <i class="bi bi-caret-right-fill"></i>Meningkatkan pembangunan di desa yang transparan, inspiratif, dan merata diantaranya bidang infrastruktur, pertanian, pendidikan, kesehatan, perekonomian, sosial, dan budaya dll.
-                  <i class="bi bi-caret-right-fill"></i>Meningkatkan IPM desa Plosokerep melalui SDM dan SDA terutama bidang pendidikan, kesehatan, dan daya beli.
-              </p>
-              <p>
-                <i class="bi bi-caret-right-fill"></i> Membangun, Menata, Pemerintahan Desa yang Baik
-              </p>
-              <p>
-                <i class="bi bi-caret-right-fill"></i>Meningkatkan IPM desa Plosokerep melalui SDM dan SDA terutama bidang pendidikan, kesehatan, dan daya beli.
-              </p>
+                    {!! $pd->visi_misi !!}
                 </div>
             </div>
         </div>
@@ -201,15 +154,11 @@
   <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXlUr3aB+Kx4dZPeM6K/A6zt7v/tbB6rZ9E+EQ6MofeFB1NXFUOfN8FHwp+" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXlUr3aB+Kx4dZPeM6K/A6zt7v/tbB6Z9E+EQ6MofeFB1NXFUOfN8FHwp+" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhG81sKDtZKWpCwrP7f8KpP4YfIvATeFw5PauH526ymkitDv8f0XwRGE8K/9" crossorigin="anonymous"></script>
     
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-      <!-- Font Awesome JS -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMp0RSK9sB0UGaAcVEOl8SKSTBSkT8wCHd1/6hsLoRF4XsF06HUETeKRWPL5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    </body>
-    </html>
-
-
-
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <!-- Font Awesome JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMp0RSK9sB0UGaAcVEOl8SKSTBSkT8wCHd1/6hsLoRF4XsF06HUETeKRWPL5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

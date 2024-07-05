@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('carts', function (Blueprint $table) {
-            $table->string('customer_name')->nullable();
-            $table->string('customer_address')->nullable();
+        Schema::table('profil_desa', function (Blueprint $table) {
+            $table->longText('visi_misi');
+            $table->dropColumn('visi');
+            $table->dropColumn('misi');
         });
-        
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('carts', function (Blueprint $table) {
-            //
+        Schema::table('profil_desa', function (Blueprint $table) {
+            $table->text('visi');
+            $table->text('misi');
+            $table->dropColumn('visi_misi');
         });
     }
 };

@@ -31,7 +31,7 @@ class LoginController extends Controller
             } elseif ($user->role == 'umkm') {
                 return redirect()->route('umkm.dashboard_umkm');
             } elseif ($user->role == 'customer') {
-                return redirect()->route('homepage');
+                return redirect()->route('homepageadmin');
             }
 
             return redirect()->back()->with('failed', 'Role tidak dikenali');

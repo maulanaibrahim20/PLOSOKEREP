@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0"> Tambah Visi & Misi </h1>
+              <h1 class="m-0">Tambah Data Jenis Kelamin Desa </h1>
             </div><!-- /.col -->
         </div>
         <!-- /.row -->
@@ -16,6 +16,7 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
+
     <section class="content">
         <div class="container-fluid">
           <div class="row">
@@ -24,17 +25,24 @@
               <!-- general form elements -->
               <div class="card card-primary">
                 <div class="card-header">
-                  <h3 class="card-title">Form Visi & Misi Desa</h3>
+                  <h3 class="card-title">Form Data Jenis Kelamin Desa</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{ route('admin.simpan_profildesa') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.simpan_jk') }}" method="POST" enctype="multipart/form-data">
                   @csrf
                   <div class="card-body">
                     <div class="form-group">
-                        <label for="visi_misi">Visi & Misi</label>
-                        <textarea id="myeditor" name="visi_misi" class="visi_misi"></textarea>
-                        @error('visi')
+                      <label for="inputjk">Jenis Kelamin</label>
+                      <input type="text" class="form-control" id="inputjk" name="jk" placeholder="jk">
+                      @error('jk')
+                        <small>{{ $message }}</small>
+                      @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="InputJumlah">Jumlah</label>
+                        <input type="text" class="form-control" id="inputjumlah" name="jumlah" placeholder="jumlah">
+                        @error('jumlah')
                         <small>{{ $message }}</small>
                         @enderror
                     </div>
@@ -42,35 +50,22 @@
                   <!-- /.card-body -->
   
                   <div class="card-footer">
-                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                   </div>
                 </form>
               </div>
               <!-- /.card -->
+
             </div>
             <!--/.col (left) -->
+            <!-- right column -->
+          
+            <!--/.col (right) -->
           </div>
           <!-- /.row -->
         </div><!-- /.container-fluid -->
       </section>
-</div>
 
+  </div>
+    
 @endsection
-
-@push('js')
-<script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
-<script>
-  var options = {
-    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token={{ csrf_token() }}',
-    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token={{ csrf_token() }}',
-    clipboard_handleImages: false
-};
-
-</script>
-
-<script>
-    CKEDITOR.replace('myeditor', options)
-</script>
-@endpush

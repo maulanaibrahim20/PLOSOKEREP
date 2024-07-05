@@ -1,120 +1,99 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        integrity="sha512-Fo3rlrZj/k7ujTnH1z6B8+Zt1Z7gL8b9LaE6A5+aF6rrgh/s3Rqs8pPv1gxd5F2Zwx+wRT7OoXtY/8PeAqTxw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/kelamin.css">
-    <title>Desa Plosokerep</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnH1z6B8+Zt1Z7gL8b9LaE6A5+aF6rrgh/s3Rqs8pPv1gxd5F2Zwx+wRT7OoXtY/8PeAqTxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/agama.css">
+  <title>Desa Plosokerep</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
 @include('layout/navbar')
-    <br>
-    <br>
-    <br>
-    <div class="container mt-5">
-        <h3>DATA AGAMA DI DESA PLOSOKEREP</h3>
-        <div class="row">
-            <div class="col-md-6">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>NO</th>
-                            <th>Agama</th>
-                            <th>No</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Islam</td>
-                            <td contenteditable="true" class="data-value">1000</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Kristen</td>
-                            <td contenteditable="true" class="data-value">500</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Hindu</td>
-                            <td contenteditable="true" class="data-value">200</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Budha</td>
-                            <td contenteditable="true" class="data-value">100</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="col-md-6">
-                <canvas id="religionChart"></canvas>
-            </div>
-        </div>
+
+<br>
+<br>
+<br>
+  <div class="container mt-5">
+    <h3>DATA AGAMA DI DESA PLOSOKEREP</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>NO</th>
+              <th>agama</th>
+              <th>Jumlah</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach($agama as $kerja)
+            <tr>
+                <td>{{ $kerja->id }}</td>
+                <td>{{ $kerja->agama }}</td>
+                <td contenteditable="true" class="data-value">{{ $kerja->jumlah }}</td>
+            </tr>
+            @endforeach
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <canvas id="jobChart"></canvas>
+      </div>
     </div>
-    <br>
-    <br>
-    <br>
-    @include('layout/copyright')
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
-        integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMp0RSK9sB0UGaAcVEOl8SKSTBSkT8wCHd1/6hsLoRF4XsF06HUETeKRWPL5Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        // Fungsi untuk memperbarui chart
-        function updateChart() {
-            const dataValues = document.querySelectorAll('.data-value');
-            const islam = parseInt(dataValues[0].textContent) || 0;
-            const kristen = parseInt(dataValues[1].textContent) || 0;
-            const hindu = parseInt(dataValues[2].textContent) || 0;
-            const budha = parseInt(dataValues[3].textContent) || 0;
+  @include('layout/copyright')
 
-            religionChart.data.datasets[0].data = [islam, kristen, hindu, budha];
-            religionChart.update();
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-k6RqeWeci5ZR/LvMR0sA0FfDOMp0RSK9sB0UGaAcVEOl8SKSTBSkT8wCHd1/6hsLoRF4XsF06HUETeKRWPL5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    // Ambil data agama dari Blade ke JavaScript
+    const agamaData = @json($agama->pluck('jumlah'));
+    const agamaLabels = @json($agama->pluck('agama'));
+
+    // Definisikan palet warna untuk chart
+    const colors = ['#00d4ff', '#4B515D', '#FFBB28', '#FF8042', '#00C49F', '#FFD700', '#7B68EE', '#FFA07A', '#20B2AA', '#778899'];
+
+    // Fungsi untuk memperbarui chart
+    function updateChart() {
+      const dataValues = document.querySelectorAll('.data-value');
+      const updatedData = Array.from(dataValues).map(cell => parseInt(cell.textContent) || 0);
+      jobChart.data.datasets[0].data = updatedData;
+      jobChart.update();
+    }
+
+    const ctx = document.getElementById('jobChart').getContext('2d');
+    const data = {
+      labels: agamaLabels,
+      datasets: [{
+        data: agamaData,
+        backgroundColor: colors.slice(0, agamaData.length) // Gunakan warna dari palet untuk setiap dataset
+      }]
+    };
+    const config = {
+      type: 'pie',
+      data: data,
+      options: {
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: function(tooltipItem) {
+                return tooltipItem.label + ': ' + tooltipItem.raw + ' orang';
+              }
+            }
+          }
         }
+      },
+    };
+    const jobChart = new Chart(ctx, config);
 
-        const ctx = document.getElementById('religionChart').getContext('2d');
-        const data = {
-            labels: ['Islam', 'Kristen', 'Hindu', 'Budha'],
-            datasets: [{
-                data: [1000, 500, 200, 100],
-                backgroundColor: ['#00d4ff', '#4B515D', '#FFBB28', '#FF8042']
-            }]
-        };
-        const config = {
-            type: 'pie',
-            data: data,
-            options: {
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            label: function(tooltipItem) {
-                                return tooltipItem.label + ': ' + tooltipItem.raw + ' orang';
-                            }
-                        }
-                    }
-                }
-            },
-        };
-        const religionChart = new Chart(ctx, config);
-
-        // Tambahkan event listener pada tabel untuk mendeteksi perubahan
-        document.querySelectorAll('.data-value').forEach(cell => {
-            cell.addEventListener('input', updateChart);
-        });
-    </script>
+    // Tambahkan event listener pada tabel untuk mendeteksi perubahan
+    document.querySelectorAll('.data-value').forEach(cell => {
+      cell.addEventListener('input', updateChart);
+    });
+  </script>
 </body>
-
 </html>

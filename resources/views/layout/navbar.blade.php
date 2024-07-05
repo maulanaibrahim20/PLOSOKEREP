@@ -45,7 +45,7 @@
                         data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pie-chart-fill"></i> Data Penduduk
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="/kelamin">Data Kelamin</a></li>
+                        <li><a class="dropdown-item" href="/kelamin">Data Jenis Kelamin</a></li>
                         <li><a class="dropdown-item" href="pekerjaan">Data pekerjaan</a></li>
                         <li><a class="dropdown-item" href="agama">Data agama</a></li>
                     </ul>

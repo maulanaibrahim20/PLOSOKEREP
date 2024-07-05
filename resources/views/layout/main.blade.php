@@ -70,49 +70,49 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="{{ route('admin.dashboard') }}" class="nav-link">
+            <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->is('admin/dashboard') ? 'active' : '' }}">
               <i class="nav-icon fas fa-th"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.pengaduan') }}" class="nav-link">
+            <a href="{{ route('admin.pengaduan') }}" class="nav-link {{ request()->is('admin/pengaduan') ? 'active' : '' }}">
               <i class="nav-icon fas fa-exclamation-circle"></i>
               <p>Pengaduan Masyarakat</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.profildesa') }}" class="nav-link">
+            <a href="{{ route('admin.profildesa') }}" class="nav-link {{ request()->is('admin/profildesa') ? 'active' : '' }}">
               <i class="nav-icon fas fa-home"></i>
               <p>Profil Desa</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('admin.datapenduduk') }}" class="nav-link {{ request()->is('admin/datapenduduk') ? 'active' : '' }}">
               <i class="nav-icon fas fa-users"></i>
               <p>Data Penduduk</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('admin.manajemen_pengajuan_surat') }}" class="nav-link {{ request()->is('admin/manajemen_pengajuan_surat') ? 'active' : '' }}">
               <i class="nav-icon fas fa-envelope"></i>
               <p>Surat Masuk</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.m_berita') }}" class="nav-link">
+            <a href="{{ route('admin.m_berita') }}" class="nav-link {{ request()->is('admin/m_berita') ? 'active' : '' }}">
               <i class="nav-icon fas fa-newspaper"></i>
               <p>Berita Desa</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.user') }}" class="nav-link">
+            <a href="{{ route('admin.user') }}" class="nav-link {{ request()->is('admin/user') ? 'active' : '' }}">
               <i class="nav-icon fas fa-user"></i>
               <p>Data User</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.aparatur') }}" class="nav-link">
+            <a href="{{ route('admin.aparatur') }}" class="nav-link {{ request()->is('admin/aparatur') ? 'active' : '' }}">
               <i class="nav-icon fas fa-users-cog"></i>
               <p>Aparatur Desa</p>
             </a>

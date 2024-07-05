@@ -24,23 +24,6 @@
             <div class="col-12">
               <a href="{{ route('admin.create') }}" class="btn btn-primary mb-3">Tambah Data</a>
               <div class="card">
-                {{-- <div class="card-header">
-                  <h3 class="card-title">Responsive Hover Table</h3>
-  
-                  <div class="card-tools">
-                    <form action="{{ route('admin.aparatur') }}" method="GET">
-                      <div class="input-group input-group-sm" style="width: 150px;">
-                        <input type="text" name="search" class="form-control float-right" placeholder="Search" value="{{ $request->get('search') }}">
-   
-                        <div class="input-group-append">
-                          <button type="submit" class="btn btn-default">
-                            <i class="fas fa-search"></i>
-                          </button>
-                        </div>
-                      </div>
-                    </form>  
-                  </div>
-                </div> --}}
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0">
                   <table class="table table-hover text-nowrap" id="aparatur" >

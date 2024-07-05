@@ -43,38 +43,31 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">BUAT PESANAN</h5>
-                    <form action="{{ route('cart.add', $Product->id) }}" method="POST">
-                        @csrf
-                        <div class="mb-3">
-                            <label for="nama" class="form-label">Nama</label>
-                            <input type="text" class="form-control" id="nama" name="customer_name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="noTelepon" class="form-label">No Telepon</label>
-                            <input type="tel" class="form-control" id="noTelepon" name="noTelepon" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="alamat" class="form-label">Alamat</label>
-                            <textarea class="form-control" id="alamat" name="customer_address" rows="3" required></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="jumlahBarang" class="form-label">Jumlah Barang</label>
-                            <div class="input-group jumlah-barang-group">
-                                <button type="button" class="btn btn-outline-secondary" id="kurang">-</button>
-                                <input type="number" class="form-control text-center jumlah-barang-input" id="jumlahBarang" name="quantity" value="1" min="1" readonly>
-                                <button type="button" class="btn btn-outline-secondary" id="tambah">+</button>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="totalHarga" class="form-label">Total Harga</label>
-                            <input type="text" class="form-control" id="totalHarga" value="{{ number_format($Product->harga, 0, ',', '.') }}" readonly>
-                        </div>
-                        <button type="submit" class="btn btn-info mt-3">Masukkan Keranjang</button>
-                    </form>
+                    <form action="{{ route('checkout', $Product->id) }}" method="POST">
+                      @csrf
+                      <div class="mb-3">
+                          <label for="nama" class="form-label">Nama</label>
+                          <input type="text" class="form-control" id="nama" name="name" required>
+                      </div>
+                      {{--  --}}
+                      <div class="mb-3">
+                          <label for="noTelepon" class="form-label">No Telepon</label>
+                          <input type="tel" class="form-control" id="noTelepon" name="phone" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="alamat" class="form-label">Alamat</label>
+                          <textarea class="form-control" id="alamat" name="address" rows="3" required></textarea>
+                      </div>
+                      <div class="mb-3">
+                          <label for="jumlahBarang" class="form-label">Jumlah Barang</label>
+                          <div class="input-group jumlah-barang-group">
+                              <button type="button" class="btn btn-outline-secondary" id="kurang">-</button>
+                              <input type="number" class="form-control text-center jumlah-barang-input" id="jumlahBarang" name="qty" value="1" min="1" readonly>
+                              <button type="button" class="btn btn-outline-secondary" id="tambah">+</button>
+                          </div>
+                      </div>
+                      <button type="submit" class="btn btn-info mt-3">Masukkan Keranjang</button>
+                  </form>
                 </div>
             </div>
         </div>

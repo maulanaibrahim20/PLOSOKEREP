@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('carts', function (Blueprint $table) {
-            $table->string('status')->default('unpaid');
+        Schema::create('tabel_agama', function (Blueprint $table) {
+            $table->id();
+            $table->string('agama');
+            $table->integer('jumlah');
+            $table->timestamps();
         });
-        
     }
 
     /**
@@ -22,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('carts', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('tabel_agama');
     }
 };
