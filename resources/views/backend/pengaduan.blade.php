@@ -50,6 +50,7 @@
                                             <th>Nama</th>
                                             <th>No.Hp</th>
                                             <th>Rincian Pengaduan</th>
+                                            <th>Foto</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -60,6 +61,14 @@
                                                 <td>{{ $d->nama }}</td>
                                                 <td>{{ $d->no_tlp }}</td>
                                                 <td>{{ $d->rincian_pengaduan }}</td>
+                                                <td>
+                                                    @if ($d->foto && file_exists(storage_path('app/public/' . $d->foto)))
+                                                        <img src="{{ asset('storage/' . $d->foto) }}" alt="Foto"
+                                                            style="width: 150px; height: auto;">
+                                                    @else
+                                                        <span class="text-danger">Foto tidak tersedia</span>
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     <a data-toggle="modal" data-target="#modal-hapus{{ $d->id }}"
                                                         class="btn btn-danger">
@@ -79,7 +88,8 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <p>Apakah kamu yakin ingin menghapus data aparatur
-                                                                <b>{{ $d->nama }}</b></p>
+                                                                <b>{{ $d->nama }}</b>
+                                                            </p>
                                                         </div>
                                                         <div class="modal-footer justify-content-between">
                                                             <form
