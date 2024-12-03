@@ -24,7 +24,7 @@
                         height="250px" alt="">
                 </div>
                 <br>
-                <h2 class="card-title text-center mb-4">PENGAJUAN SURAT</h2>
+                <h2 class="card-title text-center mb-4">PENGAJUAN PEMINJAMAN BARANG</h2>
                 <form action="{{ route('inventory.borrow') }}" method="POST">
                     @csrf
                     <div class="mb-3">

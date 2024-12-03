@@ -20,7 +20,7 @@ class BeritaController extends Controller
 
     public function berita()
     {
-        return view('berita', [
+        return view('Berita', [
             'latest_post' => Berita::latest()->first(),
             'popular_berita' => Berita::whereStatus(1)->orderBy('views', 'desc')->take(5)->get(),
             'berita' => Berita::wherestatus(1)->latest()->get()
