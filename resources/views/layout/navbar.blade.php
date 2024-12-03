@@ -40,6 +40,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="/H_pengaduan">Pengaduan</a></li>
                         <li><a class="dropdown-item" href="/H_surat">Pengajuan surat</a></li>
+                        <li><a class="dropdown-item" href="{{ route('inventory') }}">Inventory</a></li>
                         {{-- <li><a class="dropdown-item" href={{ route('umkm_d') }}>UMKM</a></li> --}}
                     </ul>
                 </li>

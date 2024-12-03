@@ -15,5 +15,6 @@ class Pengaduan extends Model
         'nama',
         'no_tlp',
         'rincian_pengaduan',
+        'foto'
     ];
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Aparatur;
 use App\Models\Berita;
+use App\Models\Inventory;
 use App\Models\Pengaduan;
 use App\Models\PengajuanSurat;
 use App\Models\ProfilDesa;
@@ -86,5 +87,13 @@ class HomeController extends Controller
         User::create($data);
 
         return redirect()->route('index');
+    }
+
+
+    public function inventoryUser()
+    {
+        $data['inventory'] = Inventory::all();
+
+        return view('inventory', $data);
     }
 }

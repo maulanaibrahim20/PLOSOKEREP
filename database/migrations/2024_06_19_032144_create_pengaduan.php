@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('no_tlp');
             $table->text('rincian_pengaduan');
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

@@ -18,6 +18,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\UserController;
+use App\Models\Inventory;
 use App\Models\Pengaduan;
 use App\Models\PengajuanSurat;
 use Illuminate\Support\Facades\Route;
@@ -123,12 +124,14 @@ Route::get('/H_pengaduan', [PengaduanController::class, 'H_pengaduan'])->name('H
 Route::post('/simpan_pengaduan', [PengaduanController::class, 'simpan_pengaduan'])->name('simpan_pengaduan');
 Route::delete('/delete_pengaduan/{id}', [PengaduanController::class, 'delete_pengaduan'])->name('delete_pengaduan');
 
+// Inventory untuk pengguna akhir
+Route::get('/inventory', [HomeController::class, 'inventoryUser'])->name('inventory');
+
 // Rute untuk berita
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
 Route::get('/berita', [BeritaController::class, 'berita'])->name('berita');
 Route::get('/beritaklik', [BeritaController::class, 'beritaklik'])->name('beritaklik');
 Route::get('/beritaklik/{id}', [BeritaController::class, 'beritaklik'])->name('beritaklik');
-
 
 
 
@@ -175,7 +178,6 @@ Route::get('/galeri', function () {
 Route::get('/homepageadmin', function () {
     return view('homepageadmin');
 });
-
 
 // Group untuk UMKM dengan middleware auth dan role umkm
 Route::group(['prefix' => 'umkm', 'middleware' => ['auth', 'role:umkm'], 'as' => 'umkm.'], function () {
