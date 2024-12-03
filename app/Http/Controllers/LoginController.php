@@ -36,7 +36,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
             if ($user->role == 'admin') {
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('admin.dashboard')->with('success', 'Selamat anda berhasil login, selamat datang   ' . Auth::user()->name);
             } elseif ($user->role == 'umkm') {
                 return redirect()->route('umkm.dashboard_umkm');
             } elseif ($user->role == 'customer') {

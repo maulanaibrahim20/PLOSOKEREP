@@ -3,7 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Inventory;
+use App\Models\Umkm;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +17,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $roles = ['admin', 'kades', 'umkm', 'customer'];
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->create([
+            'email' => 'admin@gmail.com',
+            'role' => 'admin',
+        ]);
+
+        foreach ($roles as $role) {
+            User::factory()->create([
+                'email' => fake()->unique()->safeEmail(),
+                'role' => $role,
+            ]);
+        }
+
+        Inventory::factory()->count(5)->create();
+        Umkm::factory()->count(5)->create();
     }
 }

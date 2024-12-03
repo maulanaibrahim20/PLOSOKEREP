@@ -7,6 +7,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DataTableController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\JkController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\PengaduanController;
 use App\Http\Controllers\PengajuanSuratController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfilDesaController;
+use App\Http\Controllers\UmkmController;
 use App\Http\Controllers\UserController;
 use App\Models\Pengaduan;
 use App\Models\PengajuanSurat;
@@ -31,10 +33,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Rute untuk halaman login dan register
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
+Route::middleware('guest')->group(function () {
+    // Rute untuk halaman login dan register
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
+});
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
 
 // Rute untuk logout mengarahkan ke homepage
 //Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('guest');
@@ -51,6 +56,7 @@ Route::post('/register-proses', [LoginController::class, 'register_proses'])->na
 
 // Group untuk admin dengan middleware auth dan role admin
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin'], 'as' => 'admin.'], function () {
+
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     Route::get('/user', [HomeController::class, 'user'])->name('user');
 
@@ -104,6 +110,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin'], 'as' 
     Route::delete('/delete_jk/{id}', [JkController::class, 'delete_jk'])->name('jk.delete');
 
     Route::get('/datapenduduk', [HomeController::class, 'datapenduduk'])->name('datapenduduk');
+
+
+    // Inventory
+    Route::resource('/inventory', InventoryController::class);
+    Route::resource('umkm', UmkmController::class);
 });
 
 // Rute untuk pengaduan masyarakat
