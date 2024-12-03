@@ -36,7 +36,8 @@
                         {{ session('success') }}
                     </div>
                 @endif
-                <form action="{{ route('simpan_pengaduan') }}" method="POST" enctype="multipart/form-data">
+                <form id="formPengaduan" action="{{ route('simpan_pengaduan') }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="namaLengkap" class="form-label">Nama Lengkap:</label>
@@ -65,9 +66,9 @@
                         <label for="foto" class="form-label">Foto (Optional) :</label>
                         <input type="file" class="form-control" id="foto" name="foto">
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Kirim</button>
+                    <button type="submit" class="btn btn-primary w-100" id="btnSubmit">Kirim</button>
                 </form>
-
+                </p>
             </div>
         </div>
     </div>
@@ -98,6 +99,30 @@
             });
         </script>
     @endif
+    <script>
+        document.getElementById('btnSubmit').addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const isLoggedIn = this.getAttribute('data-login') === 'true';
+            /
+            const form = document.getElementById('formPengaduan');
+
+            if (!isLoggedIn) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops...',
+                    text: 'Anda harus login untuk mengirimkan pengaduan.',
+                    confirmButtonText: 'Login'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "{{ route('login') }}";
+                    }
+                });
+            } else {
+                form.submit();
+            }
+        });
+    </script>
 </body>
 
 </html>

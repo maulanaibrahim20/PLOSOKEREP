@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengaduan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -36,6 +37,9 @@ class PengaduanController extends Controller
 
     public function simpan_pengaduan(Request $request)
     {
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'Anda harus login untuk mengirimkan pengaduan.');
+        }
         $validator = Validator::make($request->all(), [
             'nama' => 'required|string|max:255',
             'no_tlp' => 'required|string|max:15',

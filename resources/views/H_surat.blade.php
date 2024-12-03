@@ -22,7 +22,7 @@
 </head>
 
 <body>
-  @include('layout.navbar')
+    @include('layout.navbar')
 
     <div class="container mt-2">
         <div class="info-container shadow p-1 mb-5 rounded">
@@ -51,11 +51,13 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-                        <form action="{{ route('pengajuan.surat.store') }}" method="POST" enctype="multipart/form-data">
+                        <form id="formPegajuanSurat" action="{{ route('pengajuan.surat.store') }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="nama_lengkap" class="form-label">Nama Lengkap:</label>
-                                <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" required>
+                                <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap"
+                                    required>
                             </div>
                             <div class="mb-3">
                                 <label for="nik" class="form-label">NIK:</label>
@@ -67,12 +69,12 @@
                             </div>
                             <div class="mb-3">
                                 <label for="upload_surat" class="form-label">Upload Surat:</label>
-                                <input type="file" class="form-control" id="upload_surat" name="upload_surat" accept=".pdf,.doc,.docx" required>
+                                <input type="file" class="form-control" id="upload_surat" name="upload_surat"
+                                    accept=".pdf,.doc,.docx" required>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100">Kirim</button>
+                            <button id="btnSubmit" type="submit" class="btn btn-primary w-100"
+                                data-login="{{ Auth::check() ? 'true' : 'false' }}">Kirim</button>
                         </form>
-                        
-                        
                     </div>
                 </div>
             </div>
@@ -82,10 +84,34 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-    <!-- Font Awesome JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
         integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMp0RSK9sB0UGaAcVEOl8SKSTBSkT8wCHd1/6hsLoRF4XsF06HUETeKRWPL5Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <script>
+        document.getElementById('btnSubmit').addEventListener('click', function(e) {
+            e.preventDefault();
+
+            const isLoggedIn = this.getAttribute('data-login') === 'true';
+            const form = document.getElementById('formPegajuanSurat'); // Pastikan ID form sama
+
+            if (!isLoggedIn) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops...',
+                    text: 'Anda harus login untuk mengirimkan pengajuan surat.',
+                    confirmButtonText: 'Login'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "{{ route('login') }}";
+                    }
+                });
+            } else {
+                form.submit(); // Kirim form jika user sudah login
+            }
+        });
+    </script>
 </body>
 
 </html>

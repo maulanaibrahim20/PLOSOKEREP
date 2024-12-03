@@ -121,7 +121,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin'], 'as' 
 // Rute untuk pengaduan masyarakat
 Route::get('/pengaduan', [PengaduanController::class, 'pengaduan'])->name('pengaduan');
 Route::get('/H_pengaduan', [PengaduanController::class, 'H_pengaduan'])->name('H_pengaduan');
-Route::post('/simpan_pengaduan', [PengaduanController::class, 'simpan_pengaduan'])->name('simpan_pengaduan');
+Route::post('/simpan_pengaduan', [PengaduanController::class, 'simpan_pengaduan'])->name('simpan_pengaduan')->middleware('auth');
 Route::delete('/delete_pengaduan/{id}', [PengaduanController::class, 'delete_pengaduan'])->name('delete_pengaduan');
 
 // Inventory untuk pengguna akhir
@@ -226,7 +226,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/order/{id}', [OrderController::class, 'delete'])->name('order.delete'); // Route baru untuk menghapus order
 });
 
-Route::post('/pengajuan-surat', [PengajuanSuratController::class, 'store'])->name('pengajuan.surat.store');
+Route::post('/pengajuan-surat', [PengajuanSuratController::class, 'store'])->name('pengajuan.surat.store')->middleware('auth');
 Route::get('/admin/manajemen_pengajuan_surat', [PengajuanSuratController::class, 'index'])->name('admin.manajemen_pengajuan_surat');
 Route::delete('/admin/manajemen_pengajuan_surat/{id}', [PengajuanSuratController::class, 'destroy'])->name('admin.pengajuan_surat.delete');
 
