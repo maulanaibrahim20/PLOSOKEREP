@@ -25,7 +25,7 @@ class PengajuanSuratController extends Controller
 
         DB::beginTransaction();
         try {
-            $filePath = $request->file('upload_surat')->store('public/surat');
+            $filePath = $request->file('upload_surat')->store('pengajuan_surat');
 
             PengajuanSurat::create([
                 'nama_lengkap' => $request->nama_lengkap,
