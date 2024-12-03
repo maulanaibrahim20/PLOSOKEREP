@@ -44,7 +44,7 @@ class PengaduanController extends Controller
             'nama' => 'required|string|max:255',
             'no_tlp' => 'required|string|max:15',
             'rincian_pengaduan' => 'required|string',
-            'foto' => 'nullable|file|image|mimes:jpeg,png,jpg|max:2048', // Maksimal 2MB
+            'foto' => 'nullable|file|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         if ($validator->fails()) {

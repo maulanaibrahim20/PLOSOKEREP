@@ -16,31 +16,56 @@
     @include('layout/navbar')
 
     <div class="container mt-4">
-        <h3>Daftar Inventory</h3>
+        <h3>Formulir Peminjaman Barang</h3>
         <div class="card">
             <div class="card-body">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Nama Barang</th>
-                            <th>Kategori</th>
-                            <th>Stok</th>
-                            <th>Deskripsi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($inventory as $data)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $data->name }}</td>
-                                <td>{{ $data->category }}</td>
-                                <td>{{ $data->stock }}</td>
-                                <td>{{ $data->description }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                <div class="d-flex justify-content-center">
+                    <img src="{{ URL('gambar/logo.png') }}" id="borrowForm" class="center-image" width="200px"
+                        height="250px" alt="">
+                </div>
+                <br>
+                <h2 class="card-title text-center mb-4">PENGAJUAN SURAT</h2>
+                <form action="{{ route('inventory.borrow') }}" method="POST">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="borrowerName" class="form-label">Nama Peminjam</label>
+                        <input type="text" class="form-control" id="borrowerName" name="borrowerName"
+                            placeholder="Masukkan nama peminjam" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="itemSelect" class="form-label">Pilih Barang</label>
+                        <select class="form-select" id="itemSelect" name="item_id" required>
+                            <option selected disabled>Pilih barang yang ingin dipinjam</option>
+                            @foreach ($categories as $category => $items)
+                                <optgroup label="{{ $category }}">
+                                    @foreach ($items as $item)
+                                        <option value="{{ $item->id }}">
+                                            {{ $item->name }} (Stok: {{ $item->stock }})
+                                        </option>
+                                    @endforeach
+                                </optgroup>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="borrowQuantity" class="form-label">Jumlah Peminjaman</label>
+                        <input type="number" class="form-control" id="borrowQuantity" name="quantity" min="1"
+                            placeholder="Masukkan jumlah barang yang ingin dipinjam" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="startDate" class="form-label">Tanggal Mulai Peminjaman</label>
+                        <input type="date" class="form-control" id="startDate" name="start_date" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="endDate" class="form-label">Tanggal Akhir Peminjaman</label>
+                        <input type="date" class="form-control" id="endDate" name="end_date" required />
+                    </div>
+
+                    <button id="submitButton" type="submit" class="btn btn-primary">Ajukan Peminjaman</button>
+                </form>
             </div>
         </div>
     </div>
@@ -71,6 +96,24 @@
             });
         </script>
     @endif
+
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function(e) {
+            @if (!Auth::check())
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Harus Login',
+                    text: 'Silakan login terlebih dahulu untuk mengajukan peminjaman.',
+                    icon: 'warning',
+                    confirmButtonText: 'Login'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '{{ route('login') }}';
+                    }
+                });
+            @endif
+        });
+    </script>
 </body>
 
 </html>

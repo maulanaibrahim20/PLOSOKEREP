@@ -40,7 +40,7 @@ class LoginController extends Controller
             } elseif ($user->role == 'umkm') {
                 return redirect()->route('umkm.dashboard_umkm');
             } elseif ($user->role == 'customer') {
-                return redirect()->route('homepageadmin');
+                return redirect('/');
             }
 
             return redirect()->back()->with('failed', 'Role tidak dikenali');
@@ -56,7 +56,7 @@ class LoginController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Logout Berhasil');
     }
 
     public function register()

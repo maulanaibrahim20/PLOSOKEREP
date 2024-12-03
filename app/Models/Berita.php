@@ -11,6 +11,5 @@ class Berita extends Model
 
     protected $table = 'berita';
 
-    protected $fillable = ['title', 'slug', 'desc', 'img', 'views', 'status'];
-
+    protected $fillable = ['title', 'slug', 'desc', 'img', 'views', 'status', 'publish_date'];
 }

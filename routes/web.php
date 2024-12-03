@@ -126,6 +126,7 @@ Route::delete('/delete_pengaduan/{id}', [PengaduanController::class, 'delete_pen
 
 // Inventory untuk pengguna akhir
 Route::get('/inventory', [HomeController::class, 'inventoryUser'])->name('inventory');
+Route::post('/inventory/borrow', [HomeController::class, 'borrowInventory'])->name('inventory.borrow')->middleware('auth');
 
 // Rute untuk berita
 Route::get('/berita', [HomeController::class, 'berita'])->name('berita');
@@ -201,6 +202,9 @@ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']
 Route::middleware('auth')->group(function () {
 
     Route::get('/homepageadmin', [HomeController::class, 'homepageadmin'])->name('homepageadmin');
+
+    Route::post('/pengajuan-surat', [PengajuanSuratController::class, 'store'])->name('pengajuan.surat.store');
+
     // Rute untuk UMKM
     Route::get('/umkm_da', [ProductController::class, 'umkm_da'])->name('umkm_da');
     Route::get('/umkm_ea', [ProductController::class, 'umkm_ea'])->name('umkm_ea');
@@ -226,7 +230,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/order/{id}', [OrderController::class, 'delete'])->name('order.delete'); // Route baru untuk menghapus order
 });
 
-Route::post('/pengajuan-surat', [PengajuanSuratController::class, 'store'])->name('pengajuan.surat.store')->middleware('auth');
 Route::get('/admin/manajemen_pengajuan_surat', [PengajuanSuratController::class, 'index'])->name('admin.manajemen_pengajuan_surat');
 Route::delete('/admin/manajemen_pengajuan_surat/{id}', [PengajuanSuratController::class, 'destroy'])->name('admin.pengajuan_surat.delete');
 

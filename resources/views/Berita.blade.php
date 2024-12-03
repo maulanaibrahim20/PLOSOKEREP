@@ -49,7 +49,7 @@
         <div class="row">
             <div class="col-lg-9">
                 <div class="row row-cols-1 row-cols-md-4 g-4">
-                    @foreach ($berita as $item)
+                    @forelse ($berita as $item)
                         <div class="col">
                             <div class="card card-custom shadow p-0 bg-body rounded h-100">
                                 <div class="card-img-top-wrapper" style="height: 200px; overflow: hidden;">
@@ -67,7 +67,9 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    @empty
+                        <p class="text-center">Berita Belum Tersedia</p>
+                    @endforelse
                 </div>
             </div>
             <div class="col-lg-3">

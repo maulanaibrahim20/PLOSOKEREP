@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Aparatur;
 use App\Models\Berita;
+use App\Models\BorrowInventory;
 use App\Models\Inventory;
 use App\Models\Pengaduan;
 use App\Models\PengajuanSurat;
@@ -11,6 +12,7 @@ use App\Models\ProfilDesa;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -92,8 +94,51 @@ class HomeController extends Controller
 
     public function inventoryUser()
     {
-        $data['inventory'] = Inventory::all();
+        $inventory = Inventory::all();
 
-        return view('inventory', $data);
+        $categories = $inventory->groupBy('category');
+
+        return view('inventory', [
+            'categories' => $categories,
+        ]);
+    }
+
+
+    public function borrowInventory(Request $request)
+    {
+        $request->validate([
+            'borrowerName' => 'required|string|max:255',
+            'item_id' => 'required|exists:inventories,id',
+            'quantity' => 'required|integer|min:1',
+            'start_date' => 'required|date|after_or_equal:today',
+            'end_date' => 'required|date|after_or_equal:start_date',
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $inventory = Inventory::findOrFail($request->item_id);
+
+            if ($inventory->stock < $request->quantity) {
+                return redirect()->back()->with('error', 'Stok barang tidak mencukupi.');
+            }
+
+            $inventory->stock -= $request->quantity;
+            $inventory->save();
+
+            BorrowInventory::create([
+                'borrower_name' => $request->borrowerName,
+                'inventory_id' => $inventory->id,
+                'quantity' => $request->quantity,
+                'start_date' => $request->start_date,
+                'end_date' => $request->end_date,
+            ]);
+
+            DB::commit();
+
+            return redirect()->back()->with('success', 'Peminjaman berhasil diajukan.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat meminjam barang: ' . $e->getMessage());
+        }
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\PengajuanSurat;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class PengajuanSuratController extends Controller
@@ -12,28 +13,37 @@ class PengajuanSuratController extends Controller
     public function store(Request $request)
     {
         if (!Auth::check()) {
-            return redirect()->route('login')->with('error', 'Anda harus login untuk mengirimkan pengaduan.');
+            return redirect()->route('login')->with('error', 'Anda harus login untuk mengajukan surat.');
         }
-        $request->validate(rules: [
+
+        $request->validate([
             'nama_lengkap' => 'required|string|max:255',
             'nik' => 'required|string|max:255',
             'nomor_hp' => 'required|string|max:255',
-            'upload_surat' => 'required|file|mimes:pdf,doc,docx|max:2048', // Validasi untuk PDF dan Word
+            'upload_surat' => 'required|file|mimes:pdf,doc,docx|max:2048',
         ]);
 
-        // Simpan file yang diunggah
-        $filePath = $request->file('upload_surat')->store('public/surat');
+        DB::beginTransaction();
+        try {
+            $filePath = $request->file('upload_surat')->store('public/surat');
 
-        // Simpan data ke database
-        PengajuanSurat::create([
-            'nama_lengkap' => $request->nama_lengkap,
-            'nik' => $request->nik,
-            'nomor_hp' => $request->nomor_hp,
-            'upload_surat' => $filePath,
-        ]);
+            PengajuanSurat::create([
+                'nama_lengkap' => $request->nama_lengkap,
+                'nik' => $request->nik,
+                'nomor_hp' => $request->nomor_hp,
+                'upload_surat' => $filePath,
+            ]);
 
-        return redirect()->back()->with('success', 'Pengajuan surat berhasil dikirim.');
+            DB::commit();
+
+            return redirect()->back()->with('success', 'Pengajuan surat berhasil dikirim.');
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat memproses pengajuan surat. Silakan coba lagi.' . $e->getMessage());
+        }
     }
+
 
     public function surata()
     {

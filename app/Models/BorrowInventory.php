@@ -6,11 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class Inventory extends Model
+class BorrowInventory extends Model
 {
     use HasFactory;
-
-    protected $table = 'inventories', $guarded =  ['id'];
+    protected $table = 'borrows_inventory', $guarded = ['id'];
 
     protected static function boot()
     {
@@ -21,10 +20,5 @@ class Inventory extends Model
                 $model->uuid = Str::uuid()->toString();
             }
         });
-    }
-
-    public function borrows()
-    {
-        return $this->hasMany(BorrowInventory::class);
     }
 }
