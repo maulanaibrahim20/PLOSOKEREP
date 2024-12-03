@@ -50,26 +50,30 @@ Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register-proses', [LoginController::class, 'register_proses'])->name('register-proses');
 
 // Group untuk admin dengan middleware auth dan role admin
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin'], 'as' => 'admin.'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin'], 'as' => 'admin.'], function () {
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     Route::get('/user', [HomeController::class, 'user'])->name('user');
+
     Route::get('/aparatur', [AparaturController::class, 'aparatur'])->name('aparatur');
     Route::get('/create', [AparaturController::class, 'create'])->name('create');
     Route::post('/store2', [AparaturController::class, 'store2'])->name('store2');
     Route::get('/edit/{id}', [AparaturController::class, 'edit'])->name('aparatur.edit');
     Route::put('/update/{id}', [AparaturController::class, 'update'])->name('aparatur.update');
     Route::delete('/delete/{id}', [AparaturController::class, 'delete'])->name('aparatur.delete');
+
     Route::get('/pengaduan', [PengaduanController::class, 'pengaduan'])->name('pengaduan');
     Route::post('/simpan_pengaduan', [PengaduanController::class, 'simpan_pengaduan'])->name('simpan_pengaduan');
     Route::get('/edit_pengaduan/{id}', [PengaduanController::class, 'edit_pengaduan'])->name('Pengaduan.edit');
     Route::put('/update_pengaduan/{id}', [PengaduanController::class, 'update_pengaduan'])->name('Pengaduan.update');
     Route::delete('/delete_pengaduan/{id}', [PengaduanController::class, 'delete_pengaduan'])->name('Pengaduan.delete');
+
     Route::get('/profildesa', [ProfilDesaController::class, 'profildesa'])->name('profildesa');
     Route::get('/create_profildesa', [ProfilDesaController::class, 'create_profildesa'])->name('create_profildesa');
     Route::post('/simpan_profildesa', [ProfilDesaController::class, 'simpan_profildesa'])->name('simpan_profildesa');
     Route::get('/edit_profildesa/{id}', [ProfilDesaController::class, 'edit_profildesa'])->name('profildesa.edit');
     Route::put('/update_profildesa/{id}', [ProfilDesaController::class, 'update_profildesa'])->name('profildesa.update');
     Route::delete('/delete_profildesa/{id}', [ProfilDesaController::class, 'delete_profildesa'])->name('profildesa.delete');
+
     Route::get('/m_berita', [BeritaController::class, 'm_berita'])->name('m_berita');
     Route::get('/create_m_berita', [BeritaController::class, 'create_m_berita'])->name('create_m_berita');
     Route::post('/simpan_m_berita', [BeritaController::class, 'simpan_m_berita'])->name('simpan_m_berita');
@@ -163,7 +167,7 @@ Route::get('/homepageadmin', function () {
 
 
 // Group untuk UMKM dengan middleware auth dan role umkm
-Route::group(['prefix' => 'umkm', 'middleware' => ['auth', 'role:umkm'], 'as' => 'umkm.'], function(){
+Route::group(['prefix' => 'umkm', 'middleware' => ['auth', 'role:umkm'], 'as' => 'umkm.'], function () {
     Route::get('/dashboard_umkm', [AdminUmkmController::class, 'dashboard_umkm'])->name('dashboard_umkm');
     Route::get('/product', [AdminUmkmController::class, 'product'])->name('product');
     Route::get('/product', [ProductController::class, 'product'])->name('product');
@@ -196,7 +200,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/profile', [UserController::class, 'updateProfile'])->name('profile.update');
 
     // Routes for Admin UMKM to manage orders
-    //  
+    //
 
     Route::get('/checkout', [OrderController::class, 'index']);
     Route::post('/checkout/{id}', [OrderController::class, 'checkout'])->name('checkout');

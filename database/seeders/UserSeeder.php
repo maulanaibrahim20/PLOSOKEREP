@@ -16,10 +16,10 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name'  => 'koba',
-            'email' => 'koba@gmail.com',
-            'password'  => Hash::make("inipass"),
+            'email' => 'admin@gmail.com',
+            'password'  => Hash::make("password"),
             'role'  => 'admin'
-            
+
         ]);
     }
 }

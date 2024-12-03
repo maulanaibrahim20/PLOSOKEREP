@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
     .navbar .nav-link {
-    color: white !important;
-}
+        color: white !important;
+    }
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top"
@@ -18,11 +18,13 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item" style="margin-right: 20px;">
-                    <a class="nav-link text-light" href={{ route('homepage') }}><i class="bi bi-house-door-fill"></i> Beranda</a>
+                    <a class="nav-link text-light" href={{ route('homepage') }}><i class="bi bi-house-door-fill"></i>
+                        Beranda</a>
                 </li>
                 <li class="nav-item dropdown" style="margin-right: 20px;">
-                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-houses-fill"></i> Profil Desa
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-houses-fill"></i>
+                        Profil Desa
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="/sejarah">Sejarah Desa</a></li>
@@ -31,18 +33,20 @@
                     </ul>
                 </li>
                 <li class="nav-item dropdown" style="margin-right: 20px;">
-                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-rolodex"></i> Pelayanan
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
+                            class="bi bi-person-rolodex"></i> Pelayanan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="/H_pengaduan">Pengaduan</a></li>
                         <li><a class="dropdown-item" href="/H_surat">Pengajuan surat</a></li>
-                        <li><a class="dropdown-item" href={{ route('umkm_d') }}>UMKM</a></li>
+                        {{-- <li><a class="dropdown-item" href={{ route('umkm_d') }}>UMKM</a></li> --}}
                     </ul>
                 </li>
                 <li class="nav-item dropdown" style="margin-right: 20px;">
-                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-pie-chart-fill"></i> Data Penduduk
+                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
+                            class="bi bi-pie-chart-fill"></i> Data Penduduk
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="/kelamin">Data Jenis Kelamin</a></li>
@@ -61,8 +65,8 @@
                 </li>
                 @auth
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {{-- <img src="{{ Auth::user()->foto ? asset('storage/foto/' . Auth::user()->foto) : asset('storage/foto/default_avatar.jpg') }}" alt="Profile Picture" class="rounded-circle" style="width: 40px; height: 40px;"> --}}
                             {{ Auth::user()->name }}
                         </a>
@@ -79,7 +83,8 @@
                     </li>
                 @else
                     <li class="nav-item" style="margin-right: 20px;">
-                        <a class="nav-link login btn text-light" href="{{ route('login') }}" style="background-color: blue;">
+                        <a class="nav-link login btn text-light" href="{{ route('login') }}"
+                            style="background-color: blue;">
                             Login</a>
                     </li>
                 @endauth
