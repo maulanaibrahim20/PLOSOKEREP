@@ -102,9 +102,9 @@
             @if (!Auth::check())
                 e.preventDefault();
                 Swal.fire({
-                    title: 'Harus Login',
-                    text: 'Silakan login terlebih dahulu untuk mengajukan peminjaman.',
                     icon: 'warning',
+                    title: 'Oops...',
+                    text: 'Anda harus login untuk mengirimkan pengaduan.',
                     confirmButtonText: 'Login'
                 }).then((result) => {
                     if (result.isConfirmed) {
