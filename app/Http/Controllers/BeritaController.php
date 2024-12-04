@@ -32,7 +32,7 @@ class BeritaController extends Controller
     {
         $berita = Berita::findOrFail($id);
         $berita->increment('views'); // Tambahkan jumlah tampilan
-        return view('beritaklik', compact('berita'));
+        return view('Beritaklik', compact('berita'));
     }
 
 
