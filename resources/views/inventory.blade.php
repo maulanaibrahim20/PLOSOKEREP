@@ -14,58 +14,71 @@
 
 <body>
     @include('layout/navbar')
-
-    <div class="container mt-4">
-        <h3>Formulir Peminjaman Barang</h3>
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex justify-content-center">
-                    <img src="{{ URL('gambar/logo.png') }}" id="borrowForm" class="center-image" width="200px"
-                        height="250px" alt="">
-                </div>
-                <br>
-                <h2 class="card-title text-center mb-4">PENGAJUAN PEMINJAMAN BARANG</h2>
-                <form action="{{ route('inventory.borrow') }}" method="POST">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="borrowerName" class="form-label">Nama Peminjam</label>
-                        <input type="text" class="form-control" id="borrowerName" name="borrowerName"
-                            placeholder="Masukkan nama peminjam" required />
-                    </div>
-                    <div class="mb-3">
-                        <label for="itemSelect" class="form-label">Pilih Barang</label>
-                        <select class="form-select" id="itemSelect" name="item_id" required>
-                            <option selected disabled>Pilih barang yang ingin dipinjam</option>
-                            @foreach ($categories as $category => $items)
-                                <optgroup label="{{ $category }}">
-                                    @foreach ($items as $item)
-                                        <option value="{{ $item->id }}">
-                                            {{ $item->name }} (Stok: {{ $item->stock }})
-                                        </option>
+    <div class="container mt-2">
+        <div class="info-container shadow p-1 mb-5 rounded">
+            <i class="bi bi-megaphone-fill info-icon"></i>
+            <span class="fw-bold text-dark">Sekilas Info</span>
+            <div class="info-text">
+                <marquee behavior="" direction="">
+                    <b>Selamat datang di Website Resmi UMKM Desa Plosokerep</b>
+                </marquee>
+            </div>
+        </div>
+    </div>
+    <div class="container py-3">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-center">
+                            <img src="{{ URL('gambar/logo.png') }}" id="borrowForm" class="center-image" width="200px"
+                                height="250px" alt="">
+                        </div>
+                        <br>
+                        <h2 class="card-title text-center mb-4">PENGAJUAN PEMINJAMAN BARANG</h2>
+                        <form action="{{ route('inventory.borrow') }}" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="borrowerName" class="form-label">Nama Peminjam</label>
+                                <input type="text" class="form-control" id="borrowerName" name="borrowerName"
+                                    placeholder="Masukkan nama peminjam" required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="itemSelect" class="form-label">Pilih Barang</label>
+                                <select class="form-select" id="itemSelect" name="item_id" required>
+                                    <option selected disabled>Pilih barang yang ingin dipinjam</option>
+                                    @foreach ($categories as $category => $items)
+                                        <optgroup label="{{ $category }}">
+                                            @foreach ($items as $item)
+                                                <option value="{{ $item->id }}">
+                                                    {{ $item->name }} (Stok: {{ $item->stock }})
+                                                </option>
+                                            @endforeach
+                                        </optgroup>
                                     @endforeach
-                                </optgroup>
-                            @endforeach
-                        </select>
-                    </div>
+                                </select>
+                            </div>
 
-                    <div class="mb-3">
-                        <label for="borrowQuantity" class="form-label">Jumlah Peminjaman</label>
-                        <input type="number" class="form-control" id="borrowQuantity" name="quantity" min="1"
-                            placeholder="Masukkan jumlah barang yang ingin dipinjam" required />
-                    </div>
+                            <div class="mb-3">
+                                <label for="borrowQuantity" class="form-label">Jumlah Peminjaman</label>
+                                <input type="number" class="form-control" id="borrowQuantity" name="quantity"
+                                    min="1" placeholder="Masukkan jumlah barang yang ingin dipinjam" required />
+                            </div>
 
-                    <div class="mb-3">
-                        <label for="startDate" class="form-label">Tanggal Mulai Peminjaman</label>
-                        <input type="date" class="form-control" id="startDate" name="start_date" required />
-                    </div>
+                            <div class="mb-3">
+                                <label for="startDate" class="form-label">Tanggal Mulai Peminjaman</label>
+                                <input type="date" class="form-control" id="startDate" name="start_date" required />
+                            </div>
 
-                    <div class="mb-3">
-                        <label for="endDate" class="form-label">Tanggal Akhir Peminjaman</label>
-                        <input type="date" class="form-control" id="endDate" name="end_date" required />
-                    </div>
+                            <div class="mb-3">
+                                <label for="endDate" class="form-label">Tanggal Akhir Peminjaman</label>
+                                <input type="date" class="form-control" id="endDate" name="end_date" required />
+                            </div>
 
-                    <button id="submitButton" type="submit" class="btn btn-primary">Ajukan Peminjaman</button>
-                </form>
+                            <button id="submitButton" type="submit" class="btn btn-primary">Ajukan Peminjaman</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
