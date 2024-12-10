@@ -74,6 +74,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ url('/admin/peminjaman_barang') }}"
+                        class="nav-link {{ request()->is('admin/inventory/borrowings') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-box"></i>
+                        <p>Peminjaman Barang</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.umkm.index') }}"
                         class="nav-link {{ request()->is('admin/umkm') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-store"></i>

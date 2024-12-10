@@ -7,6 +7,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\DataTableController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InventoryBorrowController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\JkController;
 use App\Http\Controllers\LoginController;
@@ -116,6 +117,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin'], 'as' 
     // Inventory
     Route::resource('/inventory', InventoryController::class);
     Route::resource('umkm', UmkmController::class);
+
+    Route::get('/peminjaman_barang', [InventoryBorrowController::class, 'index']);
+    Route::get('/peminjaman_barang/getData', [InventoryBorrowController::class, 'getData']);
 });
 
 // Rute untuk pengaduan masyarakat
